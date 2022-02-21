@@ -1,0 +1,22 @@
+.navbar{
+
+     background-color: #043f6e; 
+     padding: 0px;
+     margin: 0;
+} 
+
+#item{
+    position: relative;
+    display: block;
+    
+    margin-left: 15px;
+    color: rgb(255, 255, 255);
+}
+
+  #item:hover {
+    color: #95a5a6;
+  }
+  #item:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  } 
