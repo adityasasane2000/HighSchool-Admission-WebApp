@@ -1,8 +1,6 @@
 .navbar{
-
      background-color: #043f6e; 
-     padding: 0px;
-     margin: 0;
+     margin: 0;  
 } 
 
 #item{
@@ -11,6 +9,7 @@
     
     margin-left: 15px;
     color: rgb(255, 255, 255);
+    text-decoration: none;   
 }
 
   #item:hover {
