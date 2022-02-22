@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import GoogleAuth from './GoogleAuth';
 
-export class StudentLogin extends Component {
-  static propTypes = {};
+ class StudentLogin extends React.Component {
+
 
   render() {
-    return <div></div>;
+    return <div><GoogleAuth/></div>;
   }
 }
 
