@@ -1,9 +1,10 @@
 import React from 'react';
-
+import "../../css/styles.css"
+import Button from 'react-bootstrap/Button'
+import GoogleButton from 'react-google-button'
 class GoogleAuth extends React.Component{
 
     state = { isSignedIn : null};
-
     componentDidMount(){
         window.gapi.load('client:auth2',()=>{
             window.gapi.client.init({
@@ -34,15 +35,19 @@ class GoogleAuth extends React.Component{
             return null;
         }else if (this.state.isSignedIn === true){
             return (
-                <button onClick = { this.onSignOut}>
+                <Button variant="outline-success" onClick = { this.onSignOut}>
                     Sign Out
-                </button>
+                </Button>
+                
             );
         }else{
             return (
-                <button onClick = {this.onSignIn}>
-                    Sign In With Google
-                </button>
+                <GoogleButton className='signin-google' onClick = {this.onSignIn}
+                />
+
+                // <button className='signin-button' onClick = {this.onSignIn}>
+                //     Sign In With Google
+                // </button>
             );
         }
     }

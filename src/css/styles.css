@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Laila:wght@600&display=swap');
+
+.body{
+  margin: 0;
+}
+
+
+
+.navbar{
+  background-color: #ffffff; 
+  margin: 0;  
+  clear: left;
+  margin-top: 0; 
+  border: 1px solid#076cbe ;
+} 
+
+#item{
+ position: relative;
+ display: block;
+ 
+ margin-left: 20px;
+ color: #076cbe;
+ text-decoration: none;  
+ margin-top: 0; 
+ font-weight: 500;
+}
+
+#item:hover {
+ color: #002a4d;
+}
+#item:hover::after {
+ transform: scaleX(1);
+ transform-origin: left;
+
+} 
+.heading{
+ background-color: #00457e;
+ padding: 1rem;
+ padding-bottom: 1.5rem;
+ margin: 0;
+ margin-bottom: 0;
+
+}
+.logo{ 
+ margin : 0 2% 0 5%;
+ width: 8rem;
+ float: left;
+ position: relative;
+ 
+ 
+}
+h2{
+  color: aliceblue;
+  font-family: 'Laila', sans-serif;
+}
+.container{
+padding: 5px 3px 0 0;
+
+margin-top: 1rem;
+}
+.signin-google{
+  margin: 10% 40% 0 40%;
+}
