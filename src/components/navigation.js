@@ -25,7 +25,7 @@ const navigation = () => {
               <Link to="/aboutus" className='item' id="item">About Us</Link>
               <Link to="/contactus" className='item' id="item" >Contact Us</Link>
               <Link to="/admission" className='item' id="item">Admission</Link>
-              <Link to="/studentlogin" className='item' id="item">Login</Link>
+              <Link to="/login" className='item' id="item">Login</Link>
               {/* <Nav.Link className='item' id="item" href="#home">Home</Nav.Link>
         <Nav.Link className='item' id="item" href="#aboutus">About Us</Nav.Link>
         <Nav.Link className='item' id="item" href="#contactus">Contact Us</Nav.Link>

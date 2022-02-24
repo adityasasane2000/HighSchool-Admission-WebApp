@@ -1,11 +1,18 @@
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
 
-export class AdminLogin extends Component {
-  static propTypes = {};
+import React from 'react';
 
+ class AdminLogin extends React.Component{
+  
   render() {
-    return <div></div>;
+    return (
+      <div>
+        <div>
+          <input placeholder="email" />
+          <input placeholder="Password" />
+          <button>SIGN IN</button>
+        </div>
+      </div>
+    );
   }
 }
 
