@@ -1,15 +1,19 @@
 
 import React from 'react';
+import Button from 'react-bootstrap/Button'
 
  class AdminLogin extends React.Component{
   
   render() {
     return (
-      <div>
+      <div id='loginbox'>
+         <div>
+          <h3  id="logtitle" >LOG IN</h3>
+        </div>
         <div>
-          <input placeholder="email" />
-          <input placeholder="Password" />
-          <button>SIGN IN</button>
+        <input id="signinemail" placeholder="email" />
+          <input id="signinpass" placeholder="Password" />
+          <Button variant="outline-primary" id='signbutton'>SIGN IN</Button>
         </div>
       </div>
     );
