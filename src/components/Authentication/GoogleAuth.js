@@ -1,5 +1,5 @@
 import React from 'react';
-import "../../css/styles.css"
+import "../Authentication/GoogleAuth.css"
 import Button from 'react-bootstrap/Button'
 import GoogleButton from 'react-google-button'
 class GoogleAuth extends React.Component{

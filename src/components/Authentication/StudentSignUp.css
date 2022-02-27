@@ -1,0 +1,43 @@
+
+#signupbox{
+width: 35%;
+margin: 5% auto;
+place-items: center;
+padding: 4% 0; 
+box-shadow: #8dbee9 0px 2px 15px 0px;
+}
+#signtitle{
+display: block;
+margin: 1% auto;
+text-align: center;
+}
+#signupemail{
+display: block;
+margin: 5% auto;
+width: 70%;   
+}
+#signupname{
+display: block;
+margin: 5% auto;
+width: 70%;
+}
+.pass{
+display: block;
+margin: 5% auto;
+width: 70%;
+}
+#signbutton{
+text-align: center;
+display: block;
+margin: 2% auto;
+width: 70%;
+height: 4%!important;
+padding: 2%!important;
+border-color: transparent!important;
+color: #00457e!important;
+box-shadow: 0px 0px 15px 0px#cac7c7c2!important; 
+}
+#signbutton:hover{
+color: #ffffff!important;
+background-color: #00457e;
+}

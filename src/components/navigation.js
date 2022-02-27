@@ -3,7 +3,7 @@
 import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Container } from 'react-bootstrap';
-import "../css/styles.css"
+import "../components/navigation.css"
 import logo from '../components/images/logo.png'
 
 const navigation = () => {

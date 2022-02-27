@@ -1,7 +1,7 @@
 
 import React, { Component } from "react";
 import {Link} from 'react-router-dom';
-
+import "../Authentication/StudentLogin.css"
 import GoogleAuth from "./GoogleAuth";
 import Button from 'react-bootstrap/Button'
 
