@@ -8,31 +8,31 @@ import ImageTransaction from "./Home Content/ImageTransaction";
 import EduMinister from "./Home Content/EduMinister";
 import Principal from "./Home Content/Principal";
 import VisionMission from "./Home Content/VisionMission"
-const Home =()=> {
-  return  <>
-  <div> 
-     <ImageTransaction/>
-     </div>
-     <div>
-    <Marquee>
-    <h3>WELCOME TO HSAM</h3>
-    </Marquee>
+const Home = () => {
+  return <>
+    <div>
+      <ImageTransaction />
     </div>
     <div>
-     <EduMinister/>
-     </div>
-     <div>
-     <VisionMission/>
-     </div>
-    <div>
-    <Principal/>
+      <Marquee>
+        <h3>WELCOME TO HSAM</h3>
+      </Marquee>
     </div>
-    <div> 
-     <NoticeBoard/>
-     </div>
-     <div>
-     <Event/>
-     </div> 
-     </>
-     } ;
- export default Home ;
+    <div>
+      <EduMinister />
+    </div>
+    <div>
+      <VisionMission />
+    </div>
+    <div>
+      <Principal />
+    </div>
+    <div>
+      <NoticeBoard />
+    </div>
+    <div>
+      <Event />
+    </div>
+  </>
+};
+export default Home;
