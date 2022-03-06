@@ -1,12 +1,19 @@
 import React  from 'react';
 
- const NoticeBoard = () => {
+class NoticeBoard extends React.Component {
+    render() {
+      return (
+          <div>
+                <h1> NOTICEBOARD</h1>
+          </div>
+       
+      );
+    }
+  }
  
-    return <div>
-               <h1>NoticeBoard</h1>
-           </div>;
+
+  export default NoticeBoard;
     
  
-}
 
-export default NoticeBoard;
+

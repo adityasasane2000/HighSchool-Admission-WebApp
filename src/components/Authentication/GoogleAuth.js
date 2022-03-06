@@ -2,7 +2,8 @@ import React from 'react';
 import "../Authentication/GoogleAuth.css"
 import Button from 'react-bootstrap/Button'
 import GoogleButton from 'react-google-button'
-class GoogleAuth extends React.Component{
+class GoogleAuth extends React.Component
+{
 
     state = { isSignedIn : null};
     componentDidMount(){

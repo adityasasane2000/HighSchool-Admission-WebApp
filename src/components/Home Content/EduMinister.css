@@ -1,0 +1,35 @@
+.varshadiv{
+    width: 10%  !important;
+    display: inline;
+    position: relative;
+    float: inline-start;
+}
+.kadudiv{
+    width: 10%!important;
+    display: inline-block ;
+    position: relative;
+    
+}
+.vandanadiv {
+        width: 10%!important;
+        display: inline ;
+         position: relative;
+         float: inline-start;
+    }
+varsha{
+        width: 5%  !important;
+        display: inline-block ;
+        position: relative;
+    }
+kadu{
+        width: 5%!important;
+        display: inline-block ;
+        position: relative;
+    }
+vandana {
+            width: 5%!important;
+           
+        }
+.edumin{
+    display: inline-block ;
+}
