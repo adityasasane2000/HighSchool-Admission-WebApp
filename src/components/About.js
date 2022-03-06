@@ -5,7 +5,9 @@ export class About extends Component {
   static propTypes = {};
 
   render() {
-    return <div>About</div>;
+    return <div>
+      
+    </div>;
   }
 }
 

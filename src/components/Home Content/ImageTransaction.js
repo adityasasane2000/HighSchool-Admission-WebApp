@@ -1,9 +1,14 @@
 import React  from 'react';
-
- const ImageTransaction = ()=> {
+import Slider from "./Image Transaction/slider/Slider.js"
+ const ImageTransaction = () => {
  
-    return <div>ImageTransaaction</div>;
+    return <div>
+          <Slider/>     
+           </div>;
+    
  
 }
 
 export default ImageTransaction;
+
+  

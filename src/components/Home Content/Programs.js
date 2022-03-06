@@ -1,8 +1,12 @@
-import React  from 'react';
+import React  from 'react'
+
+//import image from "./image1.jpg "  
 
  const Programs = ()=> {
  
-    return <div>Programs</div>;
+    return <>
+              <h1>PROGRAM<h1/> 
+           </>;
  
 }
 

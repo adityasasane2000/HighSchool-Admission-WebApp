@@ -1,8 +1,11 @@
 import React  from 'react';
 
- const NoticeBoard = ()=> {
+ const NoticeBoard = () => {
  
-    return <div>NoticeBoard</div>;
+    return <div>
+               <h1>NoticeBoard</h1>
+           </div>;
+    
  
 }
 
