@@ -1,0 +1,172 @@
+.Programsbox{
+display: flex;
+padding: 1%;
+align-items: center;
+  justify-content: center;
+
+}
+
+
+
+.cardlayout1{
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  flex-direction: column;
+  background: url("image1.jpg");
+  height:200px;
+  width: 300px;
+  border:1px solid black;
+  color:whitesmoke;
+  margin: 3%;
+  background-repeat: no-repeat ;
+  background-size:cover ;
+}
+
+.text-box{
+  display:flex;
+  height:100px;
+  width: 290px;
+  opacity: 0%;
+  border:1px solid white;
+  justify-content: center;
+}
+
+.cardlayout1:hover> .text-box{
+  display:flex;
+  height:100px;
+  width: 290px;
+  opacity: 100%;
+  border:1px solid white;
+  justify-content: center;
+  transition-duration: 1000ms;
+}
+
+.program-titles{background:rgba(0, 0, 0, 0.527);
+  width: 100%;
+  text-align: center;
+  align-self: center;
+  justify-self:center;
+  transform:translateY(40px);
+  height:40px}
+
+.cardlayout1:hover> .program-titles{
+  background:rgba(0, 0, 0, 0.329);
+  width: 100%;
+  text-align: center;
+  transition-duration: 1000ms;
+  transform:translateY(-20px)
+}
+
+.cardlayout1:hover{display:flex;
+      justify-content: center;
+      align-items:center;
+      flex-direction: column;
+      background:url("image1.jpg");
+      height:204px;width: 304px;
+      border:1px solid black;
+      color:whitesmoke;
+      box-shadow:1px 1px 10px 3px rgb(113, 178, 252);
+      transition-duration: 1000ms;
+      background-repeat: no-repeat ;
+      background-size:cover ;
+  }
+
+
+
+
+
+
+  .cardlayout2{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+    background: url("image2.jpeg");
+    height:200px;
+    width: 300px;
+    border:1px solid black;
+    color:whitesmoke;
+    margin: 3%;
+    background-repeat: no-repeat ;
+    background-size:cover ;
+  }
+  .cardlayout2:hover> .program-titles{
+    background:rgba(0, 0, 0, 0.329);
+    width: 100%;
+    text-align: center;
+    transition-duration: 1000ms;
+    transform:translateY(-20px)
+  }
+  
+  .cardlayout2:hover{display:flex;
+        justify-content: center;
+        align-items:center;
+        flex-direction: column;
+        background:url("image2.jpeg");
+        height:204px;width: 304px;
+        border:1px solid black;
+        color:whitesmoke;
+        box-shadow:1px 1px 10px 3px rgb(113, 178, 252);
+        transition-duration: 1000ms;
+        background-repeat: no-repeat ;
+        background-size:cover ;
+    }
+    .cardlayout2:hover> .text-box{
+      display:flex;
+      height:100px;
+      width: 290px;
+      opacity: 100%;
+      border:1px solid white;
+      justify-content: center;
+      transition-duration: 1000ms;
+    }
+
+
+
+
+  .cardlayout3{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+    background:url("image3.jpeg");
+    height:200px;
+    width: 300px;
+    border:1px solid black;
+    color:whitesmoke;
+    margin: 3%;
+    background-repeat: no-repeat ;
+    background-size:cover ;
+  }
+  .cardlayout3:hover> .program-titles{
+    background:rgba(0, 0, 0, 0.329);
+    width: 100%;
+    text-align: center;
+    transition-duration: 1000ms;
+    transform:translateY(-20px)
+  }
+  
+  .cardlayout3:hover{display:flex;
+        justify-content: center;
+        align-items:center;
+        flex-direction: column;
+        background:url("image3.jpeg");
+        height:204px;width: 304px;
+        border:1px solid black;
+        color:whitesmoke;
+        box-shadow:1px 1px 10px 3px rgb(113, 178, 252);
+        transition-duration: 1000ms;
+        background-repeat: no-repeat ;
+        background-size:cover ;
+    }
+    .cardlayout3:hover> .text-box{
+      display:flex;
+      height:100px;
+      width: 290px;
+      opacity: 100%;
+      border:1px solid white;
+      justify-content: center;
+      transition-duration: 1000ms;
+    }
+  

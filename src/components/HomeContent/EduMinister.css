@@ -1,0 +1,38 @@
+.flexboxedumin{
+    display: flex;
+padding: 1%;
+align-items: center;
+  justify-content: center;
+}
+
+
+
+.varshadiv{
+    display: flex;
+    padding: 1%;
+    align-items: center;
+      justify-content: center;
+      text-align: center;
+    
+}
+.kadudiv{
+    display: flex;
+    padding: 1%;
+    align-items: center;
+      justify-content: center;
+    
+}
+.vandanadiv {
+    display: flex;
+    padding: 1%;
+    align-items: center;
+      justify-content: center;
+    }
+  .eduminimg{
+      width: 25%;
+      margin: auto;
+      position: relative;
+  }
+.edumin{
+    display: inline-block ;
+}

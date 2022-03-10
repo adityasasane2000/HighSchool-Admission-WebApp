@@ -1,0 +1,31 @@
+.marquee1{
+   
+    background-color: #033259;
+    color: aliceblue;
+    padding-top: 3px;
+}
+.ImageTransaction{
+    margin: 0;
+}
+.homepage-headings {
+    font-size: 18px  !important; 
+    background-color: #F0F0F0;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 5px;
+    margin: 0;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    
+}
+
+.eduminister_row{
+display: flex;
+}
+.flex-item {
+    width: calc(50% - 2em);
+    margin: 1em;
+  }

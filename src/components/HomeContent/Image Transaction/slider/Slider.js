@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import { sliderData } from "./Slider-data.js";
+import "../slider/slider.css"
+
+
 
 
 const Slider = () => {
