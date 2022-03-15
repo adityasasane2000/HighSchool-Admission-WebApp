@@ -20,8 +20,8 @@ class StudentLogin extends React.Component {
         </div>
         
         <div>
-          <input id="signinemail" placeholder="email" />
-          <input id="signinpass" placeholder="Password" />
+          <input id="signinemail" placeholder="email" type ="text"/>
+          <input id="signinpass" placeholder="Password" type="password" />
           <Button variant="outline-primary" id='signbutton'>SIGN IN</Button>
           
         </div>

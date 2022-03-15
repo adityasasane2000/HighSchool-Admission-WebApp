@@ -23,7 +23,7 @@ const App =()=>{
              <Route path ='/' exact component= {Home} />
              <Route path ="/aboutus" exact component= {About} />
              <Route path ="/contactus" exact component= {ContactUs} />
-             <Route path ="/login" exact component= {StudentLogin} />
+             <Route path ="/signin" exact component= {StudentLogin} />
              <Route path ="/signup" exact component= {StudentSignup} />
              <Route path ="/hsam-admin" exact component= {AdminLogin} />
              <Route path ="/admission" exact component= {Admission} />
