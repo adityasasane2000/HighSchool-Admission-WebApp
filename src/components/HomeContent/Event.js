@@ -4,7 +4,7 @@
 //  const Event = ()=> {
  
 //     return <div>
-//     <div classname='container'>
+//     <div className='container'>
 //       <h1 className='homepage-headings'>Events</h1>
 //     </div>
 //       <Link to="hi 11" >hi 11</Link>

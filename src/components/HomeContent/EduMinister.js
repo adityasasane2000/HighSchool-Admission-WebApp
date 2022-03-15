@@ -11,14 +11,14 @@ import { Row, Col, Container } from 'react-bootstrap';
 const EduMinister = () => {
 
   return <>
-    <edumin>
+    {/* <edumin> */}
       <div className='eduminister_row'>
 
         <Container className='flexboxedumin'>
 
           <Row>
       
-            <Col lg={4}><div classname="varshadiv">
+            <Col lg={4}><div className="varshadiv">
 
               <img className='eduminimg' src={varsha} />
 
@@ -28,7 +28,7 @@ const EduMinister = () => {
 
             </div></Col>
 
-            <Col  lg={4}><div classname="kadudiv">
+            <Col  lg={4}><div className="kadudiv">
 
               <img className='eduminimg' src={kadu} />
 
@@ -38,7 +38,7 @@ const EduMinister = () => {
 
             </div></Col>
 
-            <Col  lg={4}><div classname="vandanadiv">
+            <Col  lg={4}><div className="vandanadiv">
 
               <img className='eduminimg' src={vandana} />
 
@@ -54,7 +54,7 @@ const EduMinister = () => {
       </div>
 
 
-    </edumin>
+    {/* </edumin> */}
   </>
 
 

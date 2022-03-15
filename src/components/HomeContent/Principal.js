@@ -9,8 +9,8 @@ const Principal = () => {
             <Row >
               <Col lg={8}>
               <h1 className='homepage-headings'>Principal Desk</h1>
-            <div classname="image">
-                  <div classname="content">
+            <div className="image">
+                  <div className="content">
                         <h4> Prof.Kharmale Sir</h4>
                         <div className="text"> Principal</div>
                         <br />
@@ -21,7 +21,7 @@ const Principal = () => {
             </div></Col>
               <Col lg={4}>
               <div>
-      <div classname='container'>
+      <div className='container'>
         <h1 className='homepage-headings'>Events</h1>
       </div>
         <Link to="hi 11" >hi 11</Link>
