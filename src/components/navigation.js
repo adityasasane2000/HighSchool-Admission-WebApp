@@ -15,6 +15,7 @@ import logo from "../components/images/logo.png";
 
 import { logoutInitiate } from "../redux/actions";
 
+
 const Navigation = () => {
   const { currentUser } = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -66,7 +67,7 @@ const Navigation = () => {
             <Link to="/" className="item" id="item">
               Home
             </Link>
-            <Link to="/aboutus" className="item" id="item">
+            <Link to="/about" className="item" id="item">
               About Us
             </Link>
             <Link to="/contactus" className="item" id="item">

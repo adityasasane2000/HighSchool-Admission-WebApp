@@ -21,7 +21,7 @@ const Home = () => {
           behaviour="absolute"
         >
           <h6>
-            Welcome to High School Admission Management System; Contact our
+            Welcome to High School Admission Management System Contact our
             helpline 81633-22222
           </h6>
         </Marquee>

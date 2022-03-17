@@ -1,12 +1,11 @@
-import PropTypes from 'prop-types';
+
 import React, { Component } from 'react';
 
-export class About extends Component {
-  static propTypes = {};
+ class About extends Component {
 
   render() {
     return <div>
-      
+      About
     </div>;
   }
 }

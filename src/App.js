@@ -1,4 +1,8 @@
 import {BrowserRouter,Switch,Route} from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import {useEffect} from 'react';
+
+import {auth} from './firebase';
 import './App.css';
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -10,7 +14,20 @@ import Admission from './pages/Admission';
 
 import Navigation from './components/Navigation';
 
+import UserRoute from './components/UserRoute';
+
 const App =()=>{
+  
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    auth.onAuthStateChanged((authUser)=>{
+      if(authUser){
+        dispatch(setUser(authUser));
+      }else{
+        dispatch(setUser(null));
+      }
+    })
+  },[dispatch])
   return (
     <BrowserRouter>
       <div >
@@ -20,7 +37,9 @@ const App =()=>{
           <Route exact path ="/" component={Home} />
           <Route exact path ="/login" component={Login} />
           <Route exact path ="/signup" component={Register} />
-          <Route exact path ="/admission" component={Admission} />
+          <UserRoute exact path ="/admission" component={Admission} />
+          <Route exact path ="/contactus" component={ContactUs} />
+          <Route exact path ="/about" component={About} />
         </Switch>
         </div>
       </div>
