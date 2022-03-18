@@ -45,17 +45,9 @@ const Login = () => {
     <div>
         <div id="logreg-forms">
             <form className="form-signin" onSubmit ={handleSubmit}>
-                <h1 className="h3 mb-3 font-weight-normal" style ={{textAlign:"center"}}>
+                <h1 className="h3 mb-3 font-weight-normal" id='SignIn-Heading-Label' style ={{textAlign:"center"}}>
                     Sign in
                 </h1>
-                <div className="social-login">
-                    <button className="btn google-btn social-btn" type = "button" onClick = {handleGoogleSignIn} >
-                        <span>
-                            <i className="fab fa-google-plus-g"></i>  Google
-                        </span>
-                    </button>
-                </div>
-                <p style={{textAlign:"center"}}>OR</p>
                 <input 
                     type = "email"
                     id ="inputEmail"
@@ -76,9 +68,19 @@ const Login = () => {
                     value ={password}
                     required
                 />
-                <button className ="btn btn-secondary btn-block" type="submit">
+                  <button className ="btn btn-secondary btn-block" id='sign-button-login' type="submit">
                     <i className = "fas fa-sign-in-alt"></i> Sign In
                 </button>
+                <p style={{textAlign:"center"}}>OR</p>
+                <div className="social-login">
+                    <button className="btn google-btn social-btn" type = "button" onClick = {handleGoogleSignIn} >
+                        <span>
+                            <i className="fab fa-google-plus-g" id='google-btn-login'></i>  Google
+                        </span>
+                    </button>
+                </div>
+                
+              
                 <hr/>
                 <p>Don't have an account</p>
                 <Link to="/signup">

@@ -18,7 +18,7 @@ const EduMinister = () => {
 
           <Row>
       
-            <Col lg={4}><div className="varshadiv">
+            <Col lg={4} md={12}><div className="varshadiv">
 
               <img className='eduminimg' src={varsha} />
 
@@ -28,7 +28,7 @@ const EduMinister = () => {
 
             </div></Col>
 
-            <Col  lg={4}><div className="kadudiv">
+            <Col  lg={4} md={12}><div className="kadudiv">
 
               <img className='eduminimg' src={kadu} />
 
@@ -38,7 +38,7 @@ const EduMinister = () => {
 
             </div></Col>
 
-            <Col  lg={4}><div className="vandanadiv">
+            <Col  lg={4} md={12}><div className="vandanadiv">
 
               <img className='eduminimg' src={vandana} />
 

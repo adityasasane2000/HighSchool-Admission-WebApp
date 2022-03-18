@@ -45,16 +45,10 @@ const Register = () => {
     <div>
         <div id="register-form">
             <form className="form-signup" onSubmit ={handleSubmit}>
-                <h1 className="h3 mb-3 font-weight-normal" style ={{textAlign:"center"}}>
+                <h1 className="h3 mb-3 font-weight-normal" id='SignUp-Heading-Label' style ={{textAlign:"center"}}>
                     Sign Up
                 </h1>
-                <div className="social-login">
-                    <button className="btn google-btn social-btn" type = "button" onClick = {handleGoogleSignIn} >
-                        <span>
-                            <i className="fab fa-google-plus-g"></i>  Google
-                        </span>
-                    </button>
-                </div>
+                
                 <input 
                     type = "text"
                     id ="displayName"
@@ -95,9 +89,17 @@ const Register = () => {
                     value ={passwordConfrim}
                     required
                 />
-                <button className ="btn btn-primary btn-block" type="submit">
+                <button className ="btn btn-primary btn-block" id='sign-button-login' type="submit">
                     <i className = "fas fa-user-plus"></i> Sign Up
                 </button>
+                <p style={{textAlign:"center"}}>OR</p>
+                <div className="social-login">
+                    <button className="btn google-btn social-btn" type = "button" onClick = {handleGoogleSignIn} >
+                        <span>
+                            <i className="fab fa-google-plus-g" id='google-btn-login'></i>  Google
+                        </span>
+                    </button>
+                </div>
               
                 <Link to="/login">
                     <i className="fas fa-angle-left"></i> Back

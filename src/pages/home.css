@@ -1,8 +1,9 @@
 .marquee1{
    
-    background-color: #033259;
+    background-color: #033259 !important;
     color: aliceblue;
-    padding-top: 3px;
+    margin-top: 0;
+    overflow: hidden;
 }
 .ImageTransaction{
     margin: 0;

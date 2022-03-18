@@ -10,7 +10,7 @@ import {
   MenuItem,
   Container,
 } from "react-bootstrap";
-import "../components/Navigation.css";
+import "../components/navigation.css";
 import logo from "../components/images/logo.png";
 
 import { logoutInitiate } from "../redux/actions";

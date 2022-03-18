@@ -12,7 +12,7 @@ import About from './pages/About';
 import ContactUs from './pages/ContactUs';
 import Admission from './pages/Admission';
 
-import Navigation from './components/Navigation';
+import Navigation from './components/navigation';
 
 import UserRoute from './components/UserRoute';
 
