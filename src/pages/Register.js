@@ -48,7 +48,6 @@ const Register = () => {
                 <h1 className="h3 mb-3 font-weight-normal" id='SignUp-Heading-Label' style ={{textAlign:"center"}}>
                     Sign Up
                 </h1>
-                
                 <input 
                     type = "text"
                     id ="displayName"
