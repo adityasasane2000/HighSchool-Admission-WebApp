@@ -52,21 +52,9 @@ class NoticeBoard extends React.Component {
                     </li>
                     <br />
 
-                    <li>
-                      {" "}
-                      Pora gharna online lecture, Pora gharna online
-                      lecture,Pora gharna online lecture,Pora gharna online
-                      lecture,Pora gharna online lecture,{" "}
-                    </li>
-                    <br />
-
                     <li>asffdsf Atharva Meher</li>
                     <br />
-                    <li>haGF Atharva Meher</li>
-                    <br />
-                    <li>sdggdfg v Atharva Meher</li>
 
-                    <br />
                   </ul>
                 </Marquee>
               </div>

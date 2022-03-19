@@ -1,0 +1,9 @@
+.Map-info{
+   display: flex;
+   justify-content: flex-end !important;
+  
+} 
+.Map{
+   margin: 1rem 3rem;
+   width: 10%!important;
+}

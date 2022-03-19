@@ -36,13 +36,22 @@ const Principal = () => {
               <div className="container">
                 <h1 className="homepage-headings">Events</h1>
               </div>
-              <Link to="hi 11">hi 11</Link>
+              <Link to="hi 11">Covid Vaccination for age group 15+</Link>
               <br />
-              <Link to="hi">hi 12</Link>
+              <Link to="hi">Online guest lectures for importance of education</Link>
               <br />
-              <Link to="/">hi 13</Link>
+              <Link to="/">World Science Day</Link>
               <br />
-              <Link to="/">hi 14</Link>
+              <Link to="/">Covid-19 Vaccination Drive for Students</Link>
+              
+              <Link to="hi 11">Covid Vaccination for age group 15+</Link>
+              <br />
+              <Link to="hi">Online guest lectures for importance of education</Link>
+              <br />
+              <Link to="/">World Science Day</Link>
+              <br />
+              <Link to="/">Covid-19 Vaccination Drive for Students</Link>
+              
             </div>
           </Col>
         </Row>
