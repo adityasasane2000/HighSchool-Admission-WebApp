@@ -15,6 +15,7 @@ import Admission from './pages/Admission';
 import Navigation from './components/navigation';
 
 import UserRoute from './components/UserRoute';
+import Footer from './components/Footer';
 
 const App =()=>{
   
@@ -42,6 +43,7 @@ const App =()=>{
           <Route exact path ="/about" component={About} />
         </Switch>
         </div>
+        <Footer/>
       </div>
     </BrowserRouter>
    

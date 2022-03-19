@@ -1,30 +1,42 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
 
+import FileInput from "./FileInput";
 class AdmissionForm extends React.Component {
-  renderError=({ error, touched })=> {
+  renderError = ({ error, touched }) => {
     if (touched && error) {
       return <div>{error}</div>;
     }
-  }
-  renderInput=({ input, label, meta })=> {
+  };
+  renderInput = ({ input, label, meta, type }) => {
     console.log(meta);
     return (
       <div className="field">
         <label>{label}</label>
-        <input {...input} autoComplete="off" />
+        <input {...input} type={type} autoComplete="off" />
         {this.renderError(meta)}
       </div>
     );
-  }
+  };
   onSubmit(formValues) {
     console.log(formValues);
   }
   render() {
     return (
       <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
-        <Field name="name" component={this.renderInput} label="Name" />
-        <Field name="emailId" component={this.renderInput} label="Email" />
+        <Field
+          name="name"
+          component={this.renderInput}
+          label="Name"
+          type="text"
+        />
+        <Field
+          name="emailId"
+          component={this.renderInput}
+          label="Email"
+          type="email"
+        />
+        <Field type="file" name="poster" component={FileInput} />
         <button type="submit">Submit</button>
       </form>
     );
