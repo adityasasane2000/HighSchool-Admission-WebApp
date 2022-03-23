@@ -30,7 +30,7 @@ class ContactUs extends Component {
           <Col lg={6} md={12} className='Map'>
             <Map
               google={this.props.google}
-              style={{ width: "50%", height: "50%" }}
+              style={{ width: "40%", height: "40%" }}
               zoom={10}
               initialCentre={
                 {
