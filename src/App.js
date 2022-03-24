@@ -33,7 +33,8 @@ const App =()=>{
     <BrowserRouter>
       <div >
         <Navigation/>
-        <div className='App'>
+        {/* <div className='App'> */}
+        <div>
         <Switch>
           <Route exact path ="/" component={Home} />
           <Route exact path ="/login" component={Login} />

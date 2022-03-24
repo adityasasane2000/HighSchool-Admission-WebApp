@@ -27,6 +27,7 @@
 
 #item:hover {
  color: #002a4d;
+ cursor: pointer;
 }
 #item:hover::after {
  transform: scaleX(1);

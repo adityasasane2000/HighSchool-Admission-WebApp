@@ -32,9 +32,9 @@ const Navigation = () => {
          <Link to="/admission" className="item" id="item">
             Admission
           </Link>
-          <p className="item" id="item" onClick={HandleAuth}>
+          <div className="item" id="item" onClick={HandleAuth}>
             Logout
-          </p>
+          </div>
         </>
       );
     } else {

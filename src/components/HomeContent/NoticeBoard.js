@@ -37,7 +37,7 @@ class NoticeBoard extends React.Component {
               <div className="noticeboard">
                 <h1 className="homepage-headings"> NOTICEBOARD</h1>
 
-                <Marquee
+                <div
                   className="marquee2"
                   width="100%"
                   direction="up"
@@ -52,11 +52,13 @@ class NoticeBoard extends React.Component {
                     </li>
                     <br />
 
-                    <li>asffdsf Atharva Meher</li>
+                    <li>There is one problen in organization that's why tommorow is holiday</li>
+                    <br />
+                    <li>It is mandatory to wear masks in campus according to covid guidelines</li>
                     <br />
 
                   </ul>
-                </Marquee>
+                </div>
               </div>
             </Col>
           </Row>
