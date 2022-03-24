@@ -8,26 +8,30 @@ class ContactUs extends Component {
   render() {
     return (<>
       <Container>
-        <Row md={12}>
+        <Row  md={10}>
           <h1 className='homepage-headings'>Contact Us</h1>
         </Row>
       </Container>
-      <Container>
+      <Container className='ContactUs-div'>
 
         <Row >
 
 
 
-          <Col lg={6} md={12} className='Map-info' >
+          <Col lg={5} md={12} className='Map-info' >
 
             <h4>High School Addmission Managment</h4>
-            <p>At post:narayangaon</p><br/>
-            <p>Tal:Junner , Dist :Pune</p>
-            <p>Principal ph no :</p>
-            <p>Fax no:</p>
-            <p>E-mail:hsam@gmail.com</p>
+            At post : Narayangaon<br/>
+            Tal:Junner , Dist:Pune<br/>
+            Ph. No. : 02133-XX123<br/>
+            Principal Ph. No. : XX123-230200 <br/>
+            Fax no:1234XXX546<br/>
+            E-mail:hsam@gmail.com<br/>
+            <br/><br/><br/><br/><br/><br/>
+            <br/>
           </Col>
           <Col lg={6} md={12} className='Map'>
+            <div className='Map-div'>
             <Map
               google={this.props.google}
               style={{ width: "40%", height: "30%" }}
@@ -38,7 +42,8 @@ class ContactUs extends Component {
                   lng: 73.973633
                 }
               }
-            />   </Col>
+              
+            /> </div>  </Col>
 
         </Row>
       </Container>
