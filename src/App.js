@@ -11,6 +11,9 @@ import { setUser } from './redux/actions';
 import About from './pages/About';
 import ContactUs from './pages/ContactUs';
 import Admission from './pages/Admission';
+import Art from './components/Courses/Art';
+import Science from './components/Courses/Science';
+import Commarce from './components/Courses/Commerce';
 
 import Navigation from './components/navigation';
 
@@ -42,6 +45,9 @@ const App =()=>{
           <UserRoute exact path ="/admission" component={Admission} />
           <Route exact path ="/contactus" component={ContactUs} />
           <Route exact path ="/about" component={About} />
+          <Route exact path ="/science" component={Science} />
+          <Route exact path ="/commarce" component={Commarce} />
+          <Route exact path ="/art" component={Art} />
         </Switch>
         </div>
         <Footer/>

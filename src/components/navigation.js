@@ -67,6 +67,17 @@ const Navigation = () => {
             <Link to="/" className="item" id="item">
               Home
             </Link>
+            <div>
+              <Link to="/science" className="item" id="item">
+                Science
+              </Link>
+              <Link to="/commarce" className="item" id="item">
+                Commarce
+              </Link>
+              <Link to="/art" className="item" id="item">
+                Art
+              </Link>
+            </div>
             <Link to="/about" className="item" id="item">
               About Us
             </Link>
