@@ -175,7 +175,13 @@ align-items: center;
       transition-duration: 700ms;
     }
     .cardlayout3:hover> .ttvd{
-      background-color: black;
+       background-color: black;
       margin-top: 30%   !important;
+      text-decoration: none !important;
     }
-  
+    .ttvd{
+      /* background-color: rgb(73, 73, 73); */
+      margin-top: 1%   !important;
+      text-decoration: none !important;
+      color: #fff;
+    }

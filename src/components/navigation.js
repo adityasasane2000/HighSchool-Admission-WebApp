@@ -67,17 +67,18 @@ const Navigation = () => {
             <Link to="/" className="item" id="item">
               Home
             </Link>
-            <div>
-              <Link to="/science" className="item" id="item">
+          
+            <NavDropdown title="Programs" className="navbar-dropdown" id="item">
+                    <NavDropdown.Item eventKey="Basic Pricing"> <Link to="/science" className="item" id="item">
                 Science
-              </Link>
-              <Link to="/commarce" className="item" id="item">
+              </Link></NavDropdown.Item>
+                    <NavDropdown.Item eventKey="Corporate Pricing">   <Link to="/commarce" className="item" id="item">
                 Commarce
-              </Link>
-              <Link to="/art" className="item" id="item">
-                Art
-              </Link>
-            </div>
+              </Link></NavDropdown.Item>
+                    <NavDropdown.Item eventKey="Enterprise pricing">   <Link to="/art" className="item" id="item">
+                Arts
+              </Link></NavDropdown.Item>
+                </NavDropdown>
             <Link to="/about" className="item" id="item">
               About Us
             </Link>

@@ -59,3 +59,20 @@ padding: 5px 3px 0 0;
 
 margin-top: 1rem;
 }
+.Dropdown-menu-nav{
+  position: relative !important;
+ display: block !important;
+ 
+ margin-left: 20px !important;
+ color: #076cbe !important;
+ text-decoration: none !important;  
+ margin-top: 0 !important; 
+ font-weight: 500 !important;
+}
+
+.navbar-dropdown{
+  padding: 0px 0px 0px 0px !important;
+}
+.nav-link{
+padding: 0%;
+}
