@@ -40,7 +40,7 @@
   font-weight: 100;
   color: white;
   width:95%;
-  padding: 10px;
+  padding: 5px;
   font-size: 0.9rem;
 }
 
@@ -114,4 +114,7 @@
   #register-form .google-btn:after {
     content: "Google+";
   }
+}
+#back-register{
+  text-align: center;
 }

@@ -1,14 +1,13 @@
 // import React from 'react';
 import { Link } from "react-router-dom";
-import React, { Component } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Navbar,
   Nav,
-  NavItem,
+  
   NavDropdown,
-  MenuItem,
-  Container,
+  
 } from "react-bootstrap";
 import "../components/navigation.css";
 import logo from "../components/images/logo.png";
@@ -29,7 +28,7 @@ const Navigation = () => {
     if (currentUser) {
       return (
         <>
-         <Link to="/admission" className="item" id="item">
+          <Link to="/admission" className="item" id="item">
             Admission
           </Link>
           <div className="item" id="item" onClick={HandleAuth}>
@@ -67,18 +66,18 @@ const Navigation = () => {
             <Link to="/" className="item" id="item">
               Home
             </Link>
-          
-            <NavDropdown title="Programs" className="navbar-dropdown" id="item">
-                    <NavDropdown.Item eventKey="Basic Pricing"> <Link to="/science" className="item" id="item">
+
+            <NavDropdown title="Programs" className="navbar-dropdown" id="item" >
+              <NavDropdown.Item > <Link to="/science" className="item" id="item">
                 Science
               </Link></NavDropdown.Item>
-                    <NavDropdown.Item eventKey="Corporate Pricing">   <Link to="/commarce" className="item" id="item">
+              <NavDropdown.Item >   <Link to="/commarce" className="item" id="item">
                 Commarce
               </Link></NavDropdown.Item>
-                    <NavDropdown.Item eventKey="Enterprise pricing">   <Link to="/art" className="item" id="item">
+              <NavDropdown.Item >   <Link to="/art" className="item" id="item">
                 Arts
               </Link></NavDropdown.Item>
-                </NavDropdown>
+            </NavDropdown>
             <Link to="/about" className="item" id="item">
               About Us
             </Link>

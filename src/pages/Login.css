@@ -137,3 +137,20 @@
     color: #ffffff!important;
     background-color: #00457e;
     }
+    #google-btn-login{
+
+      padding: 10px;
+     
+    }
+    .social-login{
+      display: flex;
+      justify-content: center;
+    }
+    #DontHaveAccount-Login{
+      display: flex;
+      justify-content: center;
+    }
+    #Signupnewaccount-Login{
+      display: flex;
+      justify-content: center;
+    }

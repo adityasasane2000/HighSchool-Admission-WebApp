@@ -101,7 +101,7 @@ const Register = () => {
                 </div>
               
                 <Link to="/login">
-                    <i className="fas fa-angle-left"></i> Back
+                    <i className="fas fa-angle-left" id='back-register'></i> Back
                 </Link>
             </form>
             <br/>
