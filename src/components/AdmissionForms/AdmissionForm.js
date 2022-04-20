@@ -1,59 +1,43 @@
 import React from "react";
-import { Field, reduxForm } from "redux-form";
+import { useForm } from "react-hook-form";
+function AdmissionForm() {
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
 
-import FileInput from "./FileInput";
-class AdmissionForm extends React.Component {
-  renderError = ({ error, touched }) => {
-    if (touched && error) {
-      return <div>{error}</div>;
-    }
+  const onSubmit = (data) => {
+    console.log(data);
   };
-  renderInput = ({ input, label, meta, type }) => {
-    console.log(meta);
-    return (
-      <div className="field">
-        <label>{label}</label>
-        <input {...input} type={type} autoComplete="off" />
-        {this.renderError(meta)}
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+     
+      <div>
+        <label>Enter Your  Name </label>
+        <input {...register("name", { required: true })} />
       </div>
-    );
-  };
-  onSubmit(formValues) {
-    console.log(formValues);
-  }
-  render() {
-    return (
-      <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
-        <Field
-          name="name"
-          component={this.renderInput}
-          label="Name"
-          type="text"
-        />
-        <Field
-          name="emailId"
-          component={this.renderInput}
-          label="Email"
-          type="email"
-        />
-        <Field type="file" name="poster" component={FileInput} />
-        <button type="submit">Submit</button>
-      </form>
-    );
-  }
-}
-const validate = (formValues) => {
-  const errors = {};
-  if (!formValues.name) {
-    errors.name = "You must enter your full name.";
-  }
-  if (!formValues.emailId) {
-    errors.emailId = "You must enter email id.";
-  }
-  return errors;
-};
+      <div>
+        <label>Email</label>
+        <input {...register("email", { required: true })} />
+      </div>
+      <div>
+        <label>10th Mark Shet</label>
+        <input {...register("TenthMarkSheet", { required: true })} type="file" />
+      </div>
+      <div>
+        <label>Leaving Certificate</label>
+        <input {...register("leavingCertificate", { required: true })} type="file" />
+      </div>
+      <div>
+        <label>Income Certificate</label>
+        <input {...register("incomeCertificate", { required: true })} type="file" />
+      </div>
 
-export default reduxForm({
-  form: "admissionForm",
-  validate: validate,
-})(AdmissionForm);
+      
+      <input type="submit" />
+    </form>
+  );
+}
+
+export default AdmissionForm;
