@@ -1,0 +1,14 @@
+.principal-img{
+    width: 40%;
+    margin: 5px;
+}
+.Principal-div{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    float: left;
+}
+.text-principal{
+    margin: 0 !important;
+}

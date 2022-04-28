@@ -46,6 +46,42 @@ function AdmissionForm() {
   };
 
   return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="admissionForm-flexbox">
+   
+      <div>
+        <label className="label-admissionForm">Enter Your  Name  </label>
+        <input className="input-admissionForm" {...register("name", { required: true })} />
+      </div>
+      <div>
+        <label className="label-admissionForm">Email</label>
+        <input className="input-admissionForm"{...register("email", { required: true })} />
+      </div>
+      <div>
+        <label className="label-admissionForm">10th Mark Sheet</label>
+        <input {...register("TenthMarkSheet", { required: true })} type="file" />
+      </div>
+      <div>
+        <label className="label-admissionForm">Leaving Certificate</label>
+        <input {...register("leavingCertificate", { required: true })} type="file" />
+      </div>
+      <div>
+        <label className="label-admissionForm">Income Certificate</label>
+        <input {...register("incomeCertificate", { required: true })} type="file" />
+      </div>
+      <br/>
+      <br/>
+     <div >
+    
+      <Button type="submit" variant="success" className="submit-button-admissionForm" >Submit</Button>{' '}
+      </div> 
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      </div>
+    </form>
     <form onSubmit={handleSubmit(submit)}>
         <div>
           <label>Name:</label>
@@ -72,6 +108,7 @@ function AdmissionForm() {
 
       </form>
 
+    
     
   );
 }

@@ -38,8 +38,8 @@ class ContactUs extends Component {
               zoom={10}
               initialCentre={
                 {
-                  lat: 19.117990,
-                  lng: 73.973633
+                  lat: 19.114218,
+                  lng: 73.968359
                 }
               }
               

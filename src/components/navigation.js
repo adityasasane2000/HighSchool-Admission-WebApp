@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   Navbar,
   Nav,
-  
+
   NavDropdown,
-  
+
 } from "react-bootstrap";
 import "../components/navigation.css";
 import logo from "../components/images/logo.png";
@@ -39,6 +39,10 @@ const Navigation = () => {
     } else {
       return (
         <>
+          <Nav.Link
+            eventKey="disabled" disabled className="Disabled-Admission">
+            Admission
+          </Nav.Link>
           <Link to="/login" className="item" id="item">
             Sign In
           </Link>
@@ -84,6 +88,7 @@ const Navigation = () => {
             <Link to="/contactus" className="item" id="item">
               Contact Us
             </Link>
+
             {routeToHideAfterlogin()}
           </Nav>
         </Navbar.Collapse>

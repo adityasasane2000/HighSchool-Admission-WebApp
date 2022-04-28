@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Row, Col, Container } from "react-bootstrap";
+import principal from '../../components/images/principal.jpg'
+import "../../components/HomeContent/Principal.css";
 
 const Principal = () => {
   return (
@@ -8,11 +10,14 @@ const Principal = () => {
       <Container>
         <Row>
           <Col lg={8}>
+            
             <h1 className="homepage-headings">Principal Desk</h1>
-            <div className="image">
-              <div className="content">
-                <h4> Prof.Kharmale Sir</h4>
-                <div className="text"> Principal</div>
+        <div className="Principal-div">
+        <br />  
+              <img className='principal-img' src={principal} />
+                <h4  className="text-principal"> Prof. P N Kharmale</h4>
+                <div> Principal</div>
+                </div>
                 <br />
                 <p>
                   {" "}
@@ -20,16 +25,24 @@ const Principal = () => {
                   1966 in memory of a veteran educationist and social activist
                   Saheb of this region who had devoted all his life in the
                   development of Junner tehsil in Pune district with the
-                  hurricane efforts of hundreds and thousands of activists. The
-                  memorial contributions of honourable Saheb have been brought
-                  into realities and his dream has come true in the form of this
-                  educational institution. The college has become a place of
-                  educational centre in Ambegaon, Junnar and Khed tehsils.
-                  Located in the beautiful natural campus, this college has been
-                  imparting education through different faculties consistently.
+                  hurricane efforts of hundreds and thousands of activists.
+          
                 </p>
-              </div>
-            </div>
+                <p>
+                  {" "}
+                  Our goal is to support the students for their overall development. We take efforts to make our students able to face challenges and stand confidently in the increasingly complex world.
+          
+                </p>
+                <p>
+                  {" "}The incredible faculty and staff at Government Polytechnic Awasari (Khurd) continue to encourage all students to set high goals for themselves and to reach their dreams. To achieve our mission and vision we will continue to develop and grow leaders in our institute
+                  High School is a monumental institution started on June 20,
+                  1966 in memory of a veteran educationist and social activist
+                  Saheb of this region who had devoted all his life in the
+                  development of Junner tehsil in Pune district with the
+                  hurricane efforts of hundreds and thousands of activists.
+          
+                </p>
+              
           </Col>
           <Col lg={4}>
             <div>

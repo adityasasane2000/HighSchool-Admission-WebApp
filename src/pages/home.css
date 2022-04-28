@@ -9,18 +9,18 @@
     margin: 0;
 }
 .homepage-headings {
-    font-size: 18px  !important; 
-    background-color: #F0F0F0;
+    font-size: 20px  !important; 
+    background-color: #002f55 ;
     text-align: center;
     margin-bottom: 10px;
     margin-top: 10px;
-    padding: 5px;
+    padding: 10px ;
     margin: 0;
     -moz-box-sizing: border-box;
     -o-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    
+    color: aliceblue;   
 }
 
 .eduminister_row{

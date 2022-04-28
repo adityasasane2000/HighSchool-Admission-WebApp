@@ -17,7 +17,7 @@
 #item{
  position: relative;
  display: block;
- 
+ padding: 0 0 8px 0;
  margin-left: 20px;
  color: #076cbe;
  text-decoration: none;  
@@ -28,6 +28,14 @@
 #item:hover {
  color: #002a4d;
  cursor: pointer;
+ /* 
+ font-size: large;
+ animation-duration: 10ms; */
+ border-bottom: 3px solid rgb(201, 201, 0);
+
+
+ 
+
 }
 #item:hover::after {
  transform: scaleX(1);
@@ -75,4 +83,11 @@ margin-top: 1rem;
 }
 .nav-link{
 padding: 0%;
+
+}
+.Disabled-Admission{
+  margin-left: 20px;
+}
+#item:hover{
+ 
 }

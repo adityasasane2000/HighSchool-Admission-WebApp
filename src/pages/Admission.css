@@ -1,13 +1,22 @@
 .label-admissionForm{
-    margin: 1% 5% 0 30%;
+    margin: 2% 3% 0 30rem;
     width: 10rem;
+    font-weight: 500
 }
 
 .submit-button-admissionForm{
   
-        margin: 1% 5% 0 40%;
+        margin: 1% 5% 0 40rem;
 
 }
 .admissionForm-flexbox{
 align-items: center;
+}
+.input-admissionForm
+{
+    padding:3px;
+    border-radius:5px;
+    width: 15rem;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    border: 2px solid rgb(127, 127, 143);
 }

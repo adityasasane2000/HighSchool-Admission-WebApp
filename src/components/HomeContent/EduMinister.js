@@ -3,7 +3,7 @@ import "../../components/HomeContent/EduMinister.css"
 import varsha from '../../components/images/varsha.jpeg'
 import kadu from '../../components/images/kadu.jpeg'
 import vandana from '../../components/images/vandana.jpeg'
-import { Button, Card } from 'react-bootstrap';
+
 import { Row, Col, Container } from 'react-bootstrap';
 
 
