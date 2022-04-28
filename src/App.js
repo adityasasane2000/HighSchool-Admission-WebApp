@@ -20,6 +20,8 @@ import Navigation from './components/navigation';
 import UserRoute from './components/UserRoute';
 import Footer from './components/Footer';
 
+import AdmissionForm from './components/AdmissionForms/AdmissionForm';
+
 const App =()=>{
   
   const dispatch = useDispatch();
@@ -48,6 +50,7 @@ const App =()=>{
           <Route exact path ="/science" component={Science} />
           <Route exact path ="/commarce" component={Commarce} />
           <Route exact path ="/art" component={Art} />
+          <Route exact path ="/admissionFillForm" component={AdmissionForm} />
         </Switch>
         </div>
         <Footer/>

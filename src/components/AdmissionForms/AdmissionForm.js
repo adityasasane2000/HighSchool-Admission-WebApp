@@ -1,17 +1,23 @@
+import { Button } from "bootstrap";
 import React from "react";
 
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import {useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
-import StudentInfo from '../../api/StudentInfo';
-// import StudentInfo from "../../api"
+import StudentInfo from "../../api/StudentInfo";
 function AdmissionForm() {
+
   const { currentUser } = useSelector((state) => state.user);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [file, SetIncome] = useState("");
-
+  const [address, setAddress] = useState("");
+  const [schoolName, setSchoolName] = useState("");
+  const [marks10th, setmarks10th] = useState("");
+  const [markSheet10th, SetMarkSheet10th] = useState("");
+  const [incomeCertificate, SetIncome] = useState("");
+  const [cast, SetCast] = useState("");
+  const [castCertificate, SetCastCertificate] = useState("");
   const {
     register,
     formState: { errors },
@@ -19,97 +25,137 @@ function AdmissionForm() {
   } = useForm();
 
   const fileHandler = (e) => {
-    // console.log(e.target.files);
-    SetIncome(e.target.files[0]);
-  }
-
-
-  const submit =  async () => {
-    // console.log(currentUser.uid)
-    // console.log(name);
+    if (e.target.name == "markSheet10th") {
+      SetMarkSheet10th(e.target.files[0]);
+      console.log(e.target.files);
+    } else if (e.target.name == "incomeCertificate") {
+      SetIncome(e.target.files[0]);
+      console.log(e.target.files);
+    }else if(e.target.name == "castCertificate"){
+      SetCastCertificate(e.target.files[0]);
+      console.log(e.target.files);
+    }
+  };
+  const submit = async () => {
+    
     const data = new FormData();
-    data.append("file", file);
-    console.log( {
-      name: name,
-      email: email,
-      file: file,
-      uid:currentUser.uid
-    })
+    data.append("uid",currentUser.uid);
+    data.append("name",name);
+    data.append("email",email);
+    data.append("address",address);
+    data.append("schoolName",schoolName);
+    data.append("marks10th",marks10th);
+    data.append("markSheet10th",markSheet10th);
+    data.append("incomeCertificate",incomeCertificate);
+    data.append("cast",cast);
+    data.append("castCertificate",castCertificate);
+    console.log(data)
 
-    await StudentInfo.post("/poststudentinfo", {
-      name: name,
-      email: email,
-      file: file,
-      uid:currentUser.uid
-    });
-    //console.log(file);
+    await StudentInfo.post("/poststudentinfo", data);
+
   };
 
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="admissionForm-flexbox">
+  const handelCastChange = (e) =>{
+    SetCast(e.target.value);
    
-      <div>
-        <label className="label-admissionForm">Enter Your  Name  </label>
-        <input className="input-admissionForm" {...register("name", { required: true })} />
-      </div>
-      <div>
-        <label className="label-admissionForm">Email</label>
-        <input className="input-admissionForm"{...register("email", { required: true })} />
-      </div>
-      <div>
-        <label className="label-admissionForm">10th Mark Sheet</label>
-        <input {...register("TenthMarkSheet", { required: true })} type="file" />
-      </div>
-      <div>
-        <label className="label-admissionForm">Leaving Certificate</label>
-        <input {...register("leavingCertificate", { required: true })} type="file" />
-      </div>
-      <div>
-        <label className="label-admissionForm">Income Certificate</label>
-        <input {...register("incomeCertificate", { required: true })} type="file" />
-      </div>
-      <br/>
-      <br/>
-     <div >
-    
-      <Button type="submit" variant="success" className="submit-button-admissionForm" >Submit</Button>{' '}
-      </div> 
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+  }
+
+  return (
+    <form onSubmit={handleSubmit(submit)}>
+      <div className="admissionForm-flexbox">
+        {/* Name */}
+        <div>
+          <label className="label-admissionForm">Enter Your Name</label>
+          <input
+            type="text"
+            name="name"
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+            className="input-admissionForm"
+          />
+        </div>
+        {/* Email */}
+        <div>
+          <label className="label-admissionForm">Email</label>
+          <input
+            type="text"
+            name="email"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            className="input-admissionForm"
+          />
+        </div>
+        {/* Address */}
+        <div>
+          <label className="label-admissionForm">Address</label>
+          <input
+            type="text"
+            name="address"
+            onChange={(e) => {
+              setAddress(e.target.value);
+            }}
+            className="input-admissionForm"
+          />
+        </div>
+        {/* 10th school name */}
+        <div>
+          <label className="label-admissionForm">10th School Name</label>
+          <input
+            type="text"
+            name="schoolName"
+            onChange={(e) => {
+              setSchoolName(e.target.value);
+            }}
+            className="input-admissionForm"
+          />
+        </div>
+        {/* 10th marks */}
+        <div>
+          <label className="label-admissionForm">10th marks</label>
+          <input
+            type="text"
+            name="marks10thPercentages"
+            onChange={(e) => {
+              setmarks10th(e.target.value);
+            }}
+            className="input-admissionForm"
+          />
+        </div>
+
+        <div>
+          <label className="label-admissionForm">10th mark sheet</label>
+          <input type="file" onChange={fileHandler} name="markSheet10th" />
+        </div>
+
+        <div>
+          <label className="label-admissionForm">Income Certificate</label>
+          <input type="file" onChange={fileHandler} name="incomeCertificate" />
+        </div>
+        <div>
+        <label className="label-admissionForm">Cast</label>
+          <select value={cast} onChange={handelCastChange} >
+            <option value="fruit">OPEN</option>
+            <option value="vegetable">OBC</option>
+            <option value="meat">ST</option>
+          </select>
+        </div>
+        <div>
+          <label className="label-admissionForm">Cast Certificate</label>
+          <input type="file" onChange={fileHandler} name="castCertificate" />
+        </div>
+        <button
+          type="submit"
+          variant="success"
+          className="submit-button-admissionForm"
+        >
+  
+          Submit
+        </button>
+        <br />
       </div>
     </form>
-    <form onSubmit={handleSubmit(submit)}>
-        <div>
-          <label>Name:</label>
-          <input type="text" onChange={(e) => {
-            setName(e.target.value);
-          }}
-          />
-        </div>
-
-        <div>
-          <label>Email:</label>
-          <input type="text" onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-          />
-        </div>
-
-        <div>
-          <label>Income:</label>
-          <input type="file" onChange={fileHandler}
-          />
-        </div>
-        <input type="submit" />
-
-      </form>
-
-    
-    
   );
 }
 
