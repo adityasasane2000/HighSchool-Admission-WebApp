@@ -38,20 +38,20 @@ function AdmissionForm() {
   };
   const submit = async () => {
     
-    const data = new FormData();
-    data.append("uid",currentUser.uid);
-    data.append("name",name);
-    data.append("email",email);
-    data.append("address",address);
-    data.append("schoolName",schoolName);
-    data.append("marks10th",marks10th);
-    data.append("markSheet10th",markSheet10th);
-    data.append("incomeCertificate",incomeCertificate);
-    data.append("cast",cast);
-    data.append("castCertificate",castCertificate);
-    console.log(data)
+    const Formdata = new FormData();
+    Formdata.append("uid",currentUser.uid);
+    Formdata.append("name",name);
+    Formdata.append("email",email);
+    Formdata.append("address",address);
+    Formdata.append("schoolName",schoolName);
+    Formdata.append("marks10th",marks10th);
+    Formdata.append("markSheet10th",markSheet10th);
+    Formdata.append("incomeCertificate",incomeCertificate);
+    Formdata.append("cast",cast);
+    Formdata.append("castCertificate",castCertificate);
+    //console.log(Formdata)
 
-    await StudentInfo.post("/poststudentinfo", data);
+    await StudentInfo.post("/poststudentinfo", Formdata);
 
   };
 
