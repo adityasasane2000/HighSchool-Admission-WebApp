@@ -1,4 +1,7 @@
 import React from "react";
+
+
+
 import Marquee from "react-fast-marquee";
 import Programs from "../components/HomeContent/Programs";
 import NoticeBoard from "../components/HomeContent/NoticeBoard";
@@ -6,7 +9,10 @@ import ImageTransaction from "../components/HomeContent/ImageTransaction";
 import EduMinister from "../components/HomeContent/EduMinister";
 import Principal from "../components/HomeContent/Principal";
 import "./home.css";
+
+
 const Home = () => {
+
   return (
     <>
       <div className="ImageTransaction">

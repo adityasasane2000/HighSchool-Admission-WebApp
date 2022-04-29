@@ -1,8 +1,11 @@
 import {BrowserRouter,Switch,Route} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {useEffect} from 'react';
-
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import {auth} from './firebase';
+
+
 import './App.css';
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -14,16 +17,18 @@ import Admission from './pages/Admission';
 import Art from './components/Courses/Art';
 import Science from './components/Courses/Science';
 import Commarce from './components/Courses/Commerce';
-
 import Navigation from './components/navigation';
-
 import UserRoute from './components/UserRoute';
 import Footer from './components/Footer';
-
 import AdmissionForm from './components/AdmissionForms/AdmissionForm';
 
+import AdminLogin from './pages/AdminLogin';
+import AdminNavigation from './components/AdminNavigation'
+
+import { setAdmin } from './redux/actions';
+import AdminDashBoard from './pages/AdminDashBoard';
 const App =()=>{
-  
+  const { admin } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   useEffect(()=>{
     auth.onAuthStateChanged((authUser)=>{
@@ -34,13 +39,26 @@ const App =()=>{
       }
     })
   },[dispatch])
+
+  
+  const roleBasedAuth = () =>{
+    if(admin){
+      return <AdminNavigation/>;
+    }else{
+      return (
+        <Navigation/>
+      )
+    }
+  }
   return (
     <BrowserRouter>
       <div >
-        <Navigation/>
+        {roleBasedAuth()}
+       
         {/* <div className='App'> */}
         <div>
         <Switch>
+          {/* user Routes */}
           <Route exact path ="/" component={Home} />
           <Route exact path ="/login" component={Login} />
           <Route exact path ="/signup" component={Register} />
@@ -50,10 +68,11 @@ const App =()=>{
           <Route exact path ="/science" component={Science} />
           <Route exact path ="/commarce" component={Commarce} />
           <Route exact path ="/art" component={Art} />
-          <Route exact path ="/admissionFillForm" component={AdmissionForm} />
+          {/* admin Routes */}
+          <Route exact path ="/hsam-admin" component={AdminLogin}/>
+          <Route exact path ="/admin/dashboard" component={AdminDashBoard}/>
         </Switch>
         </div>
-        <Footer/>
       </div>
     </BrowserRouter>
    

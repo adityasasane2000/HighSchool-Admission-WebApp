@@ -49,7 +49,7 @@ function AdmissionForm() {
     Formdata.append("incomeCertificate",incomeCertificate);
     Formdata.append("cast",cast);
     Formdata.append("castCertificate",castCertificate);
-    //console.log(Formdata)
+    console.log(Formdata)
 
     await StudentInfo.post("/poststudentinfo", Formdata);
 
