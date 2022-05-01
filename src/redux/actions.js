@@ -52,6 +52,11 @@ export const setAdmin = (admin) =>({
     payload:admin,
 })
 
+export const setAdminData = (adminData) =>({
+    type:types.ADMIN,
+    payload:adminData,
+})
+
 //GOOGLE SIGN IN 
 
 const googleSignInStart = () =>({
@@ -68,10 +73,10 @@ const googleSignInFail = (error) =>({
     payload:error
 });
 
-const adminIsOrNOt = (stateOf) =>({
-    type:types.ADMIN,
-    payload:stateOf
-});
+// const adminIsOrNOt = (stateOf) =>({
+//     type:types.ADMIN,
+//     payload:stateOf
+// });
 //FACEBOOK SIGN IN
 
 
@@ -128,11 +133,11 @@ export const  googleSignInInitiate = ()=>{
         }).catch((error)=>dispatch(googleSignInFail(error.message)));
     }
 }
-export const adminInitiate = (stateOf) =>{
-    return function(dispatch){
-        dispatch(adminIsOrNOt(stateOf));
-    }
-}
+// export const adminInitiate = (stateOf) =>{
+//     return function(dispatch){
+//         dispatch(adminIsOrNOt(stateOf));
+//     }
+// }
 // export const  facebookSignInInitiate = ()=>{
 //     return function(dispatch){
 //         dispatch(facebookSignInStart());

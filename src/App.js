@@ -44,10 +44,12 @@ const App =()=>{
   const roleBasedAuth = () =>{
     if(admin){
       return <AdminNavigation/>;
-    }else{
+    }else if(admin == false){
       return (
         <Navigation/>
       )
+    }else if(admin== null){
+        return;
     }
   }
   return (

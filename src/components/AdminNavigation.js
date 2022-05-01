@@ -3,6 +3,7 @@ import "./AdminNavigation.css";
 import {Link} from 'react-router-dom';
 
 
+import logo from './images/logo.png';
 
 function eventHandle() {
   let arrow = document.querySelectorAll(".arrow");
@@ -25,9 +26,9 @@ const  AdminNavigation = () => {
     <div>
       <div className="sidebar close">
         <div className="logo-details">
-          <img alt=""
+          <img alt="logo"
             className="gpa_logo" 
-            src="https://www.gpawasari.ac.in/Images/logo.PNG"
+            src={logo}
           />
           <span className="logo_name">HSAM</span>
         </div>

@@ -4,6 +4,7 @@ const initialState = {
     loading :false,
     currentUser:null,
     admin:false,
+    adminData:null,
     error:null
 };
 
