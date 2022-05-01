@@ -1,50 +1,116 @@
-// import React from 'react';
-import { Link } from "react-router-dom";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  Navbar,
-  Nav,
-  NavDropdown,
-} from "react-bootstrap";
-import "../components/navigation.css";
+import "./AdminNavigation.css";
+import {Link} from 'react-router-dom';
 
 
-const Navigation = () => {
- 
- 
+
+function eventHandle() {
+  let arrow = document.querySelectorAll(".arrow");
+  for (var i = 0; i < arrow.length; i++) {
+    arrow[i].addEventListener("click", (e) => {
+      let arrowParent = e.target.parentElement.parentElement; //selecting main parent of arrow
+      arrowParent.classNameList.toggle("showMenu");
+    });
+  }
+  let sidebar = document.querySelector(".sidebar");
+  let sidebarBtn = document.querySelector(".bx-menu");
+  console.log(sidebarBtn);
+  sidebarBtn.addEventListener("click", () => {
+    sidebar.classNameList.toggle("close");
+  });
+}
+
+const  AdminNavigation = () => {
   return (
     <div>
-      <Navbar expand="lg">
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="nav navbar-nav ">
-            <Link to="/" className="item" id="item">
-              Home
+      <div className="sidebar close">
+        <div className="logo-details">
+          <img alt=""
+            className="gpa_logo" 
+            src="https://www.gpawasari.ac.in/Images/logo.PNG"
+          />
+          <span className="logo_name">HSAM</span>
+        </div>
+        <ul className="nav-links">
+          <li>
+            <Link to="/admin/dashboard">
+              <i className="bx bx-home-alt"></i>
+              <span className="link_name">Dashboard</span>
             </Link>
+            <ul className="sub-menu blank">
+              <li>
+                <Link className="link_name" to="/HOD-Dashbord">
+                  Dashboard
+                </Link>
+              </li>
+            </ul>
+          </li>
 
-            <NavDropdown title="Programs" className="navbar-dropdown" id="item" >
-              <NavDropdown.Item > <Link to="/science" className="item" id="item">
-                Science
-              </Link></NavDropdown.Item>
-              <NavDropdown.Item >   <Link to="/commarce" className="item" id="item">
-                Commarce
-              </Link></NavDropdown.Item>
-              <NavDropdown.Item >   <Link to="/art" className="item" id="item">
-                Arts
-              </Link></NavDropdown.Item>
-            </NavDropdown>
-            <Link to="/about" className="item" id="item">
-              About Us
+          <li>
+            <Link to="/admin/dashboard">
+            <i className="bx bx-user"></i>
+              <span className="link_name">Students</span>
             </Link>
-            <Link to="/contactus" className="item" id="item">
-              Contact Us
+            <ul className="sub-menu blank">
+              <li>
+                <Link className="link_name" to="/HOD-Dashbord">
+                  Students
+                </Link>
+              </li>
+            </ul>
+          </li>
+         
+          <li>
+            <Link to="/admin/dashboard">
+            <i className="bx bx-comment-dots"></i>
+              <span className="link_name">Feedback</span>
             </Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+            <ul className="sub-menu blank">
+              <li>
+                <Link className="link_name" to="/HOD-Dashbord">
+                  Feedback
+                </Link>
+              </li>
+            </ul>
+          </li>
+         
+
+        
+          <li>
+            <Link to="/admin/logout">
+              <i className="bx bx-log-out"></i>
+              <span className="link_name">Logout</span>
+            </Link>
+            <ul className="sub-menu blank">
+              <li>
+                <Link className="link_name" to="/">
+                  Logout
+                </Link>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <div className="profile-details">
+              <div className="profile-content">
+                {/* <img alt="" src={GhodeMadamimg} /> */}
+              </div>
+              <div className="name-job">
+                <div className="profile_name">Admin</div>
+                <div className="job">HSAM ADMIN</div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div className="home-section">
+        <div className="home-content">
+          <i className="bx bx-menu" onClick={eventHandle}></i>
+          <span className="text">ADMIN Dashboard</span>
+          <br />
+        </div>
+      </div>
     </div>
   );
-};
+}
 
-export default Navigation;
+export default AdminNavigation;
