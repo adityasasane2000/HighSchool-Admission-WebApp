@@ -4,6 +4,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
+import { Row, Col, Container } from 'react-bootstrap';
 
 import StudentInfo from "../../api/StudentInfo";
 function AdmissionForm() {
@@ -17,6 +18,7 @@ function AdmissionForm() {
   const [markSheet10th, SetMarkSheet10th] = useState("");
   const [incomeCertificate, SetIncome] = useState("");
   const [cast, SetCast] = useState("");
+  const [gender, SetGender] = useState("");
   const [castCertificate, SetCastCertificate] = useState("");
   const {
     register,
@@ -31,33 +33,39 @@ function AdmissionForm() {
     } else if (e.target.name == "incomeCertificate") {
       SetIncome(e.target.files[0]);
       console.log(e.target.files);
-    }else if(e.target.name == "castCertificate"){
+    } else if (e.target.name == "castCertificate") {
       SetCastCertificate(e.target.files[0]);
       console.log(e.target.files);
     }
   };
   const submit = async () => {
-    
+
     const Formdata = new FormData();
-    Formdata.append("uid",currentUser.uid);
-    Formdata.append("name",name);
-    Formdata.append("email",email);
-    Formdata.append("address",address);
-    Formdata.append("schoolName",schoolName);
-    Formdata.append("marks10th",marks10th);
-    Formdata.append("markSheet10th",markSheet10th);
-    Formdata.append("incomeCertificate",incomeCertificate);
-    Formdata.append("cast",cast);
-    Formdata.append("castCertificate",castCertificate);
+    Formdata.append("uid", currentUser.uid);
+    Formdata.append("name", name);
+    Formdata.append("email", email);
+    Formdata.append("address", address);
+    Formdata.append("schoolName", schoolName);
+    Formdata.append("marks10th", marks10th);
+    Formdata.append("markSheet10th", markSheet10th);
+    Formdata.append("incomeCertificate", incomeCertificate);
+    Formdata.append("cast", cast);
+    Formdata.append("gender", gender);
+
+    Formdata.append("castCertificate", castCertificate);
     console.log(Formdata)
 
     await StudentInfo.post("/poststudentinfo", Formdata);
 
   };
 
-  const handelCastChange = (e) =>{
+  const handelCastChange = (e) => {
     SetCast(e.target.value);
-   
+
+  }
+  const handelGenderChange = (e) => {
+    SetGender(e.target.value);
+
   }
 
   return (
@@ -66,25 +74,31 @@ function AdmissionForm() {
         {/* Name */}
         <div>
           <label className="label-admissionForm">Enter Your Name</label>
+
           <input
             type="text"
             name="name"
             onChange={(e) => {
               setName(e.target.value);
             }}
-            className="input-admissionForm"
+            className="biggerinput-admissionForm"
           />
+          <div class="note-admission">
+            <p><strong>Note!</strong> Please enter your name according to your 10th Marksheet</p>
+          </div>
         </div>
         {/* Email */}
         <div>
           <label className="label-admissionForm">Email</label>
+
+
           <input
             type="text"
             name="email"
             onChange={(e) => {
               setEmail(e.target.value);
             }}
-            className="input-admissionForm"
+            className="biggerinput-admissionForm"
           />
         </div>
         {/* Address */}
@@ -96,64 +110,139 @@ function AdmissionForm() {
             onChange={(e) => {
               setAddress(e.target.value);
             }}
-            className="input-admissionForm"
+            className="biggerinput-admissionForm"
           />
         </div>
         {/* 10th school name */}
-        <div>
-          <label className="label-admissionForm">10th School Name</label>
-          <input
-            type="text"
-            name="schoolName"
-            onChange={(e) => {
-              setSchoolName(e.target.value);
-            }}
-            className="input-admissionForm"
-          />
-        </div>
+
         {/* 10th marks */}
-        <div>
-          <label className="label-admissionForm">10th marks</label>
-          <input
-            type="text"
-            name="marks10thPercentages"
-            onChange={(e) => {
-              setmarks10th(e.target.value);
-            }}
-            className="input-admissionForm"
-          />
+        <div className="marks-caste">
+
+          <Container className="Caste-admission">
+
+            <Row>
+
+              <Col > <div className="Caste-admission">
+                <label className="label-admissionForm">Caste</label>
+                <select value={cast} onChange={handelCastChange} className="input-admissionForm"    >
+                  <option value="open">OPEN</option>
+                  <option value="obc">OBC</option>
+                  <option value="st">ST</option>
+                  <option value="sc">SC</option>
+                </select>
+              </div>
+              </Col>
+
+              <Col  >
+                <div className="Caste-admission">
+                  <label className="label-admissionForm">Gender</label>
+                  <select value={gender} onChange={handelGenderChange} className="input-admissionForm"    >
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+
+                  </select>
+                </div>
+
+              </Col>
+
+              {/* <Col  >
+                <div className="Caste-admission">
+                  <label className="label-admissionForm">Date Of Birth</label>
+                 
+
+
+
+                </div>
+
+              </Col> */}
+
+
+            </Row>
+          </Container>
+        </div>
+        <Container className="tenthmarkSheet-schoolName">
+
+          <Row>
+
+            <Col >
+              <div>
+                <label className="label-admissionForm">10th School Name</label>
+                <input
+                  type="text"
+                  name="schoolName"
+                  onChange={(e) => {
+                    setSchoolName(e.target.value);
+                  }}
+                  className="biggerinput-admissionForm" />
+              </div>
+
+            </Col>
+
+            <Col  >
+              <div>
+                <label className="label-admissionForm">10th marks</label>
+                <input
+                  type="text"
+                  name="marks10thPercentages"
+                  onChange={(e) => {
+                    setmarks10th(e.target.value);
+                  }}
+                  className="input-admissionForm-marks"
+                />
+              </div>
+            </Col>
+
+
+          </Row>
+        </Container>
+
+        <div class="note-admission">
+          <p><strong>Note!</strong> While uploading the documents, please rename it consisting your name. For e.g - Atharva Meher(Income Certificate)</p>
+        </div>
+        <Container className='upload-docs-admission'>
+
+          <Row>
+
+            <Col ><div>
+              <label className="label-admissionForm">10th mark sheet</label>
+              <input className="upload-admissionForm" type="file" onChange={fileHandler} name="markSheet10th" />
+            </div>
+            </Col>
+
+            <Col  > <div>
+              <label className="label-admissionForm">Income Certificate</label>
+              <input className="upload-admissionForm" type="file" onChange={fileHandler} name="incomeCertificate" />
+            </div></Col>
+
+            <Col  ><div>
+              <label className="label-admissionForm">Caste Certificate</label>
+              <input className="upload-admissionForm" type="file" onChange={fileHandler} name="castCertificate" />
+            </div></Col>
+          </Row>
+        </Container>
+        <div class="note-admission">
+          <p><strong>Note!</strong> Only .pdf files are allowed</p>
         </div>
 
-        <div>
-          <label className="label-admissionForm">10th mark sheet</label>
-          <input type="file" onChange={fileHandler} name="markSheet10th" />
-        </div>
 
-        <div>
-          <label className="label-admissionForm">Income Certificate</label>
-          <input type="file" onChange={fileHandler} name="incomeCertificate" />
+
+        <br />  
+        <div class="col-md-12 text-center" className="submit-button-admissionForm">
+
+          <button
+            type="submit"
+            variant="success"
+            className="submit-button-admissionForm1"
+            class="btn btn-outline-success"
+          >
+
+            Submit
+          </button>
         </div>
-        <div>
-        <label className="label-admissionForm">Cast</label>
-          <select value={cast} onChange={handelCastChange} >
-            <option value="fruit">OPEN</option>
-            <option value="vegetable">OBC</option>
-            <option value="meat">ST</option>
-          </select>
-        </div>
-        <div>
-          <label className="label-admissionForm">Cast Certificate</label>
-          <input type="file" onChange={fileHandler} name="castCertificate" />
-        </div>
-        <button
-          type="submit"
-          variant="success"
-          className="submit-button-admissionForm"
-        >
-  
-          Submit
-        </button>
         <br />
+
+
       </div>
     </form>
   );

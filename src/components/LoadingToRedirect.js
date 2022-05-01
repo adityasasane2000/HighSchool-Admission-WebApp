@@ -6,13 +6,13 @@ import SoryIMG from "../components/images/sorry-image.jpg"
 const LoadingToRedirect = () => {
     const [count,setCount] = useState(3);
     const history = useHistory();
-    useEffect(()=>{
-      const interval = setInterval(()=>{
-          setCount((currentCount)=>--currentCount)
-      },1000);
-      count === 0 && history.push("/login");
-      return ()=>clearInterval(interval);
-    },[count,history]);
+    // useEffect(()=>{
+    //   const interval = setInterval(()=>{
+    //       setCount((currentCount)=>--currentCount)
+    //   },1000);
+    //   count === 0 && history.push("/login");
+    //   return ()=>clearInterval(interval);
+    // },[count,history]);
     return (
       <div>
         <img style={{maxWidth: "35rem", marginLeft: "25rem"}} alt="sryIMG" src={SoryIMG} />

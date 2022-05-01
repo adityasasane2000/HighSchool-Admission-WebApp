@@ -1,7 +1,8 @@
 .label-admissionForm{
-    margin: 2% 3% 0 30rem;
+    margin: 2% 3% 0 2%;
     width: 10rem;
-    font-weight: 500
+    font-weight: 500;
+
 }
 
 .submit-button-admissionForm{
@@ -14,9 +15,60 @@ align-items: center;
 }
 .input-admissionForm
 {
+    margin: 5px 3% 0 2%;
+
     padding:3px;
     border-radius:5px;
-    width: 15rem;
+    width: 10rem;
     box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
     border: 2px solid rgb(127, 127, 143);
+  
+}
+.biggerinput-admissionForm{
+    margin: 5px 3% 0 2%;
+    width: 30rem;
+    padding:6px;
+    display: block;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    border: 2px solid rgb(127, 127, 143);
+    content: "/a";
+    background-color: aliceblue;
+}
+.note-admission{
+    background-color: #ffdddd;
+    border-left: 6px solid #f44336;
+    padding: 10px 0 1px 1rem;
+    margin: 2% 3% 3% 2%;
+}
+.marks-caste{
+    display: flex;
+    flex-direction:column;
+    margin: 2% 3% 0 2%;
+}
+.Caste-admission{
+    float: right;
+}
+.upload-admissionForm{
+    margin: 5px 3% 0 2%;
+}
+.submit-button-admissionForm{
+    margin: 1% auto !important;
+    text-align: center !important;
+
+}
+.submit-button-admissionForm1{
+    padding: 5%;
+}
+.input-admissionForm-marks{
+ 
+    margin: 5px 3% 0 2%;
+    display: block;
+    padding:3px;
+    border-radius:5px;
+    width: 10rem;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    border: 2px solid rgb(127, 127, 143);
+}
+.tenthmarkSheet-schoolName{
+    margin: 2% 3% 0 2%;
 }
