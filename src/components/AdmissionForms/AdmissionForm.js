@@ -4,7 +4,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
-import { Row, Col, Container } from 'react-bootstrap';
+import { Row, Col, Container, Form } from 'react-bootstrap';
 
 import StudentInfo from "../../api/StudentInfo";
 function AdmissionForm() {
@@ -12,6 +12,7 @@ function AdmissionForm() {
   const { currentUser } = useSelector((state) => state.user);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [birthDate, setBirthDate] = useState("");
   const [address, setAddress] = useState("");
   const [schoolName, setSchoolName] = useState("");
   const [marks10th, setmarks10th] = useState("");
@@ -44,6 +45,7 @@ function AdmissionForm() {
     Formdata.append("uid", currentUser.uid);
     Formdata.append("name", name);
     Formdata.append("email", email);
+    Formdata.append("birthDate",birthDate);
     Formdata.append("address", address);
     Formdata.append("schoolName", schoolName);
     Formdata.append("marks10th", marks10th);
@@ -51,6 +53,8 @@ function AdmissionForm() {
     Formdata.append("incomeCertificate", incomeCertificate);
     Formdata.append("cast", cast);
     Formdata.append("gender", gender);
+    // console.log(birthDate)
+
 
     Formdata.append("castCertificate", castCertificate);
     console.log(Formdata)
@@ -87,6 +91,19 @@ function AdmissionForm() {
             <p><strong>Note!</strong> Please enter your name according to your 10th Marksheet</p>
           </div>
         </div>
+
+          <div>
+          <label className="label-admissionForm">Enter Your Birth-Date</label>
+            <input 
+            type="date" 
+            name ="birthDate"
+            onChange={(e)=>{
+              setBirthDate(e.target.value);
+            }}
+            className="biggerinput-admissionForm"
+            />
+          </div>
+
         {/* Email */}
         <div>
           <label className="label-admissionForm">Email</label>
