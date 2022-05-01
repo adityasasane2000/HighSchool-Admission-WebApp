@@ -88,11 +88,14 @@ function AdmissionForm() {
 
   const handelCastChange = (e) => {
     SetCast(e.target.value);
+<<<<<<< Updated upstream
 
   }
   const handelGenderChange = (e) => {
     SetGender(e.target.value);
 
+=======
+>>>>>>> Stashed changes
   }
 
   return (
@@ -246,6 +249,7 @@ function AdmissionForm() {
         <div class="note-admission">
           <p><strong>Note!</strong> While uploading the documents, please rename it consisting your name. For e.g - Atharva Meher(Income Certificate)</p>
         </div>
+<<<<<<< Updated upstream
         <Container className='upload-docs-admission'>
 
           <Row>
@@ -275,6 +279,15 @@ function AdmissionForm() {
         </Container>
         <div class="note-admission">
           <p><strong>Note!</strong> Only .pdf files are allowed</p>
+=======
+        <div>
+        <label className="label-admissionForm">Cast</label>
+          <select value={cast} onChange={handelCastChange} >
+            <option value="open">OPEN</option>
+            <option value="obc">OBC</option>
+            <option value="st">ST</option>
+          </select>
+>>>>>>> Stashed changes
         </div>
 
 
