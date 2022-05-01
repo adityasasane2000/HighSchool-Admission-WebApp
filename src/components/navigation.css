@@ -11,23 +11,25 @@
   margin: 0;  
   clear: left;
   margin-top: 0; 
-  border: 1px solid #076cbe ;
+  border: 1px  #001844; 
 } 
 
 #item{
  position: relative;
  display: block;
  padding: 0 0 8px 0;
- margin-left: 20px;
- color: #076cbe;
+ margin-left: 30px;
+ color:  #0004ff;
  text-decoration: none;  
  margin-top: 0; 
  font-weight: 500;
+ font-size: medium;
 }
 
 #item:hover {
- color: #002a4d;
+ color: #001742;
  cursor: pointer;
+ text-shadow:1px 1px rgba(59, 59, 0, 0.39) ;
  /* 
  font-size: large;
  animation-duration: 10ms; */
@@ -62,7 +64,7 @@ h2{
   color: aliceblue;
   font-family: 'Laila', sans-serif;
 }
-.container{
+.container-nav{
 padding: 5px 3px 0 0;
 
 margin-top: 1rem;
@@ -87,7 +89,9 @@ padding: 0%;
 }
 .Disabled-Admission{
   margin-left: 20px;
+  color:#060057 !important ;
 }
-#item:hover{
- 
+
+.home-navbar{
+  margin-left: 5rem !important;
 }

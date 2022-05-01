@@ -29,10 +29,10 @@ const Navigation = () => {
       return (
         <>
           <Link to="/admission" className="item" id="item">
-            Admission
+           ADMISSION
           </Link>
           <div className="item" id="item" onClick={HandleAuth}>
-            Logout
+            LOGOUT
           </div>
         </>
       );
@@ -41,13 +41,13 @@ const Navigation = () => {
         <>
           <Nav.Link
             eventKey="disabled" disabled className="Disabled-Admission">
-            Admission
+           ADMISSION
           </Nav.Link>
           <Link to="/login" className="item" id="item">
-            Sign In
+          SIGN IN
           </Link>
           <Link to="/signup" className="item" id="item">
-            Sign Up
+          SIGN UP
           </Link>
         </>
       );
@@ -57,7 +57,7 @@ const Navigation = () => {
     <div className="body">
       <div className="heading">
         <img className="logo" src={logo} alt="logo-img" />
-        <div className="container">
+        <div className="container-nav">
           <h2>High School Admission Management System</h2>
           <h2>हायस्कुल एडमिशन मैनेजमेंट सिस्टम</h2>
         </div>
@@ -67,11 +67,11 @@ const Navigation = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="nav navbar-nav ">
-            <Link to="/" className="item" id="item">
-              Home
+            <Link to="/" className="home-navbar" id="item">
+            HOME
             </Link>
 
-            <NavDropdown title="Programs" className="navbar-dropdown" id="item" >
+            <NavDropdown title="PROGRAMS" className="navbar-dropdown" id="item" >
               <NavDropdown.Item > <Link to="/science" className="item" id="item">
                 Science
               </Link></NavDropdown.Item>
@@ -83,10 +83,10 @@ const Navigation = () => {
               </Link></NavDropdown.Item>
             </NavDropdown>
             <Link to="/about" className="item" id="item">
-              About Us
+             ABOUT US
             </Link>
             <Link to="/contactus" className="item" id="item">
-              Contact Us
+              CONTACT US
             </Link>
 
             {routeToHideAfterlogin()}

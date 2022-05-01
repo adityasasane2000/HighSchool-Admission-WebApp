@@ -1,6 +1,7 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
 import { Row, Col, Container } from "react-bootstrap";
+import "../../components/HomeContent/NoticeBoard.css";
 
 class NoticeBoard extends React.Component {
   render() {
@@ -34,32 +35,27 @@ class NoticeBoard extends React.Component {
               </div>
             </Col>
             <Col lg={4}>
-              <div className="noticeboard">
-                <h1 className="homepage-headings"> NOTICEBOARD</h1>
+            <h1 className="homepage-headings">NOTICEBOARD</h1>
+              <div className="microsoft container">
+                <p class="marquee-notice"><li>All branches students are informed to wear masks while entering school campus as maks are mandatoru to enter in the school premises</li>
 
-                <div
-                  className="marquee2"
-                  width="100%"
-                  direction="up"
-                  height="200px"
-                  behaviour="scroll"
-                >
-                  <ul>
-                    <li>
-                      Collage la sutti chalu ahe.Collage la sutti chalu
-                      aheCollage la sutti chalu aheCollage la sutti chalu
-                      aheCollage la sutti chalu aheCollage la sutti chalu ahe
-                    </li>
-                    <br />
+                </p>         <br />
+                <p class="marquee-notice">
 
-                    <li>There is one problen in organization that's why tommorow is holiday</li>
-                    <br />
-                    <li>It is mandatory to wear masks in campus according to covid guidelines</li>
-                    <br />
+                  <li>Exam form id to be filled as soon as possible or extra fees are to concelled by the examination construct team, if active backlogs (any) exam fees are adjusted accordingly</li>
+                </p>         <br />
+                <p class="marquee-notice">
 
-                  </ul>
-                </div>
+
+                  <li>Students are informed that wearing uniforms is a compulsion from wednesday</li></p>
+                  <br />
+                <p class="marquee-notice"><li>All branches students are informed to wear masks while entering school campus as maks are mandatoru to enter in the school premises</li>
+
+                </p>
+           
+
               </div>
+
             </Col>
           </Row>
         </Container>
