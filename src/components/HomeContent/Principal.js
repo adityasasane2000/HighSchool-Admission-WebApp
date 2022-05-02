@@ -49,6 +49,7 @@ const Principal = () => {
               <div className="container">
                 <h1 className="homepage-headings">Events</h1>
               </div>
+              <div className="events-principal"></div>
               <Link to="hi 11">Covid Vaccination for age group 15+</Link>
               <br />
               <Link to="hi">Online guest lectures for importance of education</Link>

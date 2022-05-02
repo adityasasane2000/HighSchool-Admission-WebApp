@@ -2,6 +2,8 @@ import React,{useState,useEffect} from 'react';
 import {useDispatch,useSelector} from 'react-redux';
 import {useHistory,Link} from 'react-router-dom';
 import { registerInitiate,googleSignInInitiate } from '../redux/actions';
+import Button from 'react-bootstrap/Button'
+import GoogleButton from 'react-google-button'
 
 import "./Register.css"
 
@@ -43,14 +45,14 @@ const Register = () => {
     }
   return (
     <div>
-        <div id="register-form">
+        <div id='signupbox'>
             <form className="form-signup" onSubmit ={handleSubmit}>
-                <h1 className="h3 mb-3 font-weight-normal" id='SignUp-Heading-Label' style ={{textAlign:"center"}}>
-                    Sign Up
-                </h1>
+            <div>
+          <h3  id="signtitle" >SIGN UP</h3>
+        </div>
                 <input 
                     type = "text"
-                    id ="displayName"
+                    id ="signupname"
                     className = "form-control"
                     placeholder="Full Name"
                     name ="displayName"
@@ -60,7 +62,7 @@ const Register = () => {
                 />
                 <input 
                     type = "email"
-                    id ="userEmail"
+                    id ="signupemail"
                     className = "form-control"
                     placeholder="Email Address"
                     name ="email"
@@ -70,7 +72,7 @@ const Register = () => {
                 />
                 <input 
                     type = "password"
-                    id ="inputPassword"
+                    id ="pass"
                     className = "form-control"
                     placeholder="Password"
                     name ="password"
@@ -80,29 +82,28 @@ const Register = () => {
                 />
                  <input 
                     type = "password"
-                    id ="passwordConfrim"
+                    id ="pass"
                     className = "form-control"
-                    placeholder="Repeat Password"
+                    placeholder="Confirm Password"
                     name ="passwordConfrim"
                     onChange ={handleChange}
                     value ={passwordConfrim}
                     required
                 />
-                <button className ="btn btn-primary btn-block" id='sign-button-login' type="submit">
-                    <i className = "fas fa-user-plus"></i> Sign Up
-                </button>
+                <Button variant="outline-primary" id='signbutton' type="submit">SIGN UP</Button>
                 <p style={{textAlign:"center"}}>OR</p>
-                <div className="social-login">
-                    <button className="btn google-btn social-btn" type = "button" onClick = {handleGoogleSignIn} >
-                        <span>
-                            <i className="fab fa-google-plus-g" id='google-btn-login'></i>  Google
-                        </span>
-                    </button>
-                </div>
-              
-                <Link to="/login">
-                    <i className="fas fa-angle-left" id='back-register'></i> Back
-                </Link>
+                <div  >
+                            {/* <button className="btn google-btn social-btn"  type="button" onClick={handleGoogleSignIn} >
+                            <span>
+                                <i className="fab fa-google-plus-g" id='google-btn-login' ></i>  Google
+                            </span>
+                        </button> */}
+                            <GoogleButton className='signin-button'
+                                onClick={handleGoogleSignIn}
+                            />
+                        </div>
+
+             
             </form>
             <br/>
         </div>

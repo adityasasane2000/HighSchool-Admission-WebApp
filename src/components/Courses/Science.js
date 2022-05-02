@@ -1,89 +1,155 @@
 
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import Dropdown from 'react-bootstrap/Dropdown';
+import { Accordion } from 'react-bootstrap';
+
 import "../Courses/courses.css";
 
-const Science = () =>{
-    return (
-        <div>
-        
-        <div className="Courses-dropdown-Button">
-        <div style={{ display: 'block', 
-                  width: 700, 
-                  padding: 30 }}>
-      <Dropdown>
-        <Dropdown.Toggle variant="success">
-       Vision Mission
-        </Dropdown.Toggle>
-        <Dropdown.Menu>
-        <h1 className="course-headings">Vision</h1>
-                <p>
-                  Education for masses is principal instrument and the tool for
-                  eradication of all pervasive social evils and desirable
-                  effective social change. Education through self-help is a
-                  significant and chief drive of social change to achieve
-                  different tasks of nation building by establishing social
-                  equality and social justice.
-                </p>
-              
-              <div className="">
-                <h1 className="course-headings">Mission</h1>
-                <p>
-                  In order to achieve the vision as To import higher Education
-                  through the University formal courses and non-traditional self
-                  financing and short term courses. By imparting higher
-                  education for the upliftment of the backward, the depressed,
-                  and the underprivileged and tribal communities of the region.
-                  To inculcate values and virtues among the students as
-                  mentioned the aims and the objectives of the college.
-                </p>
-              </div>
-        </Dropdown.Menu>
-      </Dropdown>
+const Science = () => {
+  return (
+    <div className='Program-div'>
+      <Accordion defaultActiveKey="0">
+        <Accordion.Item className='Program-div-Accordion' eventKey="1">
+          <Accordion.Header>Vision</Accordion.Header>
+          <Accordion.Body>
+            The vision of Science & Technology Department is to engage the people of the state in science, the students to cultivate and enrich science education, research, innovation and communication, and the industry and academia to partner in pursuit of promoting science and technology and strengthening the scientific capability of the state.
+          </Accordion.Body>
+        </Accordion.Item>
+        <Accordion.Item className='Program-div-Accordion' eventKey="1">
+          <Accordion.Header>Mission</Accordion.Header>
+          <Accordion.Body>
+            <ul><li>Ignite a passion for science in all learners.
+            </li><li>Thrive in a data rich world
+              </li><li>
+                Improve human and ocean health</li><li>
+                Develop sustainable materials to power our planet</li>
+                <li>
+                Move discoveries from the lab to people's lives.</li></ul>
+
+          </Accordion.Body>
+        </Accordion.Item>
+      </Accordion>
+      <Accordion className='Program-div-Accordion' defaultActiveKey="0">
+        <Accordion.Item eventKey="0">
+          <Accordion.Header>Timetable</Accordion.Header>
+          <Accordion.Body>
+            <table className='timetable-program' border={1} cellSpacing={0} align="center">
+              {/*<caption>Timetable</caption>*/}
+              <tbody><tr>
+                <td align="center" height={50} width={100}><br />
+                  <b>Day/Period</b><br />
+                </td>
+                <td align="center" height={50} width={100}>
+                  <b>I<br />9:30-10:20</b>
+                </td>
+                <td align="center" height={50} width={100}>
+                  <b>II<br />10:20-11:10</b>
+                </td>
+                <td align="center" height={50} width={100}>
+                  <b>III<br />11:10-12:00</b>
+                </td>
+                <td align="center" height={50} width={100}>
+                  <b>12:00-12:40</b>
+                </td>
+                <td align="center" height={50} width={100}>
+                  <b>IV<br />12:40-1:30</b>
+                </td>
+                <td align="center" height={50} width={100}>
+                  <b>V<br />1:30-2:20</b>
+                </td>
+                <td align="center" height={50} width={100}>
+                  <b>VI<br />2:20-3:10</b>
+                </td>
+                <td align="center" height={50} width={100}>
+                  <b>VII<br />3:10-4:00</b>
+                </td>
+              </tr>
+                <tr>
+                  <td align="center" height={50}>
+                    <b>Monday</b></td>
+                  <td align="center" height={50}>Eng</td>
+                  <td align="center" height={50}>Mat</td>
+                  <td align="center" height={50}>Che</td>
+                  <td rowSpan={6} align="center" height={50}>
+                    <h3 className='h2-program'>L<br />U<br />N<br />C<br />H</h3>
+                  </td>
+                  <td colSpan={3} align="center" height={50}>LAB</td>
+                  <td align="center" height={50}>Phy</td>
+                </tr>
+                <tr>
+                  <td align="center" height={50}>
+                    <b>Tuesday</b>
+                  </td>
+                  <td colSpan={3} align="center" height={50}>LAB
+                  </td>
+                  <td align="center" height={50}>Eng</td>
+                  <td align="center" height={50}>Che</td>
+                  <td align="center" height={50}>Mat</td>
+                  <td align="center" height={50}>SPORTS</td>
+                </tr>
+                <tr>
+                  <td align="center" height={50}>
+                    <b>Wednesday</b>
+                  </td>
+                  <td align="center" height={50}>Mat</td>
+                  <td align="center" height={50}>phy</td>
+                  <td align="center" height={50}>Eng</td>
+                  <td align="center" height={50}>Che</td>
+                  <td colSpan={3} align="center" height={50}>LIBRARY
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center" height={50}>
+                    <b>Thursday</b>
+                  </td>
+                  <td align="center" height={50}>Phy</td>
+                  <td align="center" height={50}>Eng</td>
+                  <td align="center" height={50}>Che</td>
+                  <td colSpan={3} align="center" height={50}>LAB
+                  </td>
+                  <td align="center" height={50}>Mat</td>
+                </tr>
+                <tr>
+                  <td align="center" height={50}>
+                    <b>Friday</b>
+                  </td>
+                  <td colSpan={3} align="center" height={50}>LAB
+                  </td>
+                  <td align="center" height={50}>Mat</td>
+                  <td align="center" height={50}>Che</td>
+                  <td align="center" height={50}>Eng</td>
+                  <td align="center" height={50}>Phy</td>
+                </tr>
+                <tr>
+                  <td align="center" height={50}>
+                    <b>Saturday</b>
+                  </td>
+                  <td align="center" height={50}>Eng</td>
+                  <td align="center" height={50}>Che</td>
+                  <td align="center" height={50}>Mat</td>
+                  <td colSpan={3} align="center" height={50}>SEMINAR
+                  </td>
+                  <td align="center" height={50}>SPORTS</td>
+                </tr>
+              </tbody></table>
+          </Accordion.Body>
+        </Accordion.Item>
+        <Accordion.Item eventKey="0">
+          <Accordion.Header>Curriculam</Accordion.Header>
+          <Accordion.Body>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+            est laborum.
+          </Accordion.Body>
+        </Accordion.Item>
+
+      </Accordion>
     </div>
-                
-        </div>
-        <div className="Courses-dropdown-Button">
-        <div style={{ display: 'block', 
-                  width: 700, 
-                  padding: 30 }}>
-      <Dropdown>
-        <Dropdown.Toggle variant="success">
-       Curriculam
-        </Dropdown.Toggle>
-        <Dropdown.Menu>
-        <h1 className="course-headings">Vision</h1>
-                <p>
-                  Education for masses is principal instrument and the tool for
-                  eradication of all pervasive social evils and desirable
-                  effective social change. Education through self-help is a
-                  significant and chief drive of social change to achieve
-                  different tasks of nation building by establishing social
-                  equality and social justice.
-                </p>
-              
-              <div className="">
-                <h1 className="course-headings">Mission</h1>
-                <p>
-                  In order to achieve the vision as To import higher Education
-                  through the University formal courses and non-traditional self
-                  financing and short term courses. By imparting higher
-                  education for the upliftment of the backward, the depressed,
-                  and the underprivileged and tribal communities of the region.
-                  To inculcate values and virtues among the students as
-                  mentioned the aims and the objectives of the college.
-                </p>
-              </div>
-        </Dropdown.Menu>
-      </Dropdown>
-    </div>
-    </div>
-        <div>
-        Timetable
-    </div>
-    </div>
-    );
+  );
 }
 
 export default Science;

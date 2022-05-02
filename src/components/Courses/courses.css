@@ -1,3 +1,16 @@
-.Courses-dropdown-Button{
-    width: 70%;
+/* .Program-div{
+padding: 1% 5%;
+} */
+.Program-div-Accordion{
+    margin: 1% 5%;
+}
+.timetable-program td{
+    border: 1px solid black;
+}
+.h2-program{
+    color: black;
+
+}
+.timetable-program {
+    margin: 3% auto;
 }

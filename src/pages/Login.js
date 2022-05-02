@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
 import { googleSignInInitiate, loginInitiate } from '../redux/actions';
-
+import GoogleButton from 'react-google-button'
 import "./Login.css"
+import Button from 'react-bootstrap/Button'
 
 const Login = () => {
     const [state, setState] = useState({
@@ -42,55 +43,70 @@ const Login = () => {
         setState({ ...state, [name]: value });
     }
     return (
-        <div>
-            <div id="logreg-forms">
-                <form className="form-signin" onSubmit={handleSubmit}>
-                    <h1 className="h3 mb-3 font-weight-normal" id='SignIn-Heading-Label' style={{ textAlign: "center" }}>
-                        Sign in
-                    </h1>
-                    <input
-                        type="email"
-                        id="inputEmail"
-                        className="form-control"
-                        placeholder="Email Address"
-                        name="email"
-                        onChange={handleChange}
-                        value={email}
-                        required
-                    />
-                    <input
-                        type="password"
-                        id="inputPassword"
-                        className="form-control"
-                        placeholder="Password"
-                        name="password"
-                        onChange={handleChange}
-                        value={password}
-                        required
-                    />
-                    <button className="btn btn-secondary btn-block" id='sign-button-login' type="submit">
-                        <i className="fas fa-sign-in-alt"></i> Sign In
-                    </button>
-                    <p style={{ textAlign: "center" }}>OR</p>
-                    <div className="social-login" >
-                        <button className="btn google-btn social-btn"  type="button" onClick={handleGoogleSignIn} >
+        <div id='signinbox'>
+            <div >
+                <div id="logreg-forms">
+                    <form onSubmit={handleSubmit}>
+                        <div id="signtitle">
+                            <div>
+                                <h3 >SIGN IN</h3>
+                            </div>
+                            <div>
+                                <label>Or <Link to="/signup" id="createaccount">Create an account</Link></label>
+                            </div>
+                        </div>
+
+                        <input
+                            type="email"
+                            id="signinemail"
+                            className="form-control"
+                            placeholder="Email Address"
+                            name="email"
+                            onChange={handleChange}
+                            value={email}
+                            required
+                        />
+                        <input
+                            type="password"
+                            id="signinpass"
+                            className="form-control"
+                            placeholder="Password"
+                            name="password"
+                            onChange={handleChange}
+                            value={password}
+                            required
+                        />
+      
+                        <Button variant="outline-primary" id='signbutton'>SIGN IN</Button>
+                        <br />
+                        <hr />
+                        <div className="orcont">
+                            <label>Or continue with</label>
+                        </div>
+               
+                        <div  >
+                            {/* <button className="btn google-btn social-btn"  type="button" onClick={handleGoogleSignIn} >
                             <span>
                                 <i className="fab fa-google-plus-g" id='google-btn-login' ></i>  Google
                             </span>
-                        </button>
-                    </div>
-
-
-                    <hr />
-                    <p id='DontHaveAccount-Login'>Don't have an account </p>
-                    <Link to="/signup" >
-                        <div id='Signupnewaccount-Login'>
-                        <button className="btn btn-primary btn-block"  type="button">
-                            <i className="fas fa-user-plus" ></i> Sign up New Account
-                        </button>
+                        </button> */}
+                            <GoogleButton className='signin-button'
+                                onClick={handleGoogleSignIn}
+                            />
                         </div>
-                    </Link>
-                </form>
+
+
+                      
+                        {/* <p id='DontHaveAccount-Login'>Don't have an account </p>
+                        <Link to="/signup" >
+                            <div id='Signupnewaccount-Login'>
+                                <button className="btn btn-primary btn-block" type="button">
+                                    <i className="fas fa-user-plus" ></i> Sign up New Account
+                                </button>
+                            </div>
+                        </Link> */}
+                    </form>
+                </div>
             </div>
         </div>
     )

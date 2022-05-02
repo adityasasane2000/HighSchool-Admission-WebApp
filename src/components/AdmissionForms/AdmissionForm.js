@@ -102,6 +102,9 @@ function AdmissionForm() {
   return (
     <form onSubmit={handleSubmit(submit)}>
       <div className="admissionForm-flexbox">
+      <div class="note-admission">
+            <p><strong>Note!</strong> Please enter your name according to your 10th Marksheet</p>
+          </div>
         {/* Name */}
         <div>
           <label className="label-admissionForm">Enter Your Name</label>
@@ -109,29 +112,16 @@ function AdmissionForm() {
           <input
             type="text"
             name="name"
-            value = {name}
-            onChange={(e) => {
+            onChange={(e) => 
+            {
               setName(e.target.value);
             }}
             className="biggerinput-admissionForm"
           />
-          <div class="note-admission">
-            <p><strong>Note!</strong> Please enter your name according to your 10th Marksheet</p>
-          </div>
+        
         </div>
 
-        <div>
-          <label className="label-admissionForm">Enter Your Birth-Date</label>
-            <input 
-            type="date" 
-            name ="birthDate"
-            value = {birthDate}
-            onChange={(e)=>{
-              setBirthDate(e.target.value);
-            }}
-            className="biggerinput-admissionForm"
-          />
-      </div>
+
 
         {/* Email */}
         <div>
@@ -166,14 +156,15 @@ function AdmissionForm() {
         {/* 10th marks */}
         <div className="marks-caste">
 
-          <Container className="Caste-admission">
+          <Container fluid className="Caste-admission">
 
             <Row>
 
               <Col > <div className="Caste-admission">
-                <label className="label-admissionForm">Caste</label>
+                <label className="smallerlabel-admissionForm">Caste</label>
+                <br />
                 <select value={cast} onChange={handelCastChange} className="input-admissionForm"    >
-                  <option value=" ">Select Cast</option>
+                  <option value="open">Select Your Caste</option>
                   <option value="open">OPEN</option>
                   <option value="obc">OBC</option>
                   <option value="st">ST</option>
@@ -184,9 +175,10 @@ function AdmissionForm() {
 
               <Col  >
                 <div className="Caste-admission">
-                  <label className="label-admissionForm">Gender</label>
+                  <label className="smallerlabel-admissionForm">Gender</label>
+                  <br />
                   <select value={gender} onChange={handelGenderChange} className="input-admissionForm"    >
-                    <option value=" ">Select Gender</option>
+                    <option value="open">Select Your Gender</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="other">Other</option>
@@ -195,22 +187,27 @@ function AdmissionForm() {
 
               </Col>
 
-              {/* <Col  >
+              <Col  >
                 <div className="Caste-admission">
-                  <label className="label-admissionForm">Date Of Birth</label>
-                 
-
-
-
+                  <label className="smallerlabel-admissionForm">Date Of Birth</label>
+                  <br />
+                  <input
+                    type="date"
+                    name="birthDate"
+                    onChange={(e) => {
+                      setBirthDate(e.target.value);
+                    }}
+                    className="input-admissionForm"
+                  />
                 </div>
 
-              </Col> */}
+              </Col>
 
 
             </Row>
           </Container>
         </div>
-        <Container className="tenthmarkSheet-schoolName">
+        <Container fluid className="tenthmarkSheet-schoolName">
 
           <Row>
 
@@ -231,7 +228,7 @@ function AdmissionForm() {
 
             <Col  >
               <div>
-                <label className="label-admissionForm">10th marks</label>
+                <label className="smallerlabel-admissionForm">10th marks</label>
                 <input
                   type="text"
                   name="marks10thPercentages"
@@ -249,7 +246,7 @@ function AdmissionForm() {
         </Container>
 
         <div class="note-admission">
-          <p><strong>Note!</strong> While uploading the documents, please rename it consisting your name. For e.g - Atharva Meher(Income Certificate)</p>
+          <p><strong>Note!</strong> While uploading the documents, please rename it consisting your name. For e.g- Atharva Meher(Income Certificate)</p>
         </div>
 
         <Container className='upload-docs-admission'>
@@ -281,6 +278,8 @@ function AdmissionForm() {
 
       </div>
 
+        <br />
+        <div class="col-md-12 text-center" className="submit-button-admissionForm">
 
 
       <br/>
