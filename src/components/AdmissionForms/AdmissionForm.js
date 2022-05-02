@@ -27,6 +27,28 @@ function AdmissionForm() {
     handleSubmit,
   } = useForm();
 
+  // const { currentUser } = useSelector((state) => state.user);
+  useEffect(()=>{
+      const handelGetReq = async() =>{
+        const data = await StudentInfo.get(`/getstudentinfo/${currentUser.uid}`);
+        console.log(data)
+        console.log("hello")
+        setName(data.data.StudentData[0].Name)
+        setEmail(data.data.StudentData[0].Email)
+        setBirthDate(data.data.StudentData[0].DOB)
+        setAddress(data.data.StudentData[0].Address)
+        setSchoolName(data.data.StudentData[0].SchoolName)
+        setmarks10th(data.data.StudentData[0].TenthMarks)
+        SetMarkSheet10th(data.data.StudentData[0].TenthMarksheet)
+        SetIncome(data.data.StudentData[0].incomeCertificate)
+        SetCastCertificate(data.data.StudentData[0].castCertificate)
+        SetMarkSheet10th(data.data.StudentData[0].TenthMarksheet)
+        SetCast(data.data.StudentData[0].Cast)
+        console.log(data.data.StudentData[0].TenthMarksheet)
+      }
+      handelGetReq();
+  },[setName,setEmail,setBirthDate,setAddress,setSchoolName,setmarks10th,SetMarkSheet10th,SetIncome,SetCast,SetCastCertificate,
+  SetGender]);
   const fileHandler = (e) => {
     if (e.target.name == "markSheet10th") {
       SetMarkSheet10th(e.target.files[0]);
@@ -39,6 +61,7 @@ function AdmissionForm() {
       console.log(e.target.files);
     }
   };
+  // console.log(currentUser)
   const submit = async () => {
 
     const Formdata = new FormData();
@@ -82,6 +105,7 @@ function AdmissionForm() {
           <input
             type="text"
             name="name"
+            value = {name}
             onChange={(e) => {
               setName(e.target.value);
             }}
@@ -97,6 +121,7 @@ function AdmissionForm() {
             <input 
             type="date" 
             name ="birthDate"
+            value = {birthDate}
             onChange={(e)=>{
               setBirthDate(e.target.value);
             }}
@@ -112,6 +137,7 @@ function AdmissionForm() {
           <input
             type="text"
             name="email"
+            value = {email}
             onChange={(e) => {
               setEmail(e.target.value);
             }}
@@ -124,6 +150,7 @@ function AdmissionForm() {
           <input
             type="text"
             name="address"
+            value = {address}
             onChange={(e) => {
               setAddress(e.target.value);
             }}
@@ -188,6 +215,7 @@ function AdmissionForm() {
                 <input
                   type="text"
                   name="schoolName"
+                  value = {schoolName}
                   onChange={(e) => {
                     setSchoolName(e.target.value);
                   }}
@@ -202,6 +230,7 @@ function AdmissionForm() {
                 <input
                   type="text"
                   name="marks10thPercentages"
+                  value = {marks10th}
                   onChange={(e) => {
                     setmarks10th(e.target.value);
                   }}
@@ -223,7 +252,13 @@ function AdmissionForm() {
 
             <Col ><div>
               <label className="label-admissionForm">10th mark sheet</label>
-              <input className="upload-admissionForm" type="file" onChange={fileHandler} name="markSheet10th" />
+              <input 
+              className="upload-admissionForm" 
+              type="file" 
+              
+              onChange={fileHandler} 
+              name="markSheet10th" 
+              />
             </div>
             </Col>
 

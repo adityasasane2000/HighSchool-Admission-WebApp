@@ -34,7 +34,7 @@ const userReducer = (state = initialState,action) =>{
         // case types.FACEBOOK_SIGN_IN_FAIL:
             return {...state,loading:false,error:action.payload}
         case types.ADMIN:
-            return {...state,loading:false,admin:action.payload}
+            return {...state,loading:false,adminData:action.payload}
         default:
             return state;
     }

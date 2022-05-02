@@ -2,26 +2,50 @@ import React,{useEffect,useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import {adminInitiate, setAdmin} from '../redux/actions';
+import AdminInfo from '../api/AdminInfo';
+import { useHistory } from 'react-router-dom';
+
+import {adminInitiate, setAdmin,setAdminData} from '../redux/actions';
 const AdminLogin = () => {
 
     const [state, setState] = useState({
         email: "",
         password: "",
+        msg:""
     });
-
+    const { adminData } = useSelector((state) => state.user);
+    const history = useHistory();
+    const [id,setId] = useState(null);
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        if (adminData !== null) {
+            console.log(adminData)
+            history.push("/admin/dashboard");
+        }
+    }, [adminData, history]);
+
     useEffect(()=>{
-        dispatch(setAdmin(null));
+        dispatch(setAdmin(null));   
     },[dispatch])
     
-    const { email, password } = state;
-    const handleSubmit = (e) => {
+    const { email, password ,msg} = state;
+    const handleSubmit = async(e) => {
         e.preventDefault();
         if (!email || !password) {
             return;
         }
+        // const formData = new FormData();
+        // formData.append("email",email);
+        // formData.append("password",password);
+        // console.log(formData)
+        const res = await AdminInfo.post("/adminlogin",{email:email,password:password});
+        console.log({email:email,password:password})
+
+        console.log(res);
+        setId(res.Id);
+        setState({"msg":res.data.msg});
+        dispatch(setAdminData(res.data.Id));
         
        
     }
@@ -62,7 +86,11 @@ const AdminLogin = () => {
                         <i className="fas fa-sign-in-alt"></i> Login
                     </button>
                 </form>
+                
             </div>
+            <div>
+                    {msg}
+                </div>
         </div>
     )
 }

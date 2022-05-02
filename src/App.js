@@ -25,10 +25,13 @@ import AdmissionForm from './components/AdmissionForms/AdmissionForm';
 import AdminLogin from './pages/AdminLogin';
 import AdminNavigation from './components/AdminNavigation'
 
-import { setAdmin } from './redux/actions';
+import { setAdmin ,setAdminData} from './redux/actions';
 import AdminDashBoard from './pages/AdminDashBoard';
+
+import AdminRoute from './components/AdminRoute';
+
 const App =()=>{
-  const { admin } = useSelector((state) => state.user);
+  const { admin , adminData } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   useEffect(()=>{
     auth.onAuthStateChanged((authUser)=>{
@@ -38,6 +41,15 @@ const App =()=>{
         dispatch(setUser(null));
       }
     })
+  },[dispatch])
+
+  useEffect(()=>{
+   
+      if(adminData){
+        dispatch(setAdminData(adminData));
+      }else{
+        dispatch(setAdminData(null));
+      }
   },[dispatch])
 
   
@@ -72,7 +84,7 @@ const App =()=>{
           <Route exact path ="/art" component={Art} />
           {/* admin Routes */}
           <Route exact path ="/hsam-admin" component={AdminLogin}/>
-          <Route exact path ="/admin/dashboard" component={AdminDashBoard}/>
+          <AdminRoute exact path ="/admin/dashboard" component={AdminDashBoard}/>
         </Switch>
         </div>
       </div>
