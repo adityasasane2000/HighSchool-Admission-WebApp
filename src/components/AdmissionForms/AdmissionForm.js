@@ -7,6 +7,8 @@ import { useSelector } from "react-redux";
 import { Row, Col, Container, Form } from 'react-bootstrap';
 
 import StudentInfo from "../../api/StudentInfo";
+import Showfiles from "../../api/FileInfo";
+
 function AdmissionForm() {
 
   const { currentUser } = useSelector((state) => state.user);
@@ -31,8 +33,7 @@ function AdmissionForm() {
   useEffect(()=>{
       const handelGetReq = async() =>{
         const data = await StudentInfo.get(`/getstudentinfo/${currentUser.uid}`);
-        console.log(data)
-        console.log("hello")
+        // console.log(data)
         setName(data.data.StudentData[0].Name)
         setEmail(data.data.StudentData[0].Email)
         setBirthDate(data.data.StudentData[0].DOB)
@@ -41,10 +42,12 @@ function AdmissionForm() {
         setmarks10th(data.data.StudentData[0].TenthMarks)
         SetMarkSheet10th(data.data.StudentData[0].TenthMarksheet)
         SetIncome(data.data.StudentData[0].incomeCertificate)
-        SetCastCertificate(data.data.StudentData[0].castCertificate)
+        SetCastCertificate(data.data.StudentData[0].CastCertificate)
         SetMarkSheet10th(data.data.StudentData[0].TenthMarksheet)
         SetCast(data.data.StudentData[0].Cast)
-        console.log(data.data.StudentData[0].TenthMarksheet)
+        // console.log(data.data.StudentData[0].TenthMarksheet)
+        console.log("Hello");
+        console.log(castCertificate);
       }
       handelGetReq();
   },[setName,setEmail,setBirthDate,setAddress,setSchoolName,setmarks10th,SetMarkSheet10th,SetIncome,SetCast,SetCastCertificate,
@@ -76,9 +79,6 @@ function AdmissionForm() {
     Formdata.append("incomeCertificate", incomeCertificate);
     Formdata.append("cast", cast);
     Formdata.append("gender", gender);
-    // console.log(birthDate)
-
-
     Formdata.append("castCertificate", castCertificate);
     console.log(Formdata)
 
@@ -93,6 +93,10 @@ function AdmissionForm() {
   const handelGenderChange = (e) => {
     SetGender(e.target.value);
 
+  }
+
+  const openFile = (e) => {
+    StudentInfo.get("/showfiles");
   }
 
   return (
@@ -118,10 +122,6 @@ function AdmissionForm() {
 
         <div>
           <label className="label-admissionForm">Enter Your Birth-Date</label>
-          <input
-            type="date"
-            name="birthDate"
-            onChange={(e) => {
             <input 
             type="date" 
             name ="birthDate"
@@ -131,7 +131,7 @@ function AdmissionForm() {
             }}
             className="biggerinput-admissionForm"
           />
-        </div>
+      </div>
 
         {/* Email */}
         <div>
@@ -258,25 +258,22 @@ function AdmissionForm() {
 
             <Col ><div>
               <label className="label-admissionForm">10th mark sheet</label>
-              <input 
-              className="upload-admissionForm" 
-              type="file" 
-              
-              onChange={fileHandler} 
-              name="markSheet10th" 
-              />
+              <input className="upload-admissionForm" type="file" onChange={fileHandler} name="markSheet10th" />
+              <a href={Showfiles+markSheet10th} target="_blank">View</a>
             </div>
             </Col>
 
             <Col  > <div>
               <label className="label-admissionForm">Income Certificate</label>
               <input className="upload-admissionForm" type="file" onChange={fileHandler} name="incomeCertificate" />
-            </div></Col>
+              <a href={Showfiles+incomeCertificate} target="_blank">View</a>            
+              </div></Col>
 
             <Col  ><div>
               <label className="label-admissionForm">Caste Certificate</label>
               <input className="upload-admissionForm" type="file" onChange={fileHandler} name="castCertificate" />
-            </div></Col>
+              <a href={Showfiles+castCertificate} target="_blank">View</a>
+             </div></Col>
           </Row>
         </Container>
         <div class="note-admission">

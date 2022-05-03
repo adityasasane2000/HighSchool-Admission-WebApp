@@ -24,7 +24,7 @@ const AdminLogin = () => {
             history.push("/admin/dashboard");
         }
     }, [adminData, history]);
-
+ 
     useEffect(()=>{
         dispatch(setAdmin(null));   
     },[dispatch])
@@ -35,11 +35,7 @@ const AdminLogin = () => {
         if (!email || !password) {
             return;
         }
-        // const formData = new FormData();
-        // formData.append("email",email);
-        // formData.append("password",password);
-        // console.log(formData)
-        const res = await AdminInfo.post("/adminlogin",{email:email,password:password});
+        const res = await AdminInfo.post("/admin",{email:email,password:password});
         console.log({email:email,password:password})
 
         console.log(res);
