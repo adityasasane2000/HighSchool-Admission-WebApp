@@ -173,6 +173,7 @@ function AdmissionForm() {
               <Col > <div className="Caste-admission">
                 <label className="label-admissionForm">Caste</label>
                 <select value={cast} onChange={handelCastChange} className="input-admissionForm"    >
+                  <option value=" ">Select Cast</option>
                   <option value="open">OPEN</option>
                   <option value="obc">OBC</option>
                   <option value="st">ST</option>
@@ -185,10 +186,10 @@ function AdmissionForm() {
                 <div className="Caste-admission">
                   <label className="label-admissionForm">Gender</label>
                   <select value={gender} onChange={handelGenderChange} className="input-admissionForm"    >
+                    <option value=" ">Select Gender</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="other">Other</option>
-
                   </select>
                 </div>
 
@@ -280,14 +281,6 @@ function AdmissionForm() {
         </Container>
         <div class="note-admission">
           <p><strong>Note!</strong> Only .pdf files are allowed</p>
-
-        <div>
-        <label className="label-admissionForm">Cast</label>
-        <select value={cast} onChange={handelCastChange} >
-          <option value="open">OPEN</option>
-          <option value="obc">OBC</option>
-          <option value="st">ST</option>
-        </select>
 
       </div>
 
