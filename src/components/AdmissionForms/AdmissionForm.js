@@ -297,7 +297,7 @@ function AdmissionForm() {
       </div>
       <br />
 
-
+    </div>
     </div>
     </form>
   );
