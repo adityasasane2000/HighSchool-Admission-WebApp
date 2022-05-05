@@ -19,7 +19,7 @@ function AdmissionForm() {
   const [marks10th, setmarks10th] = useState("");
  
   
-  const [cast, SetCast] = useState("");
+  const [cast, SetCast] = useState("open");
   const [gender, SetGender] = useState("");
 
   const [castCertificate, SetCastCertificate] = useState("");
@@ -249,7 +249,7 @@ function AdmissionForm() {
                     onChange={handelCastChange}
                     className="input-admissionForm"
                   >
-                    <option value="">Select Your Caste</option>
+                    <option value="open">Select Your Caste</option>
                     <option value="open">OPEN</option>
                     <option value="obc">OBC</option>
                     <option value="st">ST</option>
@@ -400,7 +400,7 @@ function AdmissionForm() {
             </Col>
 
             <Col>
-              <div>
+              <div style = {{display:`${cast =="open" ?"none":""}`}}>
                 <label className="label-admissionForm">Caste Certificate</label>
                 <input
                   className="upload-admissionForm"
