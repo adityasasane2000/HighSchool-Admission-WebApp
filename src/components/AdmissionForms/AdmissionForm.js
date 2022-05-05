@@ -89,7 +89,7 @@ function AdmissionForm() {
      
       console.log("Hello");
      
-      SetCastCertificateName(data.data.StudentData[0].CastCertificate);
+      SetCastCertificate(data.data.StudentData[0].CastCertificate);
       if(data.data.StudentData[0].CastCertificate !="NULL"){
         SetisCastCertificateFilePicked(false);
         SetViewCast(true);
@@ -105,8 +105,8 @@ function AdmissionForm() {
         SetViewTenthMark(true);
       }
 
-      console.log(data.data)
-      // console.log(data.data.StudentData[0].CastCertificate)
+      //console.log(CastCertificate);
+       //console.log(data.data.StudentData[0].CastCertificate)
      
     };
     handelGetReq();
@@ -415,7 +415,7 @@ function AdmissionForm() {
                   {/* <div>
                     <p>{castCertificate=="" && castCertificateName!="NULL"?"File Name "+castCertificateName:"File Name "+castCertificate.name}</p>
                   </div> */}
-               
+
                 <a 
                   className="btn btn-info" 
                   style={{display:`${viewCast ?"":"none"}`}}
