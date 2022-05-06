@@ -34,6 +34,8 @@ const Login = () => {
         if (!email || !password) {
             return;
         }
+        console.log(email);
+        console.log(password)
         dispatch(loginInitiate(email, password));
         setState({ email: "", password: "" });
     }
@@ -77,7 +79,8 @@ const Login = () => {
                             required
                         />
       
-                        <Button variant="outline-primary" id='signbutton'>SIGN IN</Button>
+                        <button onsubmitvariant="outline-primary" id='signbutton'>SIGN IN</button>
+                        </form>
                         <br />
                         <hr />
                         <div className="orcont">
@@ -105,7 +108,7 @@ const Login = () => {
                                 </button>
                             </div>
                         </Link> */}
-                    </form>
+                   
                 </div>
             </div>
         </div>

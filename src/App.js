@@ -29,6 +29,7 @@ import { setAdmin ,setAdminData} from './redux/actions';
 import AdminDashBoard from './pages/AdminDashBoard';
 
 import AdminRoute from './components/AdminRoute';
+import SuccessfullySubmit from './components/AdmissionForms/SuccessfullySubmit';
 
 const App =()=>{
   const { admin , adminData } = useSelector((state) => state.user);
@@ -82,6 +83,7 @@ const App =()=>{
           <Route exact path ="/science" component={Science} />
           <Route exact path ="/commarce" component={Commarce} />
           <Route exact path ="/art" component={Art} />
+          <Route exact path ="/success" component={SuccessfullySubmit} />
           {/* admin Routes */}
           <Route exact path ="/hsam-admin" component={AdminLogin}/>
           <AdminRoute exact path ="/admin/dashboard" component={AdminDashBoard}/>

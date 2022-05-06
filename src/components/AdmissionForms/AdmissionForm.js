@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { Row, Col, Container, Form } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 
 import StudentInfo from "../../api/StudentInfo";
 import Showfiles from "../../api/FileInfo";
@@ -39,6 +40,10 @@ function AdmissionForm() {
   const [isTenthMarkSheetFilePicked, SetIsTenthMarkSheetFilePicked] =
   useState(true);
   const [viewTenthMark,SetViewTenthMark] = useState(false);
+
+  const history = useHistory();
+
+  // const [msg ,SetMes] = useState("");
 
   // const [castSelectedFile, SetcastSelectedFile] = useState();
   
@@ -168,7 +173,13 @@ function AdmissionForm() {
     console.log(Formdata);
     console.log(castCertificate)
 
-    await StudentInfo.post("/poststudentinfo", Formdata);
+    const data = await StudentInfo.post("/poststudentinfo", Formdata);
+    // console.log(data)
+    if(data.data.msg !=""){
+      console.log(data.data.msg)
+      history.push("/success");
+    }
+
   };
 
   const handelCastChange = (e) => {
@@ -249,7 +260,7 @@ function AdmissionForm() {
                     onChange={handelCastChange}
                     className="input-admissionForm"
                   >
-                    <option value="open">Select Your Caste</option>
+                    <option value="null">Select Your Caste</option>
                     <option value="open">OPEN</option>
                     <option value="obc">OBC</option>
                     <option value="st">ST</option>
