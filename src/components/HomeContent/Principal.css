@@ -1,6 +1,9 @@
 .principal-img{
-    width: 40%;
-    margin: 5px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 30px;
+      width: 36%;
+      margin: auto;
+      position: relative;
 }
 .Principal-div{
     display: flex;

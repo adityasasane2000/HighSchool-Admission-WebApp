@@ -8,13 +8,16 @@ import "../Courses/courses.css";
 const Science = () => {
   return (
     <div className='Program-div'>
-      <Accordion defaultActiveKey="0">
+       <h1 className="program-headings">SCIENCE SECTION</h1>
+       <Accordion defaultActiveKey="0">
         <Accordion.Item className='Program-div-Accordion' eventKey="1">
           <Accordion.Header>Vision</Accordion.Header>
           <Accordion.Body>
             The vision of Science & Technology Department is to engage the people of the state in science, the students to cultivate and enrich science education, research, innovation and communication, and the industry and academia to partner in pursuit of promoting science and technology and strengthening the scientific capability of the state.
           </Accordion.Body>
-        </Accordion.Item>
+      </Accordion.Item>
+        </Accordion>
+        <Accordion defaultActiveKey="0">
         <Accordion.Item className='Program-div-Accordion' eventKey="1">
           <Accordion.Header>Mission</Accordion.Header>
           <Accordion.Body>
@@ -23,14 +26,14 @@ const Science = () => {
               </li><li>
                 Improve human and ocean health</li><li>
                 Develop sustainable materials to power our planet</li>
-                <li>
+              <li>
                 Move discoveries from the lab to people's lives.</li></ul>
 
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
       <Accordion className='Program-div-Accordion' defaultActiveKey="0">
-        <Accordion.Item eventKey="0">
+        <Accordion.Item eventKey="1">
           <Accordion.Header>Timetable</Accordion.Header>
           <Accordion.Body>
             <table className='timetable-program' border={1} cellSpacing={0} align="center">
@@ -132,18 +135,25 @@ const Science = () => {
                   <td align="center" height={50}>SPORTS</td>
                 </tr>
               </tbody></table>
-          </Accordion.Body>
+              </Accordion.Body>
         </Accordion.Item>
-        <Accordion.Item eventKey="0">
+        </Accordion>
+        <Accordion className='Program-div-Accordion' defaultActiveKey="0">
+        <Accordion.Item eventKey="1">
           <Accordion.Header>Curriculam</Accordion.Header>
           <Accordion.Body>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-            est laborum.
+            <a href='https://drive.google.com/file/d/13CifvlJ6NWDkSMZ63S9JQ4HNwP8ljFDI/view?usp=drivesdk' target={'_blank'} >11th &   12th - CHEMISTRY  </a>
+            <br/>
+            <a href='https://drive.google.com/file/d/133UVr_RicBv6FeApmcCh437w_cvFAj7n/view?usp=drivesdk' target={'_blank'} >11th &   12th - PHYSICS  </a>
+            <br/>
+            <a href='http://www.mahahsscboard.in/hsc_syllabus_pdf/h40.pdf' target={'_blank'} >11th &   12th - MATHEMATICS </a>
+            <br/>
+            <a href='http://www.mahahsscboard.in/hsc_syllabus_pdf/h56.pdf' target={'_blank'} >11th &   12th - BIOLOGY </a>
+            <br/>
+            <a href='http://www.mahahsscboard.in/hsc_syllabus_pdf/H01.pdf' target={'_blank'} >11th &   12th - ENGLISH  </a>
+            <br/>
+            <a href='http://www.mahahsscboard.in/hsc_syllabus_pdf/H02.pdf' target={'_blank'} >11th &   12th - MARATHI </a>
+
           </Accordion.Body>
         </Accordion.Item>
 

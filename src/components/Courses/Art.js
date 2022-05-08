@@ -4,6 +4,8 @@ import { Accordion } from 'react-bootstrap';
 const Art = () => {
   return (
     <div>
+                  <h1 className="program-headings">ARTS SECTION</h1>
+
       <Accordion defaultActiveKey="0">
         <Accordion.Item className='Program-div-Accordion' eventKey="1">
           <Accordion.Header>Vision</Accordion.Header>
@@ -13,6 +15,8 @@ const Art = () => {
             The Department of Art and Design will lead in promoting the visual arts by fostering critical
             and creative thinking, artistic expression, effective communication, cultural awareness, and community engagement.          </Accordion.Body>
         </Accordion.Item>
+        </Accordion>
+        <Accordion defaultActiveKey="0">
         <Accordion.Item className='Program-div-Accordion' eventKey="1">
           <Accordion.Header>Mission</Accordion.Header>
           <Accordion.Body>
@@ -28,7 +32,7 @@ const Art = () => {
         </Accordion.Item>
       </Accordion>
       <Accordion className='Program-div-Accordion' defaultActiveKey="0">
-        <Accordion.Item eventKey="0">
+        <Accordion.Item eventKey="1">
           <Accordion.Header>Timetable</Accordion.Header>
           <Accordion.Body>
             <table className='timetable-program' border={1} cellSpacing={0} align="center">
@@ -132,18 +136,24 @@ const Art = () => {
               </tbody></table>
           </Accordion.Body>
         </Accordion.Item>
-        <Accordion.Item eventKey="0">
+        </Accordion>
+        <Accordion className='Program-div-Accordion' defaultActiveKey="0">
+        <Accordion.Item eventKey="1">
           <Accordion.Header>Curriculam</Accordion.Header>
           <Accordion.Body>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-            est laborum.
+          <a href='http://www.mahahsscboard.in/hsc_syllabus_pdf/H02.pdf' target={'_blank'} >11th &   12th - MARATHI</a>
+            <br/>
+            <a href='http://www.mahahsscboard.in/hsc_syllabus_pdf/H01.pdf' target={'_blank'} >11th &   12th - ENGLISH </a>
+            <br/>
+            <a href='http://www.mahahsscboard.in/hsc_syllabus_pdf/h45.pdf' target={'_blank'} >11th &   12th - SOCIOLOGY</a>
+            <br/>
+            <a href='http://www.mahahsscboard.in/hsc_syllabus_pdf/h41.pdf' target={'_blank'} >11th &   12th - GEOLOGY </a>
+            <br/>
+            <a href='http://www.mahahsscboard.in/hsc_syllabus_pdf/h42.pdf' target={'_blank'} >11th &   12th - POLITICAL SCIENCE </a>
+            <br/>
           </Accordion.Body>
         </Accordion.Item>
+ 
 
       </Accordion>
     </div>

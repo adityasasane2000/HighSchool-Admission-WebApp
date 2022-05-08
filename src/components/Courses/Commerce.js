@@ -3,7 +3,8 @@ import {Accordion } from 'react-bootstrap';
 const Commarce = () =>{
     return (
         <div>
-                <Accordion defaultActiveKey="0">
+           <h1 className="program-headings">COMMERCE SECTION</h1>
+             <Accordion defaultActiveKey="0">
         <Accordion.Item className='Program-div-Accordion' eventKey="1">
           <Accordion.Header>Vision</Accordion.Header>
           <Accordion.Body>
@@ -11,7 +12,9 @@ const Commarce = () =>{
           train innovative and competent human resource globally suitable for industry, business and service
            sector and to equip and encourage them to start their own ventures in urban or rural areas benefitting
             both the classes and masses         </Accordion.Body>
-        </Accordion.Item>
+            </Accordion.Item>
+        </Accordion>
+        <Accordion defaultActiveKey="0">
         <Accordion.Item className='Program-div-Accordion' eventKey="1">
           <Accordion.Header>Mission</Accordion.Header>
           <Accordion.Body>
@@ -23,11 +26,11 @@ const Commarce = () =>{
                 <li>
                 Move discoveries from the lab to people's lives.</li></ul>
 
-          </Accordion.Body>
+                </Accordion.Body>
         </Accordion.Item>
       </Accordion>
       <Accordion className='Program-div-Accordion' defaultActiveKey="0">
-        <Accordion.Item eventKey="0">
+        <Accordion.Item eventKey="1">
           <Accordion.Header>Timetable</Accordion.Header>
           <Accordion.Body>
             <table className='timetable-program' border={1} cellSpacing={0} align="center">
@@ -129,18 +132,28 @@ const Commarce = () =>{
                   <td align="center" height={50}>SPORTS</td>
                 </tr>
               </tbody></table>
-          </Accordion.Body>
+              </Accordion.Body>
         </Accordion.Item>
-        <Accordion.Item eventKey="0">
+        </Accordion>
+        <Accordion className='Program-div-Accordion' defaultActiveKey="0">
+        <Accordion.Item eventKey="1">
           <Accordion.Header>Curriculam</Accordion.Header>
           <Accordion.Body>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-            est laborum.
+          <a href='http://www.mahahsscboard.in/hsc_syllabus_pdf/h49.pdf' target={'_blank'} >11th &   12th - BOOK-KEEPING AND ACCOUNTANCY</a>
+            <br/>
+            <a href='http://www.mahahsscboard.in/hsc_syllabus_pdf/h50.pdf' target={'_blank'} >11th &   12th - SECRETARIAL PRACTICE </a>
+            <br/>
+            <a href='http://www.mahahsscboard.in/hsc_syllabus_pdf/h51.pdf' target={'_blank'} >11th &   12th - ORGANISATION OF COMM & MANAGEMENT </a>
+            <br/>
+            <a href='http://www.mahahsscboard.in/hsc_syllabus_pdf/h52.pdf' target={'_blank'} >11th &   12th - ECONOMIC </a>
+            <br/>
+            <a href='http://www.mahahsscboard.in/hsc_syllabus_pdf/H01.pdf' target={'_blank'} >11th &   12th - ENGLISH </a>
+            <br/>
+            <a href='http://www.mahahsscboard.in/hsc_syllabus_pdf/H02.pdf' target={'_blank'} >11th &   12th - MARATHI</a>
+            <br/>
+            
+
+            
           </Accordion.Body>
         </Accordion.Item>
 

@@ -32,6 +32,18 @@
     content: "/a";
     background-color: aliceblue;
 }
+@media only screen and (max-width: 600px) {
+    .biggerinput-admissionForm{
+        margin: 5px 3% 0 2%;
+        width: 20rem;
+        padding:6px;
+        display: block;
+        box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+        border: 2px solid rgb(127, 127, 143);
+        content: "/a";
+        background-color: aliceblue;
+    }
+  }
 .note-admission{
     background-color: #ffdddd;
     border-left: 6px solid #f44336;
