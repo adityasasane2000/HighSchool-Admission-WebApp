@@ -7,7 +7,7 @@ import { useSelector,useDispatch } from "react-redux";
 import { Row, Col, Container, Form } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 // import { useParams } from "react-router-dom";
-import StudentInfo from "../api/StudentInfo";
+import adminData from "../api/AdminInfo";
 import Showfiles from "../api/FileInfo";
 
 import {adminInitiate, setAdmin} from '../redux/actions';
@@ -52,6 +52,13 @@ function DisplayStudentDetailsAdmin() {
       dispatch(setAdmin(true));
   },[dispatch])
 
+  const handleAcceptRequest = async() =>{
+    await adminData.post("/student/accept",{email:email,UID:currentUser.uid});
+  }
+  const handleRejectRequest = async() =>{
+    await adminData.post("/student/reject",{email:email,UID:currentUser.uid});
+  }
+
   // const [msg ,SetMes] = useState("");
 
   // const [castSelectedFile, SetcastSelectedFile] = useState();
@@ -87,7 +94,7 @@ function DisplayStudentDetailsAdmin() {
   // const { currentUser } = useSelector((state) => state.user);
   useEffect(() => {
     const handelGetReq = async () => {
-      const data = await StudentInfo.get(`/getstudentinfo/${params.id}`);
+      const data = await adminData.get(`/getStudent/${params.id}`);
       console.log(data)
       setName(data.data.StudentData[0].Name);
       setEmail(data.data.StudentData[0].Email);
@@ -166,7 +173,7 @@ function DisplayStudentDetailsAdmin() {
     SetGender(e.target.value);
   };
   const openFile = (e) => {
-    StudentInfo.get("/showfiles");
+    adminData.get("/showfiles");
   };
 
   return (
@@ -372,6 +379,12 @@ function DisplayStudentDetailsAdmin() {
         </div>
       </div>
     </form>
+
+      <div>
+          <button className = "btn btn-primary" onClick = {handleAcceptRequest}>Accept</button>
+      
+          <button className = "btn btn-danger" onClick = {handleRejectRequest}>Reject</button>
+      </div>
     </div>
     </div>
   );
