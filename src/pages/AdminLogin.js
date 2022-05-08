@@ -35,7 +35,7 @@ const AdminLogin = () => {
         if (!email || !password) {
             return;
         }
-        const res = await AdminInfo.post("/admin",{email:email,password:password});
+        const res = await AdminInfo.post("/hsam-admin",{email:email,password:password});
         console.log({email:email,password:password})
 
         console.log(res);
