@@ -53,10 +53,10 @@ function DisplayStudentDetailsAdmin() {
   },[dispatch])
 
   const handleAcceptRequest = async() =>{
-    await adminData.post("/student/accept",{email:email,UID:currentUser.uid});
+    await adminData.post("/student/accept",{email:email,UID:params.id});
   }
   const handleRejectRequest = async() =>{
-    await adminData.post("/student/reject",{email:email,UID:currentUser.uid});
+    await adminData.post("/student/reject",{email:email,UID:params.id});
   }
 
   // const [msg ,SetMes] = useState("");
@@ -95,33 +95,34 @@ function DisplayStudentDetailsAdmin() {
   useEffect(() => {
     const handelGetReq = async () => {
       const data = await adminData.get(`/getStudent/${params.id}`);
-      console.log(data)
-      setName(data.data.StudentData[0].Name);
-      setEmail(data.data.StudentData[0].Email);
-      setBirthDate(data.data.StudentData[0].DOB);
-      setAddress(data.data.StudentData[0].Address);
-      setSchoolName(data.data.StudentData[0].SchoolName);
-      setmarks10th(data.data.StudentData[0].TenthMarks);
+      console.log(data.data)
+      console.log(data.data.StudentData.Name)
+      setName(data.data.StudentData.Name);
+      setEmail(data.data.StudentData.Email);
+      setBirthDate(data.data.StudentData.DOB);
+      setAddress(data.data.StudentData.Address);
+      setSchoolName(data.data.StudentData.SchoolName);
+      setmarks10th(data.data.StudentData.TenthMarks);
      
      
-      SetMarkSheet10th(data.data.StudentData[0].TenthMarksheet);
-      SetCast(data.data.StudentData[0].Cast);
-      SetGender(data.data.StudentData[0].Gender);
+      SetMarkSheet10th(data.data.StudentData.TenthMarksheet);
+      SetCast(data.data.StudentData.Cast);
+      SetGender(data.data.StudentData.Gender);
      
       console.log("Hello");
      
-      SetCastCertificate(data.data.StudentData[0].CastCertificate);
-      if(data.data.StudentData[0].CastCertificate !="NULL"){
+      SetCastCertificate(data.data.StudentData.CastCertificate);
+      if(data.data.StudentData.CastCertificate !="NULL"){
         SetisCastCertificateFilePicked(false);
         SetViewCast(true);
       }
-      SetIncome(data.data.StudentData[0].incomeCertificate);
-      if(data.data.StudentData[0].incomeCertificate!="NULL"){
+      SetIncome(data.data.StudentData.incomeCertificate);
+      if(data.data.StudentData.incomeCertificate!="NULL"){
         SetIsIncomeCertificateFilePicked(false);
         SetViewIncome(true)
       }
-      SetMarkSheet10th(data.data.StudentData[0].TenthMarksheet);
-      if(data.data.StudentData[0].TenthMarksheet!="NULL"){
+      SetMarkSheet10th(data.data.StudentData.TenthMarksheet);
+      if(data.data.StudentData.TenthMarksheet!="NULL"){
         SetIsTenthMarkSheetFilePicked(false);
         SetViewTenthMark(true);
       }
@@ -192,7 +193,7 @@ function DisplayStudentDetailsAdmin() {
           <input
             type="text"
             name="name"
-            disabled="true"
+            disabled={true}
             value={name}
             onChange={(e) => {
               setName(e.target.value);
@@ -209,7 +210,7 @@ function DisplayStudentDetailsAdmin() {
             type="text"
             name="email"
             value={email}
-            disabled="true"
+            disabled={true}
             className="biggerinput-admissionForm"
           />
         </div>
@@ -219,7 +220,7 @@ function DisplayStudentDetailsAdmin() {
           <input
             type="text"
             name="address"
-            disabled="true"
+            disabled={true}
             value={address}
 
             className="biggerinput-admissionForm"
@@ -236,7 +237,7 @@ function DisplayStudentDetailsAdmin() {
                 <div className="Caste-admission">
                   <label className="smallerlabel-admissionForm">Caste</label>
                   <br />
-                  <input  disabled="true" value = {cast}  onChange={handelCastChange} className="input-admissionForm"/>
+                  <input  disabled={true} value = {cast}  onChange={handelCastChange} className="input-admissionForm"/>
                 </div>
               </Col>
 
@@ -244,7 +245,7 @@ function DisplayStudentDetailsAdmin() {
                 <div className="Caste-admission">
                   <label className="smallerlabel-admissionForm">Gender</label>
                   <br />
-                  <input  disabled="true" value = {gender}  onChange={handelGenderChange} className="input-admissionForm"/>
+                  <input  disabled={true} value = {gender}  onChange={handelGenderChange} className="input-admissionForm"/>
                 </div>
               </Col>
 
@@ -257,7 +258,7 @@ function DisplayStudentDetailsAdmin() {
                   <input
                     name="birthDate"
                     value={birthDate}
-                    disabled="true"
+                    disabled={true}
                     onChange={(e) => {
                       setBirthDate(e.target.value);
                     }}
@@ -276,7 +277,7 @@ function DisplayStudentDetailsAdmin() {
                 <input
                   type="text"
                   name="schoolName"
-                  disabled="true"
+                  disabled={true}
                   value={schoolName}
                   onChange={(e) => {
                     setSchoolName(e.target.value);
@@ -291,7 +292,7 @@ function DisplayStudentDetailsAdmin() {
                 <label className="smallerlabel-admissionForm">10th marks</label>
                 <input
                   type="text"
-                  disabled="true"
+                  disabled={true}
                   name="marks10thPercentages"
                   value={marks10th}
                   onChange={(e) => {
