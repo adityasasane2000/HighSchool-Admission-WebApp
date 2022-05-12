@@ -27,6 +27,11 @@ const Science = () => {
                 Improve human and ocean health</li><li>
                 Develop sustainable materials to power our planet</li>
               <li>
+                Move discoveries from the lab to people's lives.</li>
+                <li>
+                Improve human and ocean health</li><li>
+                Develop sustainable materials to power our planet</li>
+              <li>
                 Move discoveries from the lab to people's lives.</li></ul>
 
           </Accordion.Body>

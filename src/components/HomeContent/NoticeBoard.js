@@ -2,6 +2,8 @@ import React from "react";
 import Marquee from "react-fast-marquee";
 import { Row, Col, Container } from "react-bootstrap";
 import "../../components/HomeContent/NoticeBoard.css";
+import vision from '../../components/images/vision.png'
+import mission from '../../components/images/mission.png'
 
 class NoticeBoard extends React.Component {
   render() {
@@ -12,26 +14,31 @@ class NoticeBoard extends React.Component {
             <Col lg={8}>
               <div className="">
                 <h1 className="homepage-headings">Vision</h1>
-                <p>
+                <img className='vision-img' src={vision} />
+                <p className="vision-NoticeBoard">
                   Education for masses is principal instrument and the tool for
                   eradication of all pervasive social evils and desirable
                   effective social change. Education through self-help is a
                   significant and chief drive of social change to achieve
                   different tasks of nation building by establishing social
                   equality and social justice.
+                  
+                </p>
+                <p className="vision-NoticeBoard">
+                Our vision is to develop well rounded, confident and responsible individuals who aspire to achieve their full potential. We will do this by providing a welcoming, happy, safe, and supportive learning environment in which everyone is equal and all achievements are celebrated
+                  
                 </p>
               </div>
               <div className="">
                 <h1 className="homepage-headings">Mission</h1>
-                <p>
-                  In order to achieve the vision as To import higher Education
-                  through the University formal courses and non-traditional self
-                  financing and short term courses. By imparting higher
-                  education for the upliftment of the backward, the depressed,
-                  and the underprivileged and tribal communities of the region.
-                  To inculcate values and virtues among the students as
-                  mentioned the aims and the objectives of the college.
-                </p>
+                <img className='mission-img' src={mission} />
+                <ul><li>Ignite a passion for education in all learners.
+            </li><li>Thrive in a data rich world altoghether towards the successful future of our students
+              </li><li>
+                Help in improvement of human health and spread awareness about physical and mental health issues</li><li>
+                Develop sustainable materials to power our planet and future of this nation</li>
+              <li>
+                Move discoveries from the lab to people's lives through our students</li></ul>
               </div>
             </Col>
             <Col lg={4}>

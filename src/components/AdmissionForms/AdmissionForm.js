@@ -18,56 +18,52 @@ function AdmissionForm() {
   const [address, setAddress] = useState("");
   const [schoolName, setSchoolName] = useState("");
   const [marks10th, setmarks10th] = useState("");
- 
-  
+
   const [cast, SetCast] = useState("open");
   const [gender, SetGender] = useState("");
 
   const [castCertificate, SetCastCertificate] = useState("");
-  const [castCertificateName,SetCastCertificateName] = useState("");
+  const [castCertificateName, SetCastCertificateName] = useState("");
   const [isCastCertificateFilePicked, SetisCastCertificateFilePicked] =
-  useState(true);
-  const [viewCast,SetViewCast] = useState(false);
+    useState(true);
+  const [viewCast, SetViewCast] = useState(false);
 
   const [incomeCertificate, SetIncome] = useState("");
-  const [incomeCertificateName,SetIncomeCertificateName] = useState("");
+  const [incomeCertificateName, SetIncomeCertificateName] = useState("");
   const [isIncomeCertificateFilePicked, SetIsIncomeCertificateFilePicked] =
-  useState(true);
-  const [viewIncome,SetViewIncome] = useState(false);
+    useState(true);
+  const [viewIncome, SetViewIncome] = useState(false);
 
   const [markSheet10th, SetMarkSheet10th] = useState("");
-  const [tenthMarkSheetName,SetTenthMarkSheetName] = useState("");
+  const [tenthMarkSheetName, SetTenthMarkSheetName] = useState("");
   const [isTenthMarkSheetFilePicked, SetIsTenthMarkSheetFilePicked] =
-  useState(true);
-  const [viewTenthMark,SetViewTenthMark] = useState(false);
+    useState(true);
+  const [viewTenthMark, SetViewTenthMark] = useState(false);
 
   const history = useHistory();
 
   // const [msg ,SetMes] = useState("");
 
   // const [castSelectedFile, SetcastSelectedFile] = useState();
-  
 
   // const changeCastCertificateHandler = (event) => {
   //   SetcastSelectedFile(event.target.files[0]);
   //   SetisCastCertificateFilePicked(true);
   // };
 
-  const onClickRemoveCastData =()=>{
+  const onClickRemoveCastData = () => {
     SetisCastCertificateFilePicked(true);
     SetViewCast(false);
-  }
+  };
 
-  const onClickRemoveIncomeData =()=>{
+  const onClickRemoveIncomeData = () => {
     SetIsIncomeCertificateFilePicked(true);
     SetViewIncome(false);
-  }
-  const onClickRemoveTenthMarkSheetData =()=>{
+  };
+  const onClickRemoveTenthMarkSheetData = () => {
     SetIsTenthMarkSheetFilePicked(true);
     SetViewTenthMark(false);
-  }
-
-
+  };
 
   const {
     register,
@@ -86,33 +82,31 @@ function AdmissionForm() {
       setAddress(data.data.StudentData[0].Address);
       setSchoolName(data.data.StudentData[0].SchoolName);
       setmarks10th(data.data.StudentData[0].TenthMarks);
-     
-     
+
       SetMarkSheet10th(data.data.StudentData[0].TenthMarksheet);
       SetCast(data.data.StudentData[0].Cast);
       SetGender(data.data.StudentData[0].Gender);
-     
+
       console.log("Hello");
-     
+
       SetCastCertificate(data.data.StudentData[0].CastCertificate);
-      if(data.data.StudentData[0].CastCertificate !="NULL"){
+      if (data.data.StudentData[0].CastCertificate != "NULL") {
         SetisCastCertificateFilePicked(false);
         SetViewCast(true);
       }
       SetIncome(data.data.StudentData[0].incomeCertificate);
-      if(data.data.StudentData[0].incomeCertificate!="NULL"){
+      if (data.data.StudentData[0].incomeCertificate != "NULL") {
         SetIsIncomeCertificateFilePicked(false);
-        SetViewIncome(true)
+        SetViewIncome(true);
       }
       SetMarkSheet10th(data.data.StudentData[0].TenthMarksheet);
-      if(data.data.StudentData[0].TenthMarksheet!="NULL"){
+      if (data.data.StudentData[0].TenthMarksheet != "NULL") {
         SetIsTenthMarkSheetFilePicked(false);
         SetViewTenthMark(true);
       }
 
       //console.log(CastCertificate);
-       //console.log(data.data.StudentData[0].CastCertificate)
-     
+      //console.log(data.data.StudentData[0].CastCertificate)
     };
     handelGetReq();
   }, [
@@ -139,8 +133,6 @@ function AdmissionForm() {
     SetTenthMarkSheetName,
     SetIsTenthMarkSheetFilePicked,
     SetViewTenthMark,
-
-
   ]);
   const fileHandler = (e) => {
     if (e.target.name == "markSheet10th") {
@@ -171,15 +163,14 @@ function AdmissionForm() {
     Formdata.append("gender", gender);
     Formdata.append("castCertificate", castCertificate);
     console.log(Formdata);
-    console.log(castCertificate)
+    console.log(castCertificate);
 
     const data = await StudentInfo.post("/poststudentinfo", Formdata);
     // console.log(data)
-    if(data.data.msg !=""){
-      console.log(data.data.msg)
+    if (data.data.msg != "") {
+      console.log(data.data.msg);
       history.push("/success");
     }
-
   };
 
   const handelCastChange = (e) => {
@@ -251,58 +242,113 @@ function AdmissionForm() {
           <Container fluid className="Caste-admission">
             <Row>
               <Col>
-                {" "}
-                <div className="Caste-admission">
-                  <label className="smallerlabel-admissionForm">Caste</label>
-                  <br />
-                  <select
-                    value={cast}
-                    onChange={handelCastChange}
-                    className="input-admissionForm"
-                  >
-                    <option value="null">Select Your Caste</option>
-                    <option value="open">OPEN</option>
-                    <option value="obc">OBC</option>
-                    <option value="st">ST</option>
-                    <option value="sc">SC</option>
-                  </select>
-                </div>
-              </Col>
-
-              <Col>
-                <div className="Caste-admission">
-                  <label className="smallerlabel-admissionForm">Gender</label>
-                  <br />
-                  <select
-                    value={gender}
-                    onChange={handelGenderChange}
-                    className="input-admissionForm"
-                  >
-                    <option value="">Select Your Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-              </Col>
-
-              <Col>
-                <div className="Caste-admission">
-                  <label className="smallerlabel-admissionForm">
-                    Date Of Birth
+                <div>
+                  <label className="label-admissionForm">
+                    10th School Name
                   </label>
-                  <br />
                   <input
-                    type="date"
-                    name="birthDate"
-                    value={birthDate}
+                    type="text"
+                    name="schoolName"
+                    value={schoolName}
                     onChange={(e) => {
-                      setBirthDate(e.target.value);
+                      setSchoolName(e.target.value);
                     }}
-                    className="input-admissionForm"
+                    className="biggerinput-admissionForm"
                   />
                 </div>
               </Col>
+
+              <Col>
+                <div>
+                  <label className="smallerlabel-admissionForm">
+                    10th marks
+                  </label>
+                  <input
+                    type="text"
+                    name="marks10thPercentages"
+                    value={marks10th}
+                    onChange={(e) => {
+                      setmarks10th(e.target.value);
+                    }}
+                    className="input-admissionForm-marks"
+                  />
+                </div>
+              </Col>
+            </Row>
+            <br />
+            <Row>
+              <Col>
+                <div>
+                  <label className="label-admissionForm">10th mark sheet</label>
+                  <input
+                    className="upload-admissionForm"
+                    type="file"
+                    style={{
+                      display: `${isTenthMarkSheetFilePicked ? "" : "none"}`,
+                    }}
+                    onChange={fileHandler}
+                    name="markSheet10th"
+                  />
+                  {/* <a href={Showfiles + markSheet10th} target="_blank">
+                  View
+                </a> */}
+                  <a
+                    className="btn btn-info"
+                    style={{ display: `${viewTenthMark ? "" : "none"}` }}
+                    href={Showfiles + markSheet10th}
+                    target="_blank"
+                  >
+                    View
+                  </a>
+                  <span
+                    className="btn btn-danger"
+                    onClick={onClickRemoveTenthMarkSheetData}
+                    style={{
+                      display: `${isTenthMarkSheetFilePicked ? "none" : ""}`,
+                    }}
+                  >
+                    X
+                  </span>
+                </div>
+              </Col>
+              <Col>
+                {" "}
+                <div>
+                  <label className="label-admissionForm">
+                    Leaving Certificate
+                  </label>
+                  <input
+                    className="upload-admissionForm"
+                    type="file"
+                    style={{
+                      display: `${isTenthMarkSheetFilePicked ? "" : "none"}`,
+                    }}
+                    onChange={fileHandler}
+                    name="markSheet10th"
+                  />
+                  {/* <a href={Showfiles + markSheet10th} target="_blank">
+                  View
+                </a> */}
+                  <a
+                    className="btn btn-info"
+                    style={{ display: `${viewTenthMark ? "" : "none"}` }}
+                    href={Showfiles + markSheet10th}
+                    target="_blank"
+                  >
+                    View
+                  </a>
+                  <span
+                    className="btn btn-danger"
+                    onClick={onClickRemoveTenthMarkSheetData}
+                    style={{
+                      display: `${isTenthMarkSheetFilePicked ? "none" : ""}`,
+                    }}
+                  >
+                    X
+                  </span>
+                </div>
+              </Col>
+              <Col></Col>
             </Row>
           </Container>
         </div>
@@ -427,27 +473,30 @@ function AdmissionForm() {
                     <p>{castCertificate=="" && castCertificateName!="NULL"?"File Name "+castCertificateName:"File Name "+castCertificate.name}</p>
                   </div> */}
 
-                <a 
-                  className="btn btn-info" 
-                  style={{display:`${viewCast ?"":"none"}`}}
-                  href={Showfiles + castCertificate} 
-                  target="_blank"
-                >
-                  View
-                </a>
-                <span
-                className="btn btn-danger"
-                onClick={onClickRemoveCastData}
-                style = {{display:`${isCastCertificateFilePicked  ?"none":""}`}}
-                >X</span>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-        <div class="note-admission">
-          <p>
-            <strong>Note!</strong> Only .pdf files are allowed
-          </p>
+                    <a
+                      className="btn btn-info"
+                      style={{ display: `${viewCast ? "" : "none"}` }}
+                      href={Showfiles + castCertificate}
+                      target="_blank"
+                    >
+                      View
+                    </a>
+                    <span
+                      className="btn btn-danger"
+                      onClick={onClickRemoveCastData}
+                      style={{
+                        display: `${isCastCertificateFilePicked ? "none" : ""}`,
+                      }}
+                    >
+                      X
+                    </span>
+                  </div>
+                </Col>
+
+                <Col></Col>
+              </Row>
+            </Container>
+          </div>
         </div>
 
         <br />
