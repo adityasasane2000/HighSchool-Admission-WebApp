@@ -187,59 +187,165 @@ function AdmissionForm() {
   return (
     <form onSubmit={handleSubmit(submit)}>
       <div className="admissionForm-flexbox">
-        <div class="note-admission">
-          <p>
-            <strong>Note!</strong> Please enter your name according to your 10th
-            Marksheet
-          </p>
+        <div className="admission-sections-headings">
+          <h6>Personal Details</h6>
         </div>
-        {/* Name */}
-        <div>
-          <label className="label-admissionForm">Enter Your Name</label>
+        <div className="admission-sections">
+       
+          {/* Name */}
+          <div>
+            <label className="label-admissionForm">Enter Your Name</label>
 
-          <input
-            type="text"
-            name="name"
-            value={name}
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
-            className="biggerinput-admissionForm"
-          />
-        </div>
+            <input
+              type="text"
+              name="name"
+              value={name}
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+              className="biggerinput-admissionForm"
+            />
+          </div>
+          <div class="note-admission">
+            <p>
+              <strong>Note!</strong> Please enter your name according to your
+              10th Marksheet
+            </p>
+          </div>
+          <Container fluid className="AdmissionForm-container">
+            <Row>
+              <Col>
+              <div>
+            <label className="label-admissionForm">Email</label>
 
-        {/* Email */}
-        <div>
-          <label className="label-admissionForm">Email</label>
+            <input
+              type="text"
+              name="email"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              className="biggerinput-admissionForm"
+            />
+          </div>
+              </Col>
 
-          <input
-            type="text"
-            name="email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-            className="biggerinput-admissionForm"
-          />
+              <Col>
+                <div>
+                  <label className="smallerlabel-admissionForm">
+                    Mobile No
+                  </label>
+                  <input
+                    type="text"
+                    name="marks10thPercentages"
+                    value={marks10th}
+                    onChange={(e) => {
+                      setmarks10th(e.target.value);
+                    }}
+                    className="input-admissionForm-marks"
+                  />
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        
+          {/* Address */}
+          <div>
+            <label className="label-admissionForm">Address</label>
+            <input
+              type="text"
+              name="address"
+              value={address}
+              onChange={(e) => {
+                setAddress(e.target.value);
+              }}
+              className="biggerinput-admissionForm"
+            />
+            <Container fluid className="AdmissionForm-container">
+              <Row>
+                <Col>
+                  <div className="Caste-admission">
+                    <label className="smallerlabel-admissionForm">Gender</label>
+                    <br />
+                    <select
+                      value={gender}
+                      onChange={handelGenderChange}
+                      className="input-admissionForm"
+                    >
+                      <option value="">Select Your Gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </Col>
+
+                <Col>
+                  <div className="Caste-admission">
+                    <label className="smallerlabel-admissionForm">
+                      Date Of Birth
+                    </label>
+                    <br />
+                    <input
+                      type="date"
+                      name="birthDate"
+                      value={birthDate}
+                      onChange={(e) => {
+                        setBirthDate(e.target.value);
+                      }}
+                      className="input-admissionForm"
+                    />
+                  </div>
+                </Col>
+              </Row>
+            </Container>
+            <Container fluid className="AdmissionForm-container">
+            <Row>
+              <Col>
+                <div>
+                  <label className="label-admissionForm">
+                   Father's Name
+                  </label>
+                  <input
+                    type="text"
+                    name="schoolName"
+                    value={schoolName}
+                    onChange={(e) => {
+                      setSchoolName(e.target.value);
+                    }}
+                    className="biggerinput-admissionForm"
+                  />
+                </div>
+              </Col>
+
+              <Col>
+                <div>
+                  <label className="smallerlabel-admissionForm">
+                    Mobile No
+                  </label>
+                  <input
+                    type="text"
+                    name="marks10thPercentages"
+                    value={marks10th}
+                    onChange={(e) => {
+                      setmarks10th(e.target.value);
+                    }}
+                    className="input-admissionForm-marks"
+                  />
+                </div>
+              </Col>
+            </Row>
+          </Container>
+          </div>
+          {/* 10th school name */}
         </div>
-        {/* Address */}
-        <div>
-          <label className="label-admissionForm">Address</label>
-          <input
-            type="text"
-            name="address"
-            value={address}
-            onChange={(e) => {
-              setAddress(e.target.value);
-            }}
-            className="biggerinput-admissionForm"
-          />
-        </div>
-        {/* 10th school name */}
 
         {/* 10th marks */}
-        <div className="marks-caste">
-          <Container fluid className="Caste-admission">
+        <div className="admission-sections-headings">
+          <h6>Past Qualifications</h6>
+        </div>
+        <div className="admission-sections">
+          <Container fluid className="AdmissionForm-container">
             <Row>
               <Col>
                 <div>
@@ -275,251 +381,250 @@ function AdmissionForm() {
                 </div>
               </Col>
             </Row>
-            <br />
-            <Row>
-              <Col>
-                <div>
-                  <label className="label-admissionForm">10th mark sheet</label>
-                  <input
-                    className="upload-admissionForm"
-                    type="file"
-                    style={{
-                      display: `${isTenthMarkSheetFilePicked ? "" : "none"}`,
-                    }}
-                    onChange={fileHandler}
-                    name="markSheet10th"
-                  />
-                  {/* <a href={Showfiles + markSheet10th} target="_blank">
-                  View
-                </a> */}
-                  <a
-                    className="btn btn-info"
-                    style={{ display: `${viewTenthMark ? "" : "none"}` }}
-                    href={Showfiles + markSheet10th}
-                    target="_blank"
-                  >
-                    View
-                  </a>
-                  <span
-                    className="btn btn-danger"
-                    onClick={onClickRemoveTenthMarkSheetData}
-                    style={{
-                      display: `${isTenthMarkSheetFilePicked ? "none" : ""}`,
-                    }}
-                  >
-                    X
-                  </span>
-                </div>
-              </Col>
-              <Col>
-                {" "}
-                <div>
-                  <label className="label-admissionForm">
-                    Leaving Certificate
-                  </label>
-                  <input
-                    className="upload-admissionForm"
-                    type="file"
-                    style={{
-                      display: `${isTenthMarkSheetFilePicked ? "" : "none"}`,
-                    }}
-                    onChange={fileHandler}
-                    name="markSheet10th"
-                  />
-                  {/* <a href={Showfiles + markSheet10th} target="_blank">
-                  View
-                </a> */}
-                  <a
-                    className="btn btn-info"
-                    style={{ display: `${viewTenthMark ? "" : "none"}` }}
-                    href={Showfiles + markSheet10th}
-                    target="_blank"
-                  >
-                    View
-                  </a>
-                  <span
-                    className="btn btn-danger"
-                    onClick={onClickRemoveTenthMarkSheetData}
-                    style={{
-                      display: `${isTenthMarkSheetFilePicked ? "none" : ""}`,
-                    }}
-                  >
-                    X
-                  </span>
-                </div>
-              </Col>
-              <Col></Col>
-            </Row>
           </Container>
-        </div>
-        <Container fluid className="tenthmarkSheet-schoolName">
-          <Row>
-            <Col>
-              <div>
-                <label className="label-admissionForm">10th School Name</label>
-                <input
-                  type="text"
-                  name="schoolName"
-                  value={schoolName}
-                  onChange={(e) => {
-                    setSchoolName(e.target.value);
-                  }}
-                  className="biggerinput-admissionForm"
-                />
-              </div>
-            </Col>
-
-            <Col>
-              <div>
-                <label className="smallerlabel-admissionForm">10th marks</label>
-                <input
-                  type="text"
-                  name="marks10thPercentages"
-                  value={marks10th}
-                  onChange={(e) => {
-                    setmarks10th(e.target.value);
-                  }}
-                  className="input-admissionForm-marks"
-                />
-              </div>
-            </Col>
-          </Row>
-        </Container>
-
-        <div class="note-admission">
+          <div class="note-admission">
           <p>
             <strong>Note!</strong> While uploading the documents, please rename
             it consisting your name. For e.g- Atharva Meher(Income Certificate)
           </p>
         </div>
-
-        <Container className="upload-docs-admission">
-          <Row>
-            <Col>
-              <div>
-                <label className="label-admissionForm">10th mark sheet</label>
-                <input
-                  className="upload-admissionForm"
-                  type="file"
-                  style = {{display:`${isTenthMarkSheetFilePicked ?"":"none"}`}}
-                  onChange={fileHandler}
-                  name="markSheet10th"
-                />
-                {/* <a href={Showfiles + markSheet10th} target="_blank">
-                  View
-                </a> */}
-                <a 
-                  className="btn btn-info" 
-                  style={{display:`${viewTenthMark ?"":"none"}`}}
-                  href={Showfiles + markSheet10th} 
-                  target="_blank"
-                >
-                  View
-                </a>
-                <span
-                className="btn btn-danger"
-                onClick={onClickRemoveTenthMarkSheetData}
-                style = {{display:`${isTenthMarkSheetFilePicked?"none":""}`}}
-                >X</span>
-              </div>
-            </Col>
-
-            <Col>
-              {" "}
-              <div>
-                <label className="label-admissionForm">
-                  Income Certificate
-                </label>
-                <input
-                  className="upload-admissionForm"
-                  type="file"
-                  style = {{display:`${isIncomeCertificateFilePicked ?"":"none"}`}}
-                  onChange={fileHandler}
-                  name="incomeCertificate"
-                />
-                {/* <a href={Showfiles + incomeCertificate} target="_blank">
-                  View
-                </a> */}
-                 <a 
-                  className="btn btn-info" 
-                  style={{display:`${viewIncome ?"":"none"}`}}
-                  href={Showfiles + incomeCertificate} 
-                  target="_blank"
-                >
-                  View
-                </a>
-                <span
-                className="btn btn-danger"
-                onClick={onClickRemoveIncomeData}
-                style = {{display:`${isIncomeCertificateFilePicked  ?"none":""}`}}
-                >X</span>
-              </div>
-            </Col>
-
-            <Col>
-              <div style = {{display:`${cast =="open" ?"none":""}`}}>
-                <label className="label-admissionForm">Caste Certificate</label>
-                <input
-                  className="upload-admissionForm"
-                  type="file"
-                  // value = {castCertificate}
-                  onChange={fileHandler}
-                  style = {{display:`${isCastCertificateFilePicked ?"":"none"}`}}
-                  name="castCertificate"
-                />
-                
-                
-                  {/* <div>
-                    <p>{castCertificate=="" && castCertificateName!="NULL"?"File Name "+castCertificateName:"File Name "+castCertificate.name}</p>
-                  </div> */}
-
+          <div className="marks-caste">
+            <Container className="AdmissionForm-container">
+              <br />
+              <Row>
+                <Col>
+                  <div>
+                    <label className="label-admissionForm">
+                      10th mark sheet
+                    </label>
+                    <input
+                      className="upload-admissionForm"
+                      type="file"
+                      style={{
+                        display: `${isTenthMarkSheetFilePicked ? "" : "none"}`,
+                      }}
+                      onChange={fileHandler}
+                      name="markSheet10th"
+                    />
+                    {/* <a href={Showfiles + markSheet10th} target="_blank">
+                View
+              </a> */}
                     <a
                       className="btn btn-info"
-                      style={{ display: `${viewCast ? "" : "none"}` }}
-                      href={Showfiles + castCertificate}
+                      style={{ display: `${viewTenthMark ? "" : "none"}` }}
+                      href={Showfiles + markSheet10th}
                       target="_blank"
                     >
                       View
                     </a>
                     <span
                       className="btn btn-danger"
-                      onClick={onClickRemoveCastData}
+                      onClick={onClickRemoveTenthMarkSheetData}
                       style={{
-                        display: `${isCastCertificateFilePicked ? "none" : ""}`,
+                        display: `${isTenthMarkSheetFilePicked ? "none" : ""}`,
                       }}
                     >
                       X
                     </span>
                   </div>
                 </Col>
-
+                <Col>
+                  {" "}
+                  <div>
+                    <label className="label-admissionForm">
+                      Leaving Certificate
+                    </label>
+                    <input
+                      className="upload-admissionForm"
+                      type="file"
+                      style={{
+                        display: `${isTenthMarkSheetFilePicked ? "" : "none"}`,
+                      }}
+                      onChange={fileHandler}
+                      name="markSheet10th"
+                    />
+                    {/* <a href={Showfiles + markSheet10th} target="_blank">
+                View
+              </a> */}
+                    <a
+                      className="btn btn-info"
+                      style={{ display: `${viewTenthMark ? "" : "none"}` }}
+                      href={Showfiles + markSheet10th}
+                      target="_blank"
+                    >
+                      View
+                    </a>
+                    <span
+                      className="btn btn-danger"
+                      onClick={onClickRemoveTenthMarkSheetData}
+                      style={{
+                        display: `${isTenthMarkSheetFilePicked ? "none" : ""}`,
+                      }}
+                    >
+                      X
+                    </span>
+                  </div>
+                </Col>
                 <Col></Col>
               </Row>
             </Container>
           </div>
         </div>
 
+        <div className="admission-sections-headings">
+          <h6>Caste Details</h6>
+        </div>
+        <div className="admission-sections">
+          < Container fluid className="AdmissionForm-container">
+            <Row>
+              <Col>
+                {" "}
+                <div className="Caste-admission">
+                  <label className="smallerlabel-admissionForm">Caste</label>
+                  <br />
+                  <select
+                    value={cast}
+                    onChange={handelCastChange}
+                    className="input-admissionForm"
+                  >
+                    <option value="null">Select Your Caste</option>
+                    <option value="open">OPEN</option>
+                    <option value="obc">OBC</option>
+                    <option value="st">ST</option>
+                    <option value="sc">SC</option>
+                  </select>
+                </div>
+              </Col>
+              <Col>
+                <div style={{ display: `${cast == "open" ? "none" : ""}` }}>
+                  <label className="label-admissionForm">
+                    Caste Certificate
+                  </label>
+                  <input
+                    className="upload-admissionForm"
+                    type="file"
+                    // value = {castCertificate}
+                    onChange={fileHandler}
+                    style={{
+                      display: `${isCastCertificateFilePicked ? "" : "none"}`,
+                    }}
+                    name="castCertificate"
+                  />
+
+                  {/* <div>
+                    <p>{castCertificate=="" && castCertificateName!="NULL"?"File Name "+castCertificateName:"File Name "+castCertificate.name}</p>
+                  </div> */}
+
+                  <a
+                    className="btn btn-info"
+                    style={{ display: `${viewCast ? "" : "none"}` }}
+                    href={Showfiles + castCertificate}
+                    target="_blank"
+                  >
+                    View
+                  </a>
+                  <span
+                    className="btn btn-danger"
+                    onClick={onClickRemoveCastData}
+                    style={{
+                      display: `${isCastCertificateFilePicked ? "none" : ""}`,
+                    }}
+                  >
+                    X
+                  </span>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+    
+        <div className="admission-sections-headings">
+          <h6>Income Details</h6>
+        </div>
+        <div className="admission-sections">
+          <Container className="AdmissionForm-container">
+            <Row>
+              <Col>
+                <div>
+                  <label className="smallerlabel-admissionForm">
+                    Enter your Annual Income
+                  </label>
+                  <input
+                    type="text"
+                    name="marks10thPercentages"
+                    value={marks10th}
+                    onChange={(e) => {
+                      setmarks10th(e.target.value);
+                    }}
+                    className="input-admissionForm-marks"
+                  />
+                </div>
+              </Col>
+
+              <Col>
+                {" "}
+                <div>
+                  <label className="label-admissionForm">
+                    Income Certificate
+                  </label>
+                  <input
+                    className="upload-admissionForm"
+                    type="file"
+                    style={{
+                      display: `${isIncomeCertificateFilePicked ? "" : "none"}`,
+                    }}
+                    onChange={fileHandler}
+                    name="incomeCertificate"
+                  />
+                  {/* <a href={Showfiles + incomeCertificate} target="_blank">
+                  View
+                </a> */}
+                  <a
+                    className="btn btn-info"
+                    style={{ display: `${viewIncome ? "" : "none"}` }}
+                    href={Showfiles + incomeCertificate}
+                    target="_blank"
+                  >
+                    View
+                  </a>
+                  <span
+                    className="btn btn-danger"
+                    onClick={onClickRemoveIncomeData}
+                    style={{
+                      display: `${isIncomeCertificateFilePicked ? "none" : ""}`,
+                    }}
+                  >
+                    X
+                  </span>
+                </div>
+              </Col>
+
+              <Col></Col>
+            </Row>
+          </Container>{" "}
+        </div>
+      </div>
+
+      <br />
+      <div
+        class="col-md-12 text-center"
+        className="submit-button-admissionForm"
+      >
         <br />
         <div
           class="col-md-12 text-center"
           className="submit-button-admissionForm"
         >
-          <br />
-          <div
-            class="col-md-12 text-center"
-            className="submit-button-admissionForm"
+          <button
+            type="submit"
+            variant="success"
+            className="submit-button-admissionForm1"
+            class="btn btn-outline-success"
           >
-            <button
-              type="submit"
-              variant="success"
-              className="submit-button-admissionForm1"
-              class="btn btn-outline-success"
-            >
-              Submit
-            </button>
-          </div>
-          <br />
+            Submit
+          </button>
         </div>
+        <br />
       </div>
     </form>
   );
