@@ -1,6 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import { useHistory } from 'react-router-dom';
 import SoryIMG from "../components/images/sorry-image.jpg"
+import "../components/LoadingToRedirect.css";
+
 
 
 const LoadingToRedirect = () => {
@@ -14,9 +16,10 @@ const LoadingToRedirect = () => {
       return ()=>clearInterval(interval);
     },[count,history]);
     return (
-      <div>
-        <img style={{maxWidth: "35rem", marginLeft: "25rem"}} alt="sryIMG" src={SoryIMG} />
-        <p>You can't access some page without login that's why you are, Redirecting to login page to you in {count} seconds</p>
+      <div className='srydiv'>
+        <img className='sryimg' alt="sryIMG" src={SoryIMG} />
+        <p className='LoadingToRedirect-p'>You can't access some page without login</p>
+        <p className='LoadingToRedirect-pp'> Redirecting to login page in {count} seconds</p>
       </div>
     )
 }

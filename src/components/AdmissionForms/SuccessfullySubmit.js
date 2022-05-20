@@ -1,8 +1,13 @@
 import React from 'react'
+import submitted from './submitted.gif';
 
 function SuccessfullySubmit() {
   return (
-    <div>Successfully Submited From</div>
+    
+    <div>
+      <img className='successimg' src={submitted} />
+
+      Form Submitted Successfully  </div>
   )
 }
 
