@@ -10,8 +10,7 @@ const Aboutus = () =>{
         <Row md={12}>
           <h1 className="homepage-headings">About</h1>
         </Row>
-      </Container>
-        <p>         Arts, Commerce & Science College was established in the year 1995 and it is a distinguished degree college
+        <Row> <p>         Arts, Commerce & Science College was established in the year 1995 and it is a distinguished degree college
             affiliated to the University of Pune. Sheltered in huge well architectured premises along with multiple
             institutes, the college has a unique academic atmosphere chiefly characterized by interdisciplinary
             scholarly interaction and healthy competitive spirit and enthusiasm to excel in various curricular
@@ -22,7 +21,9 @@ const Aboutus = () =>{
             gained recognition for preparing and grooming the students at under-graduate and post-graduate level into academically
             meritorious students and professionally efficient scholars. The highly qualified staff, well-equipped laboratories and
             well -stocked library in the college premises have yielded positive and encouraging results in enabling the students
-            to excel in academics as well as extra-curricular activities.</p>
+            to excel in academics as well as extra-curricular activities.</p></Row>
+      </Container>
+       
         
         
         
@@ -33,8 +34,8 @@ const Aboutus = () =>{
         <Row md={12}>
           <h1 className="homepage-headings">Total Number Of Students</h1>
         </Row>
-      </Container>
-  <Table responsive="sm">
+        <Row>
+        <Table responsive="sm">
     <thead>
       <tr>
         <th>#</th>
@@ -76,6 +77,9 @@ const Aboutus = () =>{
       </tr>
     </tbody>
   </Table>
+        </Row>
+      </Container>
+ 
   
 </div>  
 </div>

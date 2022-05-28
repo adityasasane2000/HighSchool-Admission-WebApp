@@ -1,13 +1,17 @@
 import React from 'react'
 import submitted from './submitted.gif';
+import "./success.css"
+
 
 function SuccessfullySubmit() {
   return (
     
-    <div>
-      <img className='successimg' src={submitted} />
-
-      Form Submitted Successfully  </div>
+    <div className='Sucess'>
+     <div  className='successimg1'> <img  className='successimg1' src={submitted} /></div>
+     
+     
+     <h5 className='Submitted-text'>Form Submitted Successfully </h5>
+       </div>
   )
 }
 
