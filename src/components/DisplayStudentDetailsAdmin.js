@@ -12,7 +12,7 @@ import adminData from "../api/AdminInfo";
 import StudentInfo from "../api/StudentInfo";
 import Showfiles from "../api/FileInfo";
 
-function AdmissionForm() {
+function DisplayStudentDetailsAdmin() {
   const { currentUser } = useSelector((state) => state.user);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -606,4 +606,4 @@ function AdmissionForm() {
   );
 }
 
-export default AdmissionForm;
+export default DisplayStudentDetailsAdmin;
