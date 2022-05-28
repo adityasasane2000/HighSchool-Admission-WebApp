@@ -1,11 +1,11 @@
 import { Button } from "bootstrap";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { Row, Col, Container, Form } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
+import { useHistory,useParams } from "react-router-dom";
 
 import StudentInfo from "../../api/StudentInfo";
 import Showfiles from "../../api/FileInfo";
@@ -21,6 +21,10 @@ function AdmissionForm() {
 
   const [cast, SetCast] = useState("open");
   const [gender, SetGender] = useState("");
+  const [studentMobNo, SetStudentMobNO] = useState("");
+  const [fatherMobNo, SetFatherMobNo] = useState("");
+  const [fatherName, SetFatherName] = useState("");
+  const [annualIncome, SetAnnualIncome] = useState("");
 
   const [castCertificate, SetCastCertificate] = useState("");
   const [castCertificateName, SetCastCertificateName] = useState("");
@@ -34,6 +38,12 @@ function AdmissionForm() {
     useState(true);
   const [viewIncome, SetViewIncome] = useState(false);
 
+  const [leavingCertificate, SetLeavingCertificate] = useState("");
+  const [leavingcertificateName, SetLeavingCertificateName] = useState("");
+  const [isLeavingCertificateFilePicked, SetIsLeavingCertificateFilePicked] =
+    useState(true);
+  const [viewLeaving, SetViewLeaving] = useState(false);
+
   const [markSheet10th, SetMarkSheet10th] = useState("");
   const [tenthMarkSheetName, SetTenthMarkSheetName] = useState("");
   const [isTenthMarkSheetFilePicked, SetIsTenthMarkSheetFilePicked] =
@@ -41,8 +51,8 @@ function AdmissionForm() {
   const [viewTenthMark, SetViewTenthMark] = useState(false);
 
   const history = useHistory();
-
-  // const [msg ,SetMes] = useState("");
+  const params = useParams();
+    // const [msg ,SetMes] = useState("");
 
   // const [castSelectedFile, SetcastSelectedFile] = useState();
 
@@ -54,6 +64,10 @@ function AdmissionForm() {
   const onClickRemoveCastData = () => {
     SetisCastCertificateFilePicked(true);
     SetViewCast(false);
+  };
+  const onClickRemoveLeavingData = () => {
+    SetIsLeavingCertificateFilePicked(true);
+    SetViewLeaving(false);
   };
 
   const onClickRemoveIncomeData = () => {
@@ -70,6 +84,7 @@ function AdmissionForm() {
     formState: { errors },
     handleSubmit,
   } = useForm();
+  // const params = useParams();
 
   // const { currentUser } = useSelector((state) => state.user);
   useEffect(() => {
@@ -86,6 +101,10 @@ function AdmissionForm() {
       SetMarkSheet10th(data.data.StudentData[0].TenthMarksheet);
       SetCast(data.data.StudentData[0].Cast);
       SetGender(data.data.StudentData[0].Gender);
+      SetStudentMobNO(data.data.StudentData[0].StudentMobNo);
+      SetFatherMobNo(data.data.StudentData[0].FatherMobNO);
+      SetFatherName(data.data.StudentData[0].FatherName);
+      SetAnnualIncome(data.data.StudentData[0].AnnualIncome);
 
       console.log("Hello");
 
@@ -94,6 +113,13 @@ function AdmissionForm() {
         SetisCastCertificateFilePicked(false);
         SetViewCast(true);
       }
+
+      SetLeavingCertificate(data.data.StudentData[0].LeavingCertificate);
+      if (data.data.StudentData[0].LeavingCertificate != "NULL") {
+        SetIsLeavingCertificateFilePicked(false);
+        SetViewLeaving(true);
+      }
+
       SetIncome(data.data.StudentData[0].incomeCertificate);
       if (data.data.StudentData[0].incomeCertificate != "NULL") {
         SetIsIncomeCertificateFilePicked(false);
@@ -133,10 +159,20 @@ function AdmissionForm() {
     SetTenthMarkSheetName,
     SetIsTenthMarkSheetFilePicked,
     SetViewTenthMark,
+
+    SetLeavingCertificate,
+    SetLeavingCertificateName,
+    SetIsLeavingCertificateFilePicked,
+    SetViewLeaving,
+
+    SetStudentMobNO,
+    SetFatherMobNo,
+    SetFatherName,
+    SetAnnualIncome,
   ]);
   const fileHandler = (e) => {
     if (e.target.name == "markSheet10th") {
-      SetMarkSheet10th(e.target.files[0]);
+      SetMarkSheet10th(e.target.files);
       console.log(e.target.files);
     } else if (e.target.name == "incomeCertificate") {
       SetIncome(e.target.files[0]);
@@ -147,6 +183,7 @@ function AdmissionForm() {
       // SetisCastCertificateFilePicked(false);
     }
   };
+
   // console.log(currentUser)
   const submit = async () => {
     const Formdata = new FormData();
@@ -162,6 +199,12 @@ function AdmissionForm() {
     Formdata.append("cast", cast);
     Formdata.append("gender", gender);
     Formdata.append("castCertificate", castCertificate);
+    Formdata.append("leavingCertificate",leavingCertificate);
+    Formdata.append("studentMobNo",studentMobNo);
+    Formdata.append("fatherMobNo",fatherMobNo);
+    Formdata.append("fatherName",fatherName);
+    Formdata.append("annualIncome",annualIncome);
+
     console.log(Formdata);
     console.log(castCertificate);
 
@@ -185,20 +228,21 @@ function AdmissionForm() {
   };
 
   return (
+    <div >
     <form onSubmit={handleSubmit(submit)}>
       <div className="admissionForm-flexbox">
         <div className="admission-sections-headings">
           <h6>Personal Details</h6>
         </div>
         <div className="admission-sections">
-       
           {/* Name */}
           <div>
-            <label className="label-admissionForm">Enter Your Name</label>
+            <label className="label-admissionForm">Enter Your Name*</label>
 
             <input
               type="text"
               name="name"
+              required
               value={name}
               onChange={(e) => {
                 setName(e.target.value);
@@ -215,32 +259,33 @@ function AdmissionForm() {
           <Container fluid className="AdmissionForm-container">
             <Row>
               <Col>
-              <div>
-            <label className="label-admissionForm">Email</label>
+                <div>
+                  <label className="label-admissionForm">Email</label>
 
-            <input
-              type="text"
-              name="email"
-              value={email}
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-              className="biggerinput-admissionForm"
-            />
-          </div>
+                  <input
+                    type="text"
+                    name="email"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
+                    className="biggerinput-admissionForm"
+                  />
+                </div>
               </Col>
 
               <Col>
                 <div>
                   <label className="smallerlabel-admissionForm">
-                    Mobile No
+                    Mobile No*
                   </label>
                   <input
                     type="text"
-                    name="marks10thPercentages"
-                    value={marks10th}
+                    name="studentMobNo"
+                    value={studentMobNo}
+                    required
                     onChange={(e) => {
-                      setmarks10th(e.target.value);
+                      SetStudentMobNO(e.target.value);
                     }}
                     className="input-admissionForm-marks"
                   />
@@ -248,14 +293,15 @@ function AdmissionForm() {
               </Col>
             </Row>
           </Container>
-        
+
           {/* Address */}
           <div>
-            <label className="label-admissionForm">Address</label>
+            <label className="label-admissionForm">Address*</label>
             <input
               type="text"
               name="address"
               value={address}
+              required
               onChange={(e) => {
                 setAddress(e.target.value);
               }}
@@ -265,10 +311,13 @@ function AdmissionForm() {
               <Row>
                 <Col>
                   <div className="Caste-admission">
-                    <label className="smallerlabel-admissionForm">Gender</label>
+                    <label className="smallerlabel-admissionForm">
+                      Gender*
+                    </label>
                     <br />
                     <select
                       value={gender}
+                      required
                       onChange={handelGenderChange}
                       className="input-admissionForm"
                     >
@@ -283,10 +332,11 @@ function AdmissionForm() {
                 <Col>
                   <div className="Caste-admission">
                     <label className="smallerlabel-admissionForm">
-                      Date Of Birth
+                      Date Of Birth*
                     </label>
                     <br />
                     <input
+                      required
                       type="date"
                       name="birthDate"
                       value={birthDate}
@@ -300,42 +350,44 @@ function AdmissionForm() {
               </Row>
             </Container>
             <Container fluid className="AdmissionForm-container">
-            <Row>
-              <Col>
-                <div>
-                  <label className="label-admissionForm">
-                   Father's Name
-                  </label>
-                  <input
-                    type="text"
-                    name="schoolName"
-                    value={schoolName}
-                    onChange={(e) => {
-                      setSchoolName(e.target.value);
-                    }}
-                    className="biggerinput-admissionForm"
-                  />
-                </div>
-              </Col>
+              <Row>
+                <Col>
+                  <div>
+                    <label className="label-admissionForm">
+                      Father's Name*
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      name="fatherName"
+                      value={fatherName}
+                      onChange={(e) => {
+                        SetFatherName(e.target.value);
+                      }}
+                      className="biggerinput-admissionForm"
+                    />
+                  </div>
+                </Col>
 
-              <Col>
-                <div>
-                  <label className="smallerlabel-admissionForm">
-                    Mobile No
-                  </label>
-                  <input
-                    type="text"
-                    name="marks10thPercentages"
-                    value={marks10th}
-                    onChange={(e) => {
-                      setmarks10th(e.target.value);
-                    }}
-                    className="input-admissionForm-marks"
-                  />
-                </div>
-              </Col>
-            </Row>
-          </Container>
+                <Col>
+                  <div>
+                    <label className="smallerlabel-admissionForm">
+                      Mobile No*
+                    </label>
+                    <input
+                      type="text"
+                      name="fatherMobNo"
+                      required
+                      value={fatherMobNo}
+                      onChange={(e) => {
+                        SetFatherMobNo(e.target.value);
+                      }}
+                      className="input-admissionForm-marks"
+                    />
+                  </div>
+                </Col>
+              </Row>
+            </Container>
           </div>
           {/* 10th school name */}
         </div>
@@ -350,10 +402,11 @@ function AdmissionForm() {
               <Col>
                 <div>
                   <label className="label-admissionForm">
-                    10th School Name
+                    10th School Name*
                   </label>
                   <input
                     type="text"
+                    required
                     name="schoolName"
                     value={schoolName}
                     onChange={(e) => {
@@ -367,10 +420,11 @@ function AdmissionForm() {
               <Col>
                 <div>
                   <label className="smallerlabel-admissionForm">
-                    10th marks
+                    10th marks*
                   </label>
                   <input
                     type="text"
+                    required
                     name="marks10thPercentages"
                     value={marks10th}
                     onChange={(e) => {
@@ -383,11 +437,12 @@ function AdmissionForm() {
             </Row>
           </Container>
           <div class="note-admission">
-          <p>
-            <strong>Note!</strong> While uploading the documents, please rename
-            it consisting your name. For e.g- Atharva Meher(Income Certificate)
-          </p>
-        </div>
+            <p>
+              <strong>Note!</strong> While uploading the documents, please
+              rename it consisting your name. For e.g- Atharva Meher(Income
+              Certificate)
+            </p>
+          </div>
           <div className="marks-caste">
             <Container className="AdmissionForm-container">
               <br />
@@ -395,20 +450,23 @@ function AdmissionForm() {
                 <Col>
                   <div>
                     <label className="label-admissionForm">
-                      10th mark sheet
+                      10th mark sheet*
                     </label>
                     <input
+                      required
                       className="upload-admissionForm"
                       type="file"
                       style={{
-                        display: `${isTenthMarkSheetFilePicked ? "" : "none"}`,
+                        display: `${
+                          isTenthMarkSheetFilePicked ? "" : "none"
+                        }`,
                       }}
                       onChange={fileHandler}
                       name="markSheet10th"
                     />
                     {/* <a href={Showfiles + markSheet10th} target="_blank">
-                View
-              </a> */}
+              View
+            </a> */}
                     <a
                       className="btn btn-info"
                       style={{ display: `${viewTenthMark ? "" : "none"}` }}
@@ -421,7 +479,9 @@ function AdmissionForm() {
                       className="btn btn-danger"
                       onClick={onClickRemoveTenthMarkSheetData}
                       style={{
-                        display: `${isTenthMarkSheetFilePicked ? "none" : ""}`,
+                        display: `${
+                          isTenthMarkSheetFilePicked ? "none" : ""
+                        }`,
                       }}
                     >
                       X
@@ -432,33 +492,38 @@ function AdmissionForm() {
                   {" "}
                   <div>
                     <label className="label-admissionForm">
-                      Leaving Certificate
+                      Leaving Certificate*
                     </label>
                     <input
+                      required
                       className="upload-admissionForm"
                       type="file"
                       style={{
-                        display: `${isTenthMarkSheetFilePicked ? "" : "none"}`,
+                        display: `${
+                          isLeavingCertificateFilePicked ? "" : "none"
+                        }`,
                       }}
                       onChange={fileHandler}
-                      name="markSheet10th"
+                      name="leavingCertificate"
                     />
-                    {/* <a href={Showfiles + markSheet10th} target="_blank">
+                    {/* <a href={Showfiles + incomeCertificate} target="_blank">
                 View
               </a> */}
                     <a
                       className="btn btn-info"
-                      style={{ display: `${viewTenthMark ? "" : "none"}` }}
-                      href={Showfiles + markSheet10th}
+                      style={{ display: `${viewLeaving ? "" : "none"}` }}
+                      href={Showfiles + leavingCertificate}
                       target="_blank"
                     >
                       View
                     </a>
                     <span
                       className="btn btn-danger"
-                      onClick={onClickRemoveTenthMarkSheetData}
+                      onClick={onClickRemoveLeavingData}
                       style={{
-                        display: `${isTenthMarkSheetFilePicked ? "none" : ""}`,
+                        display: `${
+                          isLeavingCertificateFilePicked ? "none" : ""
+                        }`,
                       }}
                     >
                       X
@@ -475,16 +540,17 @@ function AdmissionForm() {
           <h6>Caste Details</h6>
         </div>
         <div className="admission-sections">
-          < Container fluid className="AdmissionForm-container">
+          <Container fluid className="AdmissionForm-container">
             <Row>
               <Col>
                 {" "}
                 <div className="Caste-admission">
-                  <label className="smallerlabel-admissionForm">Caste</label>
+                  <label className="smallerlabel-admissionForm">Caste*</label>
                   <br />
                   <select
                     value={cast}
                     onChange={handelCastChange}
+                    required
                     className="input-admissionForm"
                   >
                     <option value="null">Select Your Caste</option>
@@ -498,7 +564,7 @@ function AdmissionForm() {
               <Col>
                 <div style={{ display: `${cast == "open" ? "none" : ""}` }}>
                   <label className="label-admissionForm">
-                    Caste Certificate
+                    Caste Certificate*
                   </label>
                   <input
                     className="upload-admissionForm"
@@ -512,8 +578,8 @@ function AdmissionForm() {
                   />
 
                   {/* <div>
-                    <p>{castCertificate=="" && castCertificateName!="NULL"?"File Name "+castCertificateName:"File Name "+castCertificate.name}</p>
-                  </div> */}
+                  <p>{castCertificate=="" && castCertificateName!="NULL"?"File Name "+castCertificateName:"File Name "+castCertificate.name}</p>
+                </div> */}
 
                   <a
                     className="btn btn-info"
@@ -537,7 +603,7 @@ function AdmissionForm() {
             </Row>
           </Container>
         </div>
-    
+
         <div className="admission-sections-headings">
           <h6>Income Details</h6>
         </div>
@@ -547,14 +613,15 @@ function AdmissionForm() {
               <Col>
                 <div>
                   <label className="smallerlabel-admissionForm">
-                    Enter your Annual Income
+                    Enter your Annual Income*
                   </label>
                   <input
                     type="text"
-                    name="marks10thPercentages"
-                    value={marks10th}
+                    name="annualIncome"
+                    value={annualIncome}
+                    required
                     onChange={(e) => {
-                      setmarks10th(e.target.value);
+                      SetAnnualIncome(e.target.value);
                     }}
                     className="input-admissionForm-marks"
                   />
@@ -565,20 +632,23 @@ function AdmissionForm() {
                 {" "}
                 <div>
                   <label className="label-admissionForm">
-                    Income Certificate
+                    Income Certificate*
                   </label>
                   <input
                     className="upload-admissionForm"
+                    required
                     type="file"
                     style={{
-                      display: `${isIncomeCertificateFilePicked ? "" : "none"}`,
+                      display: `${
+                        isIncomeCertificateFilePicked ? "" : "none"
+                      }`,
                     }}
                     onChange={fileHandler}
                     name="incomeCertificate"
                   />
                   {/* <a href={Showfiles + incomeCertificate} target="_blank">
-                  View
-                </a> */}
+                View
+              </a> */}
                   <a
                     className="btn btn-info"
                     style={{ display: `${viewIncome ? "" : "none"}` }}
@@ -591,7 +661,9 @@ function AdmissionForm() {
                     className="btn btn-danger"
                     onClick={onClickRemoveIncomeData}
                     style={{
-                      display: `${isIncomeCertificateFilePicked ? "none" : ""}`,
+                      display: `${
+                        isIncomeCertificateFilePicked ? "none" : ""
+                      }`,
                     }}
                   >
                     X
@@ -605,28 +677,24 @@ function AdmissionForm() {
         </div>
       </div>
 
+<div
+  class="col-md-12 text-center"
+  className="submit-button-admissionForm"
+>
+  <button
+    type="submit"
+    variant="success"
+    className="submit-button-admissionForm1"
+    class="btn btn-outline-success"
+  >
+    Submit
+  </button>
+ </div>
       <br />
-      <div
-        class="col-md-12 text-center"
-        className="submit-button-admissionForm"
-      >
-        <br />
-        <div
-          class="col-md-12 text-center"
-          className="submit-button-admissionForm"
-        >
-          <button
-            type="submit"
-            variant="success"
-            className="submit-button-admissionForm1"
-            class="btn btn-outline-success"
-          >
-            Submit
-          </button>
-        </div>
-        <br />
-      </div>
+      
+      
     </form>
+    </div>
   );
 }
 
