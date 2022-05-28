@@ -172,15 +172,19 @@ function AdmissionForm() {
   ]);
   const fileHandler = (e) => {
     if (e.target.name == "markSheet10th") {
-      SetMarkSheet10th(e.target.files);
-      console.log(e.target.files);
+      SetMarkSheet10th(e.target.files[0]);
+      console.log(e.target.files[0]);
     } else if (e.target.name == "incomeCertificate") {
       SetIncome(e.target.files[0]);
-      console.log(e.target.files);
+      console.log(e.target.files[0]);
     } else if (e.target.name == "castCertificate") {
       SetCastCertificate(e.target.files[0]);
-      console.log(e.target.files);
+      console.log(e.target.files[0]);
       // SetisCastCertificateFilePicked(false);
+    }else if(e.target.name=="leavingCertificate"){
+      SetLeavingCertificate(e.target.files[0]);
+      console.log("leaving certificate");
+      console.log(e.target.files[0]);
     }
   };
 
@@ -206,7 +210,17 @@ function AdmissionForm() {
     Formdata.append("annualIncome",annualIncome);
 
     console.log(Formdata);
+    console.log("incomecertificat")
+    console.log(incomeCertificate);
+
+    console.log("castcertificat")
     console.log(castCertificate);
+
+    console.log("leavingcertificat")
+    console.log(leavingCertificate);
+
+    console.log("marksshet10certificat")
+    console.log(markSheet10th);
 
     const data = await StudentInfo.post("/poststudentinfo", Formdata);
     // console.log(data)

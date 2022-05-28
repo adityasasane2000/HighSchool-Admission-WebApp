@@ -31,6 +31,8 @@ import AdminDashBoard from './pages/AdminDashBoard';
 import AdminRoute from './components/AdminRoute';
 import SuccessfullySubmit from './components/AdmissionForms/SuccessfullySubmit';
 import DisplayStudentDetails from './components/DisplayStudentDetailsAdmin';
+import AdminAcceptedStudent from './pages/AdminAcceptedStudent';
+import AdminRejectedStudent from './pages/AdminRejectedStudent';
 
 const App =()=>{
   const { admin , adminData } = useSelector((state) => state.user);
@@ -89,6 +91,8 @@ const App =()=>{
           <Route exact path ="/hsam-admin" component={AdminLogin}/>
           <Route exact path ="/admin/dashboard" component={AdminDashBoard}/>
           <Route exact path ="/admin/student/:id" component={DisplayStudentDetails}/>
+          <Route exact path= "/admin/accepted/student" component={AdminAcceptedStudent}/>
+          <Route exact path = "/admin/rejected/student" component={AdminRejectedStudent}/>
         </Switch>
         </div>
       </div>

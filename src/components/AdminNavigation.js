@@ -40,7 +40,7 @@ const  AdminNavigation = () => {
             </Link>
             <ul className="sub-menu blank">
               <li>
-                <Link className="link_name" to="/HOD-Dashbord">
+                <Link className="link_name" to="/admin/dashboard">
                   Dashboard
                 </Link>
               </li>
@@ -54,7 +54,7 @@ const  AdminNavigation = () => {
             </Link>
             <ul className="sub-menu blank">
               <li>
-                <Link className="link_name" to="/HOD-Dashbord">
+                <Link className="link_name" to="/admin/accepted/student">
                   Students
                 </Link>
               </li>

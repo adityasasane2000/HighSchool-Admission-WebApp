@@ -200,8 +200,8 @@ function DisplayStudentDetailsAdmin() {
               <input
                 type="text"
                 name="name"
-                required
                 value={name}
+                disabled={true}
                 onChange={(e) => {
                   setName(e.target.value);
                 }}
@@ -218,6 +218,7 @@ function DisplayStudentDetailsAdmin() {
                     <input
                       type="text"
                       name="email"
+                      disabled={true}
                       value={email}
                       onChange={(e) => {
                         setEmail(e.target.value);
@@ -236,7 +237,7 @@ function DisplayStudentDetailsAdmin() {
                       type="text"
                       name="studentMobNo"
                       value={studentMobNo}
-                      required
+                      disabled={true}
                       onChange={(e) => {
                         SetStudentMobNO(e.target.value);
                       }}
@@ -254,7 +255,7 @@ function DisplayStudentDetailsAdmin() {
                 type="text"
                 name="address"
                 value={address}
-                required
+                disabled={true}
                 onChange={(e) => {
                   setAddress(e.target.value);
                 }}
@@ -269,8 +270,8 @@ function DisplayStudentDetailsAdmin() {
                       </label>
                       <br />
                       <select
+                      disabled={true}
                         value={gender}
-                        required
                         onChange={handelGenderChange}
                         className="input-admissionForm"
                       >
@@ -289,7 +290,7 @@ function DisplayStudentDetailsAdmin() {
                       </label>
                       <br />
                       <input
-                        required
+                        disabled={true}
                         type="date"
                         name="birthDate"
                         value={birthDate}
@@ -311,7 +312,7 @@ function DisplayStudentDetailsAdmin() {
                       </label>
                       <input
                         type="text"
-                        required
+                        disabled={true}
                         name="fatherName"
                         value={fatherName}
                         onChange={(e) => {
@@ -330,7 +331,7 @@ function DisplayStudentDetailsAdmin() {
                       <input
                         type="text"
                         name="fatherMobNo"
-                        required
+                        disabled={true}
                         value={fatherMobNo}
                         onChange={(e) => {
                           SetFatherMobNo(e.target.value);
@@ -359,7 +360,7 @@ function DisplayStudentDetailsAdmin() {
                     </label>
                     <input
                       type="text"
-                      required
+                      disabled={true}
                       name="schoolName"
                       value={schoolName}
                       onChange={(e) => {
@@ -377,7 +378,7 @@ function DisplayStudentDetailsAdmin() {
                     </label>
                     <input
                       type="text"
-                      required
+                      disabled={true}
                       name="marks10thPercentages"
                       value={marks10th}
                       onChange={(e) => {
@@ -477,7 +478,7 @@ function DisplayStudentDetailsAdmin() {
                     <select
                       value={cast}
                       onChange={handelCastChange}
-                      required
+                      disabled={true}
                       className="input-admissionForm"
                     >
                       <option value="null">Select Your Caste</option>
@@ -538,7 +539,7 @@ function DisplayStudentDetailsAdmin() {
                       type="text"
                       name="annualIncome"
                       value={annualIncome}
-                      required
+                      disabled={true}
                       onChange={(e) => {
                         SetAnnualIncome(e.target.value);
                       }}
