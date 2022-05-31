@@ -91,48 +91,49 @@ function AdmissionForm() {
     const handelGetReq = async () => {
       const data = await StudentInfo.get(`/getstudentinfo/${currentUser.uid}`);
       // console.log(data)
-      setName(data.data.StudentData[0].Name);
-      setEmail(data.data.StudentData[0].Email);
-      setBirthDate(data.data.StudentData[0].DOB);
-      setAddress(data.data.StudentData[0].Address);
-      setSchoolName(data.data.StudentData[0].SchoolName);
-      setmarks10th(data.data.StudentData[0].TenthMarks);
+      setName(data.data.StudentData.Name);
+      console.log(data.data.StudentData.Name)
+      setEmail(data.data.StudentData.Email);
+      setBirthDate(data.data.StudentData .DOB);
+      setAddress(data.data.StudentData .Address);
+      setSchoolName(data.data.StudentData .SchoolName);
+      setmarks10th(data.data.StudentData .TenthMarks);
 
-      SetMarkSheet10th(data.data.StudentData[0].TenthMarksheet);
-      SetCast(data.data.StudentData[0].Cast);
-      SetGender(data.data.StudentData[0].Gender);
-      SetStudentMobNO(data.data.StudentData[0].StudentMobNo);
-      SetFatherMobNo(data.data.StudentData[0].FatherMobNO);
-      SetFatherName(data.data.StudentData[0].FatherName);
-      SetAnnualIncome(data.data.StudentData[0].AnnualIncome);
+      SetMarkSheet10th(data.data.StudentData .TenthMarksheet);
+      SetCast(data.data.StudentData .Cast);
+      SetGender(data.data.StudentData .Gender);
+      SetStudentMobNO(data.data.StudentData.MobileNo);
+      SetFatherMobNo(data.data.StudentData.FatherMobile);
+      SetFatherName(data.data.StudentData .FatherName);
+      SetAnnualIncome(data.data.StudentData .AnnualIncome);
 
       console.log("Hello");
 
-      SetCastCertificate(data.data.StudentData[0].CastCertificate);
-      if (data.data.StudentData[0].CastCertificate != "NULL") {
+      SetCastCertificate(data.data.StudentData .CastCertificate);
+      if (data.data.StudentData .CastCertificate != "NULL") {
         SetisCastCertificateFilePicked(false);
         SetViewCast(true);
       }
 
-      SetLeavingCertificate(data.data.StudentData[0].LeavingCertificate);
-      if (data.data.StudentData[0].LeavingCertificate != "NULL") {
+      SetLeavingCertificate(data.data.StudentData .LeavingCertificate);
+      if (data.data.StudentData .LeavingCertificate != "NULL") {
         SetIsLeavingCertificateFilePicked(false);
         SetViewLeaving(true);
       }
 
-      SetIncome(data.data.StudentData[0].incomeCertificate);
-      if (data.data.StudentData[0].incomeCertificate != "NULL") {
+      SetIncome(data.data.StudentData .incomeCertificate);
+      if (data.data.StudentData .incomeCertificate != "NULL") {
         SetIsIncomeCertificateFilePicked(false);
         SetViewIncome(true);
       }
-      SetMarkSheet10th(data.data.StudentData[0].TenthMarksheet);
-      if (data.data.StudentData[0].TenthMarksheet != "NULL") {
+      SetMarkSheet10th(data.data.StudentData .TenthMarksheet);
+      if (data.data.StudentData .TenthMarksheet != "NULL") {
         SetIsTenthMarkSheetFilePicked(false);
         SetViewTenthMark(true);
       }
 
       //console.log(CastCertificate);
-      //console.log(data.data.StudentData[0].CastCertificate)
+      //console.log(data.data.StudentData .CastCertificate)
     };
     handelGetReq();
   }, [

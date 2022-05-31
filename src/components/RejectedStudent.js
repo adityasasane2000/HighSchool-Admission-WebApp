@@ -13,7 +13,7 @@ const Students = props => (
         
         
         <td>
-            <Link to={"/admin/student/"+props.student.UID}>View</Link> 
+            <Link to={"/admin/arstudent/"+props.student.UID}>View</Link> 
             {/* <button className="btn btn-secondary"><Link to={"/edit/"+props.exercise._id} style={{color:"white"}}>Edit</Link></button> | <button className="btn btn-danger" onClick={() => {props.deleteExercise(props.exercise._id) }}>Delete</button> */}
         </td>
     </tr>

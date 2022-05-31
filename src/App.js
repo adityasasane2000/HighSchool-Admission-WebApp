@@ -33,6 +33,7 @@ import SuccessfullySubmit from './components/AdmissionForms/SuccessfullySubmit';
 import DisplayStudentDetails from './components/DisplayStudentDetailsAdmin';
 import AdminAcceptedStudent from './pages/AdminAcceptedStudent';
 import AdminRejectedStudent from './pages/AdminRejectedStudent';
+import DisplayStudent from './components/DisplayStudent';
 
 const App =()=>{
   const { admin , adminData } = useSelector((state) => state.user);
@@ -93,6 +94,7 @@ const App =()=>{
           <Route exact path ="/admin/student/:id" component={DisplayStudentDetails}/>
           <Route exact path= "/admin/accepted/student" component={AdminAcceptedStudent}/>
           <Route exact path = "/admin/rejected/student" component={AdminRejectedStudent}/>
+          <Route exact path = "/admin/arstudent/:id" component={DisplayStudent}/>
         </Switch>
         </div>
       </div>

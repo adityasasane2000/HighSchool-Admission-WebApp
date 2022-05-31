@@ -49,19 +49,33 @@ const  AdminNavigation = () => {
 
           <li>
             <Link to="/admin/dashboard">
-            <i className="bx bx-user"></i>
+            <i id="accepted-icons" className="bx bx-user-check"></i>
               <span className="link_name">Students</span>
             </Link>
             <ul className="sub-menu blank">
               <li>
                 <Link className="link_name" to="/admin/accepted/student">
-                  Students
+                  Accepted Students
                 </Link>
               </li>
             </ul>
           </li>
          
           <li>
+            <Link to="/admin/dashboard">
+            <i className="bx bx-user-x"></i>
+              <span className="link_name">Students</span>
+            </Link>
+            <ul className="sub-menu blank">
+              <li>
+                <Link className="link_name" to="/admin/rejected/student">
+                  Rejected Students
+                </Link>
+              </li>
+            </ul>
+          </li>
+         
+          {/* <li>
             <Link to="/admin/dashboard">
             <i className="bx bx-comment-dots"></i>
               <span className="link_name">Feedback</span>
@@ -73,7 +87,7 @@ const  AdminNavigation = () => {
                 </Link>
               </li>
             </ul>
-          </li>
+          </li> */}
          
 
         
@@ -105,9 +119,9 @@ const  AdminNavigation = () => {
       </div>
       <div className="home-section">
         <div className="home-content">
-          <i className="bx bx-menu" onClick={eventHandle}></i>
+          {/* <i className="bx bx-menu" onClick={eventHandle}></i>
           <span className="text">ADMIN Dashboard</span>
-          <br />
+          <br /> */}
         </div>
       </div>
     </div>

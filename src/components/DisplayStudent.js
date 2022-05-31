@@ -12,7 +12,7 @@ import adminData from "../api/AdminInfo";
 import StudentInfo from "../api/StudentInfo";
 import Showfiles from "../api/FileInfo";
 
-function DisplayStudentDetailsAdmin() {
+function DisplayStudent() {
   const { currentUser } = useSelector((state) => state.user);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -167,17 +167,10 @@ function DisplayStudentDetailsAdmin() {
     }
   };
   const handleAcceptRequest = async () => {
-    const res = await adminData.post("/student/accept", { email: email, UID: params.id });
-    console.log(res)
-    // if(res.state){
-    //   history.push("/admin/dashboard");
-    // }
+    await adminData.post("/student/accept", { email: email, UID: params.id });
   };
   const handleRejectRequest = async () => {
-    const res = await adminData.post("/student/reject", { email: email, UID: params.id });
-    if(res.state){
-      history.push("/admin/dashboard");
-    }
+    await adminData.post("/student/reject", { email: email, UID: params.id });
   };
   // console.log(currentUser)
  
@@ -599,19 +592,9 @@ function DisplayStudentDetailsAdmin() {
         
         
       </form>
-      <div
-            className="col-md-12 text-center submit-button-admissionForm"
-          >
-        <button className="btn btn-primary" onClick={handleAcceptRequest}>
-          Accept
-        </button>
-
-        <button className="btn btn-danger" onClick={handleRejectRequest}>
-          Reject
-        </button>
-      </div>
+      
     </div>
   );
 }
 
-export default DisplayStudentDetailsAdmin;
+export default DisplayStudent;
