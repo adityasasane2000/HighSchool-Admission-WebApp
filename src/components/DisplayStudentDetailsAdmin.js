@@ -171,14 +171,19 @@ function DisplayStudentDetailsAdmin() {
   const handleAcceptRequest = async () => {
     const res = await adminData.post("/student/accept", { email: email, UID: params.id });
     console.log(res)
-    // if(res.state){
-    //   history.push("/admin/dashboard");
-    // }
+    if(res.data.state){
+      history.push("/admin/dashboard");
+    }else{
+      history.push("/fail");
+    }
   };
   const handleRejectRequest = async () => {
     const res = await adminData.post("/student/reject", { email: email, UID: params.id });
-    if(res.state){
+   console.log(res)
+    if(res.data.state){
       history.push("/admin/dashboard");
+    }else{
+      history.push("/fail");
     }
   };
   // console.log(currentUser)

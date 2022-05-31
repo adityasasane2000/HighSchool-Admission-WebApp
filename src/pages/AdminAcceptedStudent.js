@@ -4,7 +4,7 @@ import React,{useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import {adminInitiate, setAdmin} from '../redux/actions';
 
-function AdminAcceptedStudent() {
+const  AdminAcceptedStudent = () =>{
     const dispatch = useDispatch();
 
     useEffect(()=>{

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import './DisplayStudentsAdmin.css';
 
-import StudentData from '../api/AdminInfo';
+import adminData from '../api/AdminInfo';
 
 const Students = props => (
     <tr>
@@ -29,7 +29,7 @@ class RejectedStudent extends Component {
     }
 
     componentDidMount() {
-        StudentData.get('/getAllStudents')
+        adminData.get('/getallrejectedstudents')
             .then(res => {
                 console.log(res.data)
                 this.setState({ students: res.data })

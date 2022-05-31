@@ -54,7 +54,7 @@ const  AdminNavigation = () => {
             </Link>
             <ul className="sub-menu blank">
               <li>
-                <Link className="link_name" to="/admin/accepted/student">
+                <Link className="link_name" to="/admin/accepted/students">
                   Accepted Students
                 </Link>
               </li>
@@ -68,7 +68,7 @@ const  AdminNavigation = () => {
             </Link>
             <ul className="sub-menu blank">
               <li>
-                <Link className="link_name" to="/admin/rejected/student">
+                <Link className="link_name" to="/admin/rejected/students">
                   Rejected Students
                 </Link>
               </li>

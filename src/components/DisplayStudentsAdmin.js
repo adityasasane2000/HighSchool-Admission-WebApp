@@ -10,7 +10,7 @@ const Students = props => (
         <td>{props.student.Name}</td>
         <td>{props.student.TenthMarks}</td>
         {/* <td>{props.student.activity}</td> */}
-        
+        {console.log(props.student)}
         
         <td>
             <Link to={"/admin/student/"+props.student.UID}>View</Link> 

@@ -35,6 +35,7 @@ import AdminAcceptedStudent from './pages/AdminAcceptedStudent';
 import AdminRejectedStudent from './pages/AdminRejectedStudent';
 import DisplayStudent from './components/DisplayStudent';
 
+import FailToSubmit from './components/AdmissionForms/FailToSubmit';
 const App =()=>{
   const { admin , adminData } = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -92,9 +93,10 @@ const App =()=>{
           <Route exact path ="/hsam-admin" component={AdminLogin}/>
           <Route exact path ="/admin/dashboard" component={AdminDashBoard}/>
           <Route exact path ="/admin/student/:id" component={DisplayStudentDetails}/>
-          <Route exact path= "/admin/accepted/studentS" component={AdminAcceptedStudent}/>
-          <Route exact path = "/admin/rejected/studentS" component={AdminRejectedStudent}/>
+          <Route exact path= "/admin/accepted/students" component={AdminAcceptedStudent}/>
+          <Route exact path = "/admin/rejected/students" component={AdminRejectedStudent}/>
           <Route exact path = "/admin/arstudent/:id" component={DisplayStudent}/>
+          <Route exact path ="/fail" component={FailToSubmit}/>
         </Switch>
         </div>
       </div>
