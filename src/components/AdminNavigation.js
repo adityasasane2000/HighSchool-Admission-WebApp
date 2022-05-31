@@ -1,8 +1,9 @@
 import React from "react";
 import "./AdminNavigation.css";
 import {Link} from 'react-router-dom';
+import { useDispatch,useSelector } from "react-redux";
 
-
+import { adminlogoutInitiate } from "../redux/actions";
 import logo from './images/logo.png';
 
 function eventHandle() {
@@ -22,6 +23,13 @@ function eventHandle() {
 }
 
 const  AdminNavigation = () => {
+  const { admin , adminData } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const HandleAuth = () => {
+    if (adminData) {
+      dispatch(adminlogoutInitiate());
+    }
+  };
   return (
     <div>
       <div className="sidebar close">
@@ -98,7 +106,7 @@ const  AdminNavigation = () => {
             </Link>
             <ul className="sub-menu blank">
               <li>
-                <Link className="link_name" to="/">
+                <Link onClick={HandleAuth} className="link_name" >
                   Logout
                 </Link>
               </li>

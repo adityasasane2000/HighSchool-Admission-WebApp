@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 
 import AdminInfo from '../api/AdminInfo';
 import { useHistory } from 'react-router-dom';
+import "./AdminLogin.css"
+
+import { adminloginInitiate } from '../redux/actions';
 
 import {adminInitiate, setAdmin,setAdminData} from '../redux/actions';
 const AdminLogin = () => {
@@ -19,7 +22,7 @@ const AdminLogin = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (adminData !== null) {
+        if (adminData) {
             console.log(adminData)
             history.push("/admin/dashboard");
         }
@@ -40,8 +43,8 @@ const AdminLogin = () => {
 
         console.log(res);
         setId(res.Id);
-        setState({"msg":res.data.msg});
-        dispatch(setAdminData(res.data.Id));
+        // setState({"msg":res.data.msg});
+        dispatch(adminloginInitiate(email,password));
         
        
     }
@@ -85,7 +88,6 @@ const AdminLogin = () => {
                 
             </div>
             <div>
-                    {msg}
                 </div>
         </div>
     )

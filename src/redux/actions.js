@@ -2,6 +2,8 @@ import * as types from "./actionTypes";
 
 import {auth,googleAuthProvider} from '../firebase';
 
+import AdminData from '../api/AdminInfo';
+
 const registerStart = () =>({
     type:types.REGISTER_START,
 });
@@ -43,18 +45,45 @@ const logoutFail = (error) =>({
     payload:error
 });
 
+const adminlogoutStart = () =>({
+    type:types.LOGOUT_START,
+});
+
+const adminlogoutSuccess = () =>({
+    type:types.LOGOUT_SUCCESS,
+});
+
+const adminlogoutFail = (error) =>({
+    type:types.ADMIN_LOGOUT_FAIL,
+    payload:error
+});
+
+const adminloginStart = () =>({
+    type:types.ADMIN_LOGIN_START,
+});
+
+const adminloginSuccess = (user) =>({
+    type:types.ADMIN_LOGIN_SUCCESS,
+    payload:user
+});
+
+const adminloginFail = (error) =>({
+    type:types.ADMIN_LOGIN_FAIL,
+    payload:error
+});
+
 export const setUser = (user) =>({
     type:types.SET_USER,
     payload:user,
 })
-export const setAdmin = (admin) =>({
-    type:types.SET_ADMIN,
-    payload:admin,
+export const setAdmin = (state) =>({
+    type:types.ADMIN,
+    payload:state,
 })
 
-export const setAdminData = (adminData) =>({
-    type:types.ADMIN,
-    payload:adminData,
+export const setAdminData =(admin)=>({
+    type:types.SET_ADMIN,
+    payload:admin
 })
 
 //GOOGLE SIGN IN 
@@ -133,6 +162,41 @@ export const  googleSignInInitiate = ()=>{
         }).catch((error)=>dispatch(googleSignInFail(error.message)));
     }
 }
+
+export const  adminloginInitiate = (email,password)=>{
+    var userD = null;
+    return function(dispatch){
+        dispatch(adminloginStart());
+        auth.signInWithEmailAndPassword(email,password).then(({user})=>{
+            console.log("user")
+            console.log(user.uid)
+            userD = user;
+            const res = AdminData.post("/hsam-admin",{UID:user.uid});
+            return res;
+            
+        }).then((data,error)=>{
+            console.log("state")
+            console.log(data.data.state)
+            if(data.data.state){
+                console.log(data.data.state)
+                dispatch(adminloginSuccess(userD));
+            }else{
+                dispatch(adminloginFail(error));
+            }
+        })
+        .catch((error)=>dispatch(adminloginFail(error.message)));
+    }
+}
+
+export const  adminlogoutInitiate = ()=>{
+    return function(dispatch){
+        dispatch(adminlogoutStart());
+        auth.signOut().then((res)=>{
+            dispatch(adminlogoutSuccess());
+        }).catch((error)=>dispatch(adminlogoutFail(error.message)));
+    }
+}
+
 // export const adminInitiate = (stateOf) =>{
 //     return function(dispatch){
 //         dispatch(adminIsOrNOt(stateOf));

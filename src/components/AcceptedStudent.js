@@ -57,7 +57,7 @@ class AcceptedStudent extends Component {
         return ( 
             <div className='FideologyActivities'>
             <div className="fideo">
-                <h3 className='fidoh3'>Pedelogy Activities</h3>
+                <h3 className='fidoh3'>Accepted Student</h3>
                 <table>
                     <thead className="thead-light">
                         <tr>

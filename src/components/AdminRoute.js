@@ -3,12 +3,12 @@ import {Route} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 
 
-import LoadingToRedirect from './LoadingToRedirectAdmin';
+import LoadingToRedirectAdmin from './LoadingToRedirectAdmin';
 
 const UserRoute = ({children,...rest}) => {
-    // const {adminData} = useSelector((state)=>state.user);
-    // console.log(adminData)
-    // return adminData ? <Route{...rest} /> : <LoadingToRedirect/>;
+    const {adminData} = useSelector((state)=>state.user);
+    console.log(adminData)
+    return adminData ? <Route{...rest} /> : <LoadingToRedirectAdmin/>;
     return  <Route{...rest} /> ;
     // return <div>Hii</div>
 }

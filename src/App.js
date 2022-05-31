@@ -34,6 +34,7 @@ import DisplayStudentDetails from './components/DisplayStudentDetailsAdmin';
 import AdminAcceptedStudent from './pages/AdminAcceptedStudent';
 import AdminRejectedStudent from './pages/AdminRejectedStudent';
 import DisplayStudent from './components/DisplayStudent';
+// import AdminRoute from './components/AdminRoute';
 
 import FailToSubmit from './components/AdmissionForms/FailToSubmit';
 const App =()=>{
@@ -51,11 +52,14 @@ const App =()=>{
 
   useEffect(()=>{
    
-      if(adminData){
-        dispatch(setAdminData(adminData));
+    auth.onAuthStateChanged((authAdmin)=>{
+      if(authAdmin){
+        dispatch(setAdminData(authAdmin));
       }else{
         dispatch(setAdminData(null));
       }
+    })
+     
   },[dispatch])
 
   
@@ -91,11 +95,11 @@ const App =()=>{
           <Route exact path ="/success" component={SuccessfullySubmit} />
           {/* admin Routes */}
           <Route exact path ="/hsam-admin" component={AdminLogin}/>
-          <Route exact path ="/admin/dashboard" component={AdminDashBoard}/>
-          <Route exact path ="/admin/student/:id" component={DisplayStudentDetails}/>
-          <Route exact path= "/admin/accepted/students" component={AdminAcceptedStudent}/>
-          <Route exact path = "/admin/rejected/students" component={AdminRejectedStudent}/>
-          <Route exact path = "/admin/arstudent/:id" component={DisplayStudent}/>
+          <AdminRoute exact path ="/admin/dashboard" component={AdminDashBoard}/>
+          <AdminRoute exact path ="/admin/student/:id" component={DisplayStudentDetails}/>
+          <AdminRoute exact path= "/admin/accepted/students" component={AdminAcceptedStudent}/>
+          <AdminRoute exact path = "/admin/rejected/students" component={AdminRejectedStudent}/>
+          <AdminRoute exact path = "/admin/arstudent/:id" component={DisplayStudent}/>
           <Route exact path ="/fail" component={FailToSubmit}/>
         </Switch>
         </div>

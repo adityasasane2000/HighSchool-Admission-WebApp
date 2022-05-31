@@ -47,7 +47,7 @@ const Login = () => {
     return (
         <div id='signinbox'>
             <div >
-                <div id="logreg-forms">
+                <div>
                     <form onSubmit={handleSubmit}>
                         <div id="signtitle">
                             <div>
