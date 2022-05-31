@@ -484,7 +484,10 @@ function AdmissionForm() {
             </a> */}
                     <a
                       className="btn btn-info"
-                      style={{ display: `${viewTenthMark ? "" : "none"}` }}
+                      style={{ display: `${viewTenthMark ? "" : "none"}`
+                    
+                    
+                    }}
                       href={Showfiles + markSheet10th}
                       target="_blank"
                     >

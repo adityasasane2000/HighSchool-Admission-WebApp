@@ -6,11 +6,13 @@ import { useForm } from "react-hook-form";
 import { useSelector ,useDispatch} from "react-redux";
 import { Row, Col, Container, Form } from "react-bootstrap";
 import { useHistory, useParams } from "react-router-dom";
+import "./DisplayStudentDetailsAdmin.css";
 
 import {adminInitiate, setAdmin} from '../redux/actions';
 import adminData from "../api/AdminInfo";
 import StudentInfo from "../api/StudentInfo";
 import Showfiles from "../api/FileInfo";
+
 
 function DisplayStudentDetailsAdmin() {
   const { currentUser } = useSelector((state) => state.user);
@@ -602,13 +604,15 @@ function DisplayStudentDetailsAdmin() {
       <div
             className="col-md-12 text-center submit-button-admissionForm"
           >
-        <button className="btn btn-primary" onClick={handleAcceptRequest}>
+        <button className="btn btn-primary" id="btn-accept"  onClick={handleAcceptRequest}>
           Accept
         </button>
 
-        <button className="btn btn-danger" onClick={handleRejectRequest}>
+        <button className="btn btn-danger" id="btn-reject" onClick={handleRejectRequest}>
           Reject
         </button>
+        {/* <Button variant="outline-success" onClick={handleAcceptRequest}>Accept</Button>
+        <Button variant="outline-warning" onClick={handleRejectRequest}>Reject</Button> */}
       </div>
     </div>
   );

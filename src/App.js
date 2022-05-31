@@ -92,8 +92,8 @@ const App =()=>{
           <Route exact path ="/hsam-admin" component={AdminLogin}/>
           <Route exact path ="/admin/dashboard" component={AdminDashBoard}/>
           <Route exact path ="/admin/student/:id" component={DisplayStudentDetails}/>
-          <Route exact path= "/admin/accepted/student" component={AdminAcceptedStudent}/>
-          <Route exact path = "/admin/rejected/student" component={AdminRejectedStudent}/>
+          <Route exact path= "/admin/accepted/studentS" component={AdminAcceptedStudent}/>
+          <Route exact path = "/admin/rejected/studentS" component={AdminRejectedStudent}/>
           <Route exact path = "/admin/arstudent/:id" component={DisplayStudent}/>
         </Switch>
         </div>
