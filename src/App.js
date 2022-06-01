@@ -36,6 +36,7 @@ import AdminRejectedStudent from './pages/AdminRejectedStudent';
 import DisplayStudent from './components/DisplayStudent';
 // import AdminRoute from './components/AdminRoute';
 
+import FullPageLoader from './components/FullPageLoader/FullPageLoader';
 import FailToSubmit from './components/AdmissionForms/FailToSubmit';
 const App =()=>{
   const { admin , adminData } = useSelector((state) => state.user);
@@ -103,6 +104,7 @@ const App =()=>{
           <Route exact path ="/fail" component={FailToSubmit}/>
         </Switch>
         </div>
+        <FullPageLoader />
       </div>
     </BrowserRouter>
    
