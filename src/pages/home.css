@@ -1,9 +1,11 @@
 .marquee1{
    
     background-color: #033259 !important;
-    color: aliceblue;
+    color: rgb(255, 255, 255);
     margin: 0 !important;
     overflow: hidden;
+    width: 100%!important;
+    font-size: large;
 }
 .ImageTransaction{
     margin: 0;
@@ -30,3 +32,19 @@ display: flex;
     width: calc(50% - 2em);
     margin: 1em;
   }
+  .contact-helpline{
+      margin: 0 10% 0 2%;
+      font-weight: 400;
+      color: rgb(253, 255, 125);
+
+    }
+    #slider-images{
+        object-fit: cover;
+        height: 70%;
+    }
+    @media only screen and (max-width: 600px) {
+        #slider-images{
+            object-fit: cover;
+            min-height: 70%;
+        }
+      }
