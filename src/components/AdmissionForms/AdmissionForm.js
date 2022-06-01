@@ -486,11 +486,13 @@ function AdmissionForm() {
                           style={{ display: `${viewTenthMark ? "" : "none"}` }}
                           href={Showfiles + markSheet10th}
                           target="_blank"
+                          className="btn btn-info"
                         >
                           View
                         </a>
                         <span
                           id="viewx-button"
+                          className="btn btn-danger"
                           onClick={onClickRemoveTenthMarkSheetData}
                           style={{
                             display: `${
@@ -523,8 +525,9 @@ function AdmissionForm() {
                       />
                       {/* <a href={Showfiles + incomeCertificate} target="_blank">
                 View
-              </a> */}
-                      <a
+              </a> */}<div>
+                 <a
+                   id="view-button"
                         className="btn btn-info"
                         style={{ display: `${viewLeaving ? "" : "none"}` }}
                         href={Showfiles + leavingCertificate}
@@ -533,6 +536,7 @@ function AdmissionForm() {
                         View
                       </a>
                       <span
+                        id="viewx-button"
                         className="btn btn-danger"
                         onClick={onClickRemoveLeavingData}
                         style={{
@@ -543,6 +547,8 @@ function AdmissionForm() {
                       >
                         X
                       </span>
+              </div>
+                     
                     </div>
                   </Col>
                   <Col></Col>
@@ -595,16 +601,17 @@ function AdmissionForm() {
                     {/* <div>
                   <p>{castCertificate=="" && castCertificateName!="NULL"?"File Name "+castCertificateName:"File Name "+castCertificate.name}</p>
                 </div> */}
-
-                    <a
+<div>  <a
                       className="btn btn-info"
                       style={{ display: `${viewCast ? "" : "none"}` }}
                       href={Showfiles + castCertificate}
                       target="_blank"
+                      id="view-button"
                     >
                       View
                     </a>
                     <span
+                      id="viewx-button"
                       className="btn btn-danger"
                       onClick={onClickRemoveCastData}
                       style={{
@@ -612,7 +619,8 @@ function AdmissionForm() {
                       }}
                     >
                       X
-                    </span>
+                    </span></div>
+                  
                   </div>
                 </Col>
               </Row>
@@ -650,6 +658,7 @@ function AdmissionForm() {
                       Income Certificate*
                     </label>
                     <input
+                      id="view-button"
                       className="upload-admissionForm"
                       type="file"
                       style={{
@@ -662,8 +671,8 @@ function AdmissionForm() {
                     />
                     {/* <a href={Showfiles + incomeCertificate} target="_blank">
                 View
-              </a> */}
-                    <a
+              </a> */}<div> <a
+              id="view-button"
                       className="btn btn-info"
                       style={{ display: `${viewIncome ? "" : "none"}` }}
                       href={Showfiles + incomeCertificate}
@@ -672,6 +681,7 @@ function AdmissionForm() {
                       View
                     </a>
                     <span
+                      id="viewx-button"
                       className="btn btn-danger"
                       onClick={onClickRemoveIncomeData}
                       style={{
@@ -681,7 +691,8 @@ function AdmissionForm() {
                       }}
                     >
                       X
-                    </span>
+                    </span></div>
+                   
                   </div>
                 </Col>
 

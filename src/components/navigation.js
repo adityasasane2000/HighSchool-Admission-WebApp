@@ -40,7 +40,7 @@ const Navigation = () => {
       return (
         <>
           <Nav.Link
-            eventKey="disabled" disabled className="Disabled-Admission">
+            eventKey="disabled" disabled className="Disabled-Admission" >
            ADMISSION
           </Nav.Link>
           <Link to="/login" className="item" id="item">
@@ -67,7 +67,7 @@ const Navigation = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="nav navbar-nav ">
-            <Link to="/" className="home-navbar" id="item">
+            <Link to="/" className="item" id="item">
             HOME
             </Link>
 

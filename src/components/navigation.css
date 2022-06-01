@@ -89,10 +89,17 @@ padding: 0%;
 
 }
 .Disabled-Admission{
-  margin-left: 20px;
   color:#060057 !important ;
+  position: relative;
+  display: block;
+  padding: 0 0 8px 0;
+  margin-left: 30px;
+  text-decoration: none;  
+  margin-top: 0; 
+  font-weight: 500;
+  font-size: medium;
 }
 
-.home-navbar{
+/* .home-navbar{
   margin-left: 5rem !important;
-}
+} */

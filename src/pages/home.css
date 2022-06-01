@@ -38,13 +38,11 @@ display: flex;
       color: rgb(253, 255, 125);
 
     }
-    #slider-images{
-        object-fit: cover;
-        height: 70%;
-    }
+
     @media only screen and (max-width: 600px) {
         #slider-images{
+            height: 300px; /* height of container */
             object-fit: cover;
-            min-height: 70%;
+            object-position: 40% 10%; /* try 20px 10px */
         }
       }
