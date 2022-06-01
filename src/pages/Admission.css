@@ -94,7 +94,7 @@
 }
 .admission-sections-headings{
     margin-left: 3%;
-    margin-top: 3%;
+    margin-top: 2%;
     display: inline-block;
     padding: 0.2rem 1% ;
     border: 1px solid rgb(0, 10, 65);
@@ -135,3 +135,10 @@ margin-top: 1%;
     color: black;
     } 
  
+
+#closebutton-alert{
+   margin-right: 1%;
+}
+.Alert-admissionform{
+    margin: 0 1%;
+}

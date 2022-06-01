@@ -6,7 +6,6 @@ import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { Row, Col, Container, Form } from "react-bootstrap";
 import { useHistory, useParams } from "react-router-dom";
-
 import StudentInfo from "../../api/StudentInfo";
 import Showfiles from "../../api/FileInfo";
 
@@ -111,12 +110,13 @@ function AdmissionForm() {
       SetFatherName(data.data.StudentData.FatherName);
       SetAnnualIncome(data.data.StudentData.AnnualIncome);
       SetProgram(data.data.StudentData.program);
+     
       if(data.data.state=="Accepted"){
-        SetMsg("Your Form get Accepted Now you can visit our collage and take the admission");
+        SetMsg("Your Form is Accepted! Now you can visit our collage and continue the admission process");
       }else if(data.data.state == "Rejected"){
-        SetMsg("Your Form get Rejected you have to fill again");
+        SetMsg("Your Form got Rejected! You can re-apply");
       }else if(data.data.state=="No Action"){
-        SetMsg("No Action Taken by Admin Plz check sometimes later");
+        SetMsg("No Action Taken by Admin Please check sometime later");
       }
 
       console.log("Hello ji ");
@@ -270,12 +270,22 @@ function AdmissionForm() {
   const openFile = (e) => {
     StudentInfo.get("/showfiles");
   };
+  const [showA, setShowA] = useState(true);
+
+  const toggleShowA = () => setShowA(!showA);
 
   return (
     <div>
-      <div>
-        {msg}
+  
+      <div className="Alert-admissionform">
+    
+        
+      <div className="alert alert-warning alert-dismissible d-flex align-items-center fade show">
+        <i className="bi-exclamation-triangle-fill" />
+        <strong className="mx-2">Notice!</strong> {msg}
+        <button type="button" className="btn-close" id="closebutton-alert" data-bs-dismiss="alert" />
       </div>
+        </div>
       <form onSubmit={handleSubmit(submit)}>
         <div className="admissionForm-flexbox">
           <div className="admission-sections-headings">

@@ -3,7 +3,8 @@ import submitted from './submitted.gif';
 import "./success.css"
 
 
-function SuccessfullySubmit() {
+function SuccessfullySubmit()
+ {
   return (
     
     <div className='Sucess'>
@@ -11,6 +12,7 @@ function SuccessfullySubmit() {
      
      
      <h5 className='Submitted-text'>Form Submitted Successfully </h5>
+     
        </div>
   )
 }
