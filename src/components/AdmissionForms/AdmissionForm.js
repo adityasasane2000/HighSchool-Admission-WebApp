@@ -20,6 +20,7 @@ function AdmissionForm() {
   const [marks10th, setmarks10th] = useState("");
 
   const [cast, SetCast] = useState("open");
+  const [program, SetProgram] = useState("");
   const [gender, SetGender] = useState("");
   const [studentMobNo, SetStudentMobNO] = useState("");
   const [fatherMobNo, SetFatherMobNo] = useState("");
@@ -49,6 +50,8 @@ function AdmissionForm() {
   const [isTenthMarkSheetFilePicked, SetIsTenthMarkSheetFilePicked] =
     useState(true);
   const [viewTenthMark, SetViewTenthMark] = useState(false);
+
+  const [msg , SetMsg] = useState("");
 
   const history = useHistory();
   const params = useParams();
@@ -89,8 +92,9 @@ function AdmissionForm() {
   // const { currentUser } = useSelector((state) => state.user);
   useEffect(() => {
     const handelGetReq = async () => {
+      console.log("hello");
       const data = await StudentInfo.get(`/getstudentinfo/${currentUser.uid}`);
-      // console.log(data)
+      console.log(data.data);
       setName(data.data.StudentData.Name);
       console.log(data.data.StudentData.Name);
       setEmail(data.data.StudentData.Email);
@@ -106,28 +110,48 @@ function AdmissionForm() {
       SetFatherMobNo(data.data.StudentData.FatherMobile);
       SetFatherName(data.data.StudentData.FatherName);
       SetAnnualIncome(data.data.StudentData.AnnualIncome);
+      SetProgram(data.data.StudentData.program);
+      if(data.data.state=="Accepted"){
+        SetMsg("Your Form get Accepted Now you can visit our collage and take the admission");
+      }else if(data.data.state == "Rejected"){
+        SetMsg("Your Form get Rejected you have to fill again");
+      }else if(data.data.state){
+        SetMsg("No Action Taken by Admin Plz check sometimes later");
+      }
 
-      console.log("Hello");
+      console.log("Hello ji ");
 
       SetCastCertificate(data.data.StudentData.CastCertificate);
-      if (data.data.StudentData.CastCertificate != "NULL") {
+      if (
+        data.data.StudentData.CastCertificate != "NULL" &&
+        data.data.StudentData.CastCertificate !== ""
+      ) {
         SetisCastCertificateFilePicked(false);
         SetViewCast(true);
       }
 
       SetLeavingCertificate(data.data.StudentData.LeavingCertificate);
-      if (data.data.StudentData.LeavingCertificate != "NULL") {
+      if (
+        data.data.StudentData.LeavingCertificate != "NULL" &&
+        data.data.StudentData.LeavingCertificate !== ""
+      ) {
         SetIsLeavingCertificateFilePicked(false);
         SetViewLeaving(true);
       }
 
       SetIncome(data.data.StudentData.incomeCertificate);
-      if (data.data.StudentData.incomeCertificate != "NULL") {
+      if (
+        data.data.StudentData.incomeCertificate != "NULL" &&
+        data.data.StudentData.incomeCertificate !== ""
+      ) {
         SetIsIncomeCertificateFilePicked(false);
         SetViewIncome(true);
       }
       SetMarkSheet10th(data.data.StudentData.TenthMarksheet);
-      if (data.data.StudentData.TenthMarksheet != "NULL") {
+      if (
+        data.data.StudentData.TenthMarksheet != "NULL" &&
+        data.data.StudentData.TenthMarksheet !== ""
+      ) {
         SetIsTenthMarkSheetFilePicked(false);
         SetViewTenthMark(true);
       }
@@ -145,6 +169,7 @@ function AdmissionForm() {
     setmarks10th,
     SetCast,
     SetGender,
+    SetProgram,
 
     SetCastCertificate,
     SetCastCertificateName,
@@ -170,6 +195,7 @@ function AdmissionForm() {
     SetFatherMobNo,
     SetFatherName,
     SetAnnualIncome,
+    SetMsg
   ]);
   const fileHandler = (e) => {
     if (e.target.name == "markSheet10th") {
@@ -234,6 +260,9 @@ function AdmissionForm() {
   const handelCastChange = (e) => {
     SetCast(e.target.value);
   };
+  const handelProgramChange = (e) => {
+    SetProgram(e.target.value);
+  };
   const handelGenderChange = (e) => {
     SetGender(e.target.value);
   };
@@ -244,6 +273,9 @@ function AdmissionForm() {
 
   return (
     <div>
+      <div>
+        {msg}
+      </div>
       <form onSubmit={handleSubmit(submit)}>
         <div className="admissionForm-flexbox">
           <div className="admission-sections-headings">
@@ -451,6 +483,7 @@ function AdmissionForm() {
                 </Col>
               </Row>
             </Container>
+
             <div class="note-admission">
               <p>
                 <strong>Note!</strong> While uploading the documents, please
@@ -468,11 +501,12 @@ function AdmissionForm() {
                         10th mark sheet*
                       </label>
                       <input
-    
                         className="upload-admissionForm"
                         type="file"
                         style={{
-                          display: `${isTenthMarkSheetFilePicked ? "" : "none"}`,
+                          display: `${
+                            isTenthMarkSheetFilePicked ? "" : "none"
+                          }`,
                         }}
                         onChange={fileHandler}
                         name="markSheet10th"
@@ -512,7 +546,6 @@ function AdmissionForm() {
                         Leaving Certificate*
                       </label>
                       <input
-
                         className="upload-admissionForm"
                         type="file"
                         style={{
@@ -525,30 +558,30 @@ function AdmissionForm() {
                       />
                       {/* <a href={Showfiles + incomeCertificate} target="_blank">
                 View
-              </a> */}<div>
-                 <a
-                   id="view-button"
-                        className="btn btn-info"
-                        style={{ display: `${viewLeaving ? "" : "none"}` }}
-                        href={Showfiles + leavingCertificate}
-                        target="_blank"
-                      >
-                        View
-                      </a>
-                      <span
-                        id="viewx-button"
-                        className="btn btn-danger"
-                        onClick={onClickRemoveLeavingData}
-                        style={{
-                          display: `${
-                            isLeavingCertificateFilePicked ? "none" : ""
-                          }`,
-                        }}
-                      >
-                        X
-                      </span>
-              </div>
-                     
+              </a> */}
+                      <div>
+                        <a
+                          id="view-button"
+                          className="btn btn-info"
+                          style={{ display: `${viewLeaving ? "" : "none"}` }}
+                          href={Showfiles + leavingCertificate}
+                          target="_blank"
+                        >
+                          View
+                        </a>
+                        <span
+                          id="viewx-button"
+                          className="btn btn-danger"
+                          onClick={onClickRemoveLeavingData}
+                          style={{
+                            display: `${
+                              isLeavingCertificateFilePicked ? "none" : ""
+                            }`,
+                          }}
+                        >
+                          X
+                        </span>
+                      </div>
                     </div>
                   </Col>
                   <Col></Col>
@@ -556,6 +589,39 @@ function AdmissionForm() {
               </Container>
             </div>
           </div>
+
+          {/* program select */}
+
+          <div className="admission-sections-headings">
+            <h6>Select Program</h6>
+          </div>
+          <div className="admission-sections">
+            <Container fluid className="AdmissionForm-container">
+              <Row>
+                <Col>
+                  {" "}
+                  <div className="Caste-admission">
+                    <label className="smallerlabel-admissionForm">Program*</label>
+                    <br />
+                    <select
+                      value={program}
+                      onChange={handelProgramChange}
+                      required
+                      className="input-admissionForm"
+                    >
+                      <option value="">Select Your Caste</option>
+                      <option value="commerce">Commerce</option>
+                      <option value="art">Art</option>
+                      <option value="science">Science</option>
+                    </select>
+                  </div>
+                </Col>
+                
+              </Row>
+            </Container>
+          </div>
+
+          {/* end */}
 
           <div className="admission-sections-headings">
             <h6>Caste Details</h6>
@@ -601,26 +667,30 @@ function AdmissionForm() {
                     {/* <div>
                   <p>{castCertificate=="" && castCertificateName!="NULL"?"File Name "+castCertificateName:"File Name "+castCertificate.name}</p>
                 </div> */}
-<div>  <a
-                      className="btn btn-info"
-                      style={{ display: `${viewCast ? "" : "none"}` }}
-                      href={Showfiles + castCertificate}
-                      target="_blank"
-                      id="view-button"
-                    >
-                      View
-                    </a>
-                    <span
-                      id="viewx-button"
-                      className="btn btn-danger"
-                      onClick={onClickRemoveCastData}
-                      style={{
-                        display: `${isCastCertificateFilePicked ? "none" : ""}`,
-                      }}
-                    >
-                      X
-                    </span></div>
-                  
+                    <div>
+                      {" "}
+                      <a
+                        className="btn btn-info"
+                        style={{ display: `${viewCast ? "" : "none"}` }}
+                        href={Showfiles + castCertificate}
+                        target="_blank"
+                        id="view-button"
+                      >
+                        View
+                      </a>
+                      <span
+                        id="viewx-button"
+                        className="btn btn-danger"
+                        onClick={onClickRemoveCastData}
+                        style={{
+                          display: `${
+                            isCastCertificateFilePicked ? "none" : ""
+                          }`,
+                        }}
+                      >
+                        X
+                      </span>
+                    </div>
                   </div>
                 </Col>
               </Row>
@@ -671,28 +741,31 @@ function AdmissionForm() {
                     />
                     {/* <a href={Showfiles + incomeCertificate} target="_blank">
                 View
-              </a> */}<div> <a
-              id="view-button"
-                      className="btn btn-info"
-                      style={{ display: `${viewIncome ? "" : "none"}` }}
-                      href={Showfiles + incomeCertificate}
-                      target="_blank"
-                    >
-                      View
-                    </a>
-                    <span
-                      id="viewx-button"
-                      className="btn btn-danger"
-                      onClick={onClickRemoveIncomeData}
-                      style={{
-                        display: `${
-                          isIncomeCertificateFilePicked ? "none" : ""
-                        }`,
-                      }}
-                    >
-                      X
-                    </span></div>
-                   
+              </a> */}
+                    <div>
+                      {" "}
+                      <a
+                        id="view-button"
+                        className="btn btn-info"
+                        style={{ display: `${viewIncome ? "" : "none"}` }}
+                        href={Showfiles + incomeCertificate}
+                        target="_blank"
+                      >
+                        View
+                      </a>
+                      <span
+                        id="viewx-button"
+                        className="btn btn-danger"
+                        onClick={onClickRemoveIncomeData}
+                        style={{
+                          display: `${
+                            isIncomeCertificateFilePicked ? "none" : ""
+                          }`,
+                        }}
+                      >
+                        X
+                      </span>
+                    </div>
                   </div>
                 </Col>
 

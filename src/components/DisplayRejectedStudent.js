@@ -12,7 +12,7 @@ import adminData from "../api/AdminInfo";
 import StudentInfo from "../api/StudentInfo";
 import Showfiles from "../api/FileInfo";
 
-function DisplayStudent() {
+function DisplayRejectedStudent() {
   const { currentUser } = useSelector((state) => state.user);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -165,7 +165,7 @@ function DisplayStudent() {
     } else if (e.target.name == "castCertificate") {
       SetCastCertificate(e.target.files );
       console.log(e.target.files);
-      // SetisCastCertificateFilePicked(false);
+      SetisCastCertificateFilePicked(false);
     }
   };
   const handleAcceptRequest = async () => {
@@ -636,4 +636,4 @@ function DisplayStudent() {
   );
 }
 
-export default DisplayStudent;
+export default DisplayRejectedStudent;

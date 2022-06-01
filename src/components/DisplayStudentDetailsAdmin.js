@@ -6,13 +6,11 @@ import { useForm } from "react-hook-form";
 import { useSelector ,useDispatch} from "react-redux";
 import { Row, Col, Container, Form } from "react-bootstrap";
 import { useHistory, useParams } from "react-router-dom";
-import "./DisplayStudentDetailsAdmin.css";
 
 import {adminInitiate, setAdmin} from '../redux/actions';
 import adminData from "../api/AdminInfo";
 import StudentInfo from "../api/StudentInfo";
 import Showfiles from "../api/FileInfo";
-
 
 function DisplayStudentDetailsAdmin() {
   const { currentUser } = useSelector((state) => state.user);
@@ -24,6 +22,7 @@ function DisplayStudentDetailsAdmin() {
   const [marks10th, setmarks10th] = useState("");
 
   const [cast, SetCast] = useState("open");
+  const [program, SetProgram] = useState("");
   const [gender, SetGender] = useState("");
   const [studentMobNo, SetStudentMobNO] = useState("");
   const [fatherMobNo, SetFatherMobNo] = useState("");
@@ -89,7 +88,7 @@ function DisplayStudentDetailsAdmin() {
       SetFatherMobNo(data.data.StudentData.FatherMobile);
       SetFatherName(data.data.StudentData .FatherName);
       SetAnnualIncome(data.data.StudentData .AnnualIncome);
-
+ SetProgram(data.data.StudentData.program);
       console.log("Hello");
 
       SetCastCertificate(data.data.StudentData .CastCertificate);
@@ -133,6 +132,7 @@ function DisplayStudentDetailsAdmin() {
     SetCastCertificateName,
     SetisCastCertificateFilePicked,
     SetViewCast,
+    SetProgram,
 
     SetIncome,
     SetCastCertificateName,
@@ -169,28 +169,19 @@ function DisplayStudentDetailsAdmin() {
     }
   };
   const handleAcceptRequest = async () => {
-    const res = await adminData.post("/student/accept", { email: email, UID: params.id });
-    console.log(res)
-    if(res.data.state){
-      history.push("/admin/dashboard");
-    }else{
-      history.push("/fail");
-    }
+    await adminData.post("/student/accept", { email: email, UID: params.id });
   };
   const handleRejectRequest = async () => {
-    const res = await adminData.post("/student/reject", { email: email, UID: params.id });
-   console.log(res)
-    if(res.data.state){
-      history.push("/admin/dashboard");
-    }else{
-      history.push("/fail");
-    }
+    await adminData.post("/student/reject", { email: email, UID: params.id });
   };
   // console.log(currentUser)
  
 
   const handelCastChange = (e) => {
     SetCast(e.target.value);
+  };
+  const handelProgramChange = (e) => {
+    SetProgram(e.target.value);
   };
   const handelGenderChange = (e) => {
     SetGender(e.target.value);
@@ -479,6 +470,40 @@ function DisplayStudentDetailsAdmin() {
             </div>
           </div>
 
+           {/* program select */}
+
+           <div className="admission-sections-headings">
+            <h6>Select Program</h6>
+          </div>
+          <div className="admission-sections">
+            <Container fluid className="AdmissionForm-container">
+              <Row>
+                <Col>
+                  {" "}
+                  <div className="Caste-admission">
+                    <label className="smallerlabel-admissionForm">Program*</label>
+                    <br />
+                    <select
+                      value={program}
+                      disabled={true}
+                      onChange={handelProgramChange}
+                      required
+                      className="input-admissionForm"
+                    >
+                      <option value="">Select Your Caste</option>
+                      <option value="commerce">Commerce</option>
+                      <option value="art">Art</option>
+                      <option value="science">Science</option>
+                    </select>
+                  </div>
+                </Col>
+                
+              </Row>
+            </Container>
+          </div>
+
+          {/* end */}
+
           <div className="admission-sections-headings">
             <h6>Caste Details</h6>
           </div>
@@ -623,4 +648,9 @@ function DisplayStudentDetailsAdmin() {
   );
 }
 
+
+
+
 export default DisplayStudentDetailsAdmin;
+
+
