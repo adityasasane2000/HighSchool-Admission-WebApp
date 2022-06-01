@@ -115,7 +115,7 @@ function AdmissionForm() {
         SetMsg("Your Form get Accepted Now you can visit our collage and take the admission");
       }else if(data.data.state == "Rejected"){
         SetMsg("Your Form get Rejected you have to fill again");
-      }else if(data.data.state){
+      }else if(data.data.state=="No Action"){
         SetMsg("No Action Taken by Admin Plz check sometimes later");
       }
 
