@@ -18,6 +18,7 @@ const Principal = () => {
               <div> Principal</div>
             </div>
             <br />
+            <div className="principal-msg">
             <p>
               {" "}
               High School is a monumental institution started on June 20, 1966
@@ -44,6 +45,8 @@ const Principal = () => {
               development of Junner tehsil in Pune district with the hurricane
               efforts of hundreds and thousands of activists.
             </p>
+            </div>
+    
           </Col>
           <Col lg={4}>
             <div>
