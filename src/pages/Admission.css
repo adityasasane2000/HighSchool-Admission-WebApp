@@ -108,24 +108,29 @@
  #view-button{
      margin-left: 2%;
 max-height: 2rem;
-background-color: rgba(0, 119, 255, 0.192);
-border-color: black;
+/* border-color: rgb(0, 47, 255); */
+margin-top: 1%;
 
 }
 #view-button:hover{
     background-color: rgba(0, 119, 255, 0.555);
+    background-color: rgba(0, 119, 255, 0.192);
+
 } 
 
  #viewx-button{
     max-height: 2rem;
     color: black;
-    background-color: #ff11004b;
-    border-color: black;
+    background-color: #ff1100;
+    margin-top: 1%;
+    margin-left: 1%;
+
+    border-color: rgb(255, 0, 0);
 
 
 }
 #viewx-button:hover{
-    background-color: #ff11009a;
+    background-color: #ff11004b;
 
     color: black;
     } 
