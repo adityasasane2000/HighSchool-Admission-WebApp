@@ -169,10 +169,20 @@ function DisplayStudentDetailsAdmin() {
     }
   };
   const handleAcceptRequest = async () => {
-    await adminData.post("/student/accept", { email: email, UID: params.id });
+    const res = await adminData.post("/student/accept", { email: email, UID: params.id });
+    if(res.data.state){
+      history.push("/admin/dashboard");
+    }else{
+      history.push("/fail");
+    }
   };
   const handleRejectRequest = async () => {
-    await adminData.post("/student/reject", { email: email, UID: params.id });
+    const res = await adminData.post("/student/reject", { email: email, UID: params.id });
+    if(res.data.state){
+      history.push("/admin/dashboard");
+    }else{
+      history.push("/fail");
+    }
   };
   // console.log(currentUser)
  
