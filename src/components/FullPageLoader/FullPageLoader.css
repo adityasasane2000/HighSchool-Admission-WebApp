@@ -7,8 +7,9 @@
     background-color: #F8F8F8AD;
   }
   .loader{
-    left: 50%;
+    /* left: auto; */
     top: 30%;
+    text-align: center;
     z-index: 1000;
-    position: absolute;
+    position: relative;
   }

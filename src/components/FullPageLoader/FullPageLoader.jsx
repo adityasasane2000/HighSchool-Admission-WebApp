@@ -15,7 +15,7 @@ class FullPageLoader extends Component {
         return ( 
             <div class="loader-container">
                 <div className="loader">
-                    <img src={LoaderGif} />
+                    <center><img src={LoaderGif}/></center> 
                 </div>
             </div>
          );
