@@ -231,6 +231,7 @@ function AdmissionForm() {
     Formdata.append("gender", gender);
     Formdata.append("castCertificate", castCertificate);
     Formdata.append("leavingCertificate", leavingCertificate);
+    Formdata.append("program", program);
     Formdata.append("studentMobNo", studentMobNo);
     Formdata.append("fatherMobNo", fatherMobNo);
     Formdata.append("fatherName", fatherName);

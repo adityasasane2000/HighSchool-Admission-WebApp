@@ -9,7 +9,7 @@ import { useHistory, useParams } from "react-router-dom";
 
 import {adminInitiate, setAdmin} from '../redux/actions';
 import adminData from "../api/AdminInfo";
-import StudentInfo from "../api/StudentInfo";
+import StudentInfo from "../api/AdminInfo";
 import Showfiles from "../api/FileInfo";
 
 function DisplayRejectedStudent() {
@@ -72,7 +72,7 @@ function DisplayRejectedStudent() {
   // const { currentUser } = useSelector((state) => state.user);
   useEffect(() => {
     const handelGetReq = async () => {
-      const data = await StudentInfo.get(`/getstudentinfo/${params.id}`);
+      const data = await adminData.get("/getrejectedstudent",{UID:params.id});
       // console.log(data)
       setName(data.data.StudentData .Name);
       setEmail(data.data.StudentData .Email);
@@ -88,7 +88,7 @@ function DisplayRejectedStudent() {
       SetFatherMobNo(data.data.StudentData.FatherMobile);
       SetFatherName(data.data.StudentData .FatherName);
       SetAnnualIncome(data.data.StudentData .AnnualIncome);
- // SetProgram(data.data.StudentData.program);
+      SetProgram(data.data.StudentData.program);
       console.log("Hello");
 
       SetCastCertificate(data.data.StudentData .CastCertificate);
