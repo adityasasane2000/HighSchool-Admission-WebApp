@@ -40,7 +40,8 @@ const Science = () => {
       <Accordion className='Program-div-Accordion' defaultActiveKey="0">
         <Accordion.Item eventKey="1">
           <Accordion.Header>Timetable</Accordion.Header>
-          <Accordion.Body>
+          <Accordion.Body className='timetable-program1'>
+            
             <table className='timetable-program' border={1} cellSpacing={0} align="center">
               {/*<caption>Timetable</caption>*/}
               <tbody><tr>

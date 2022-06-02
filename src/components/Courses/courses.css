@@ -29,3 +29,8 @@ padding: 1% 5%;
     color: aliceblue;   
     margin: 1% 5%;
 }
+@media only screen and (max-width: 600px) {
+    .timetable-program1{
+        overflow-x:auto !important;
+    }
+  }

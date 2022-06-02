@@ -32,7 +32,7 @@ const Commarce = () =>{
       <Accordion className='Program-div-Accordion' defaultActiveKey="0">
         <Accordion.Item eventKey="1">
           <Accordion.Header>Timetable</Accordion.Header>
-          <Accordion.Body>
+          <Accordion.Body className='timetable-program1'>
             <table className='timetable-program' border={1} cellSpacing={0} align="center">
               {/*<caption>Timetable</caption>*/}
               <tbody><tr>
@@ -139,13 +139,13 @@ const Commarce = () =>{
         <Accordion.Item eventKey="1">
           <Accordion.Header>Curriculam</Accordion.Header>
           <Accordion.Body>
-          <a href='http://www.mahahsscboard.in/hsc_syllabus_pdf/h49.pdf' target={'_blank'} >11th &   12th - BOOK-KEEPING AND ACCOUNTANCY</a>
+          <a href='http://www.mahahsscboard.in/hsc_syllabus_pdf/h50.pdf' target={'_blank'} >11th &   12th - BOOK-KEEPING AND ACCOUNTANCY</a>
             <br/>
-            <a href='http://www.mahahsscboard.in/hsc_syllabus_pdf/h50.pdf' target={'_blank'} >11th &   12th - SECRETARIAL PRACTICE </a>
+            <a href='http://www.mahahsscboard.in/hsc_syllabus_pdf/h52.pdf' target={'_blank'} >11th &   12th - SECRETARIAL PRACTICE </a>
             <br/>
             <a href='http://www.mahahsscboard.in/hsc_syllabus_pdf/h51.pdf' target={'_blank'} >11th &   12th - ORGANISATION OF COMM & MANAGEMENT </a>
             <br/>
-            <a href='http://www.mahahsscboard.in/hsc_syllabus_pdf/h52.pdf' target={'_blank'} >11th &   12th - ECONOMIC </a>
+            <a href='http://www.mahahsscboard.in/hsc_syllabus_pdf/h49.pdf' target={'_blank'} >11th &   12th - ECONOMIC </a>
             <br/>
             <a href='http://www.mahahsscboard.in/hsc_syllabus_pdf/H01.pdf' target={'_blank'} >11th &   12th - ENGLISH </a>
             <br/>
