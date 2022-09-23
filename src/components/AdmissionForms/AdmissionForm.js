@@ -109,7 +109,7 @@ function AdmissionForm() {
       SetFatherMobNo(data.data.StudentData.FatherMobile);
       SetFatherName(data.data.StudentData.FatherName);
       SetAnnualIncome(data.data.StudentData.AnnualIncome);
-      SetProgram(data.data.StudentData.program);
+      SetProgram(data.data.StudentData.Program);
      
       if(data.data.state=="Accepted"){
         SetMsg("Your Form is Accepted! Now you can visit our collage and continue the admission process");
@@ -620,7 +620,7 @@ function AdmissionForm() {
                       required
                       className="input-admissionForm"
                     >
-                      <option value="">Select Your Caste</option>
+                      <option value="">Select Your Program</option>
                       <option value="commerce">Commerce</option>
                       <option value="art">Art</option>
                       <option value="science">Science</option>

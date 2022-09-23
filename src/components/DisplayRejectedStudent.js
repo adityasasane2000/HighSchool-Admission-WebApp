@@ -12,7 +12,7 @@ import adminData from "../api/AdminInfo";
 import StudentInfo from "../api/AdminInfo";
 import Showfiles from "../api/FileInfo";
 
-function DisplayRejectedStudent() {
+function DisplayStudent() {
   const { currentUser } = useSelector((state) => state.user);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -72,8 +72,12 @@ function DisplayRejectedStudent() {
   // const { currentUser } = useSelector((state) => state.user);
   useEffect(() => {
     const handelGetReq = async () => {
-      const data = await adminData.get("/getrejectedstudent",{UID:params.id});
-      // console.log(data)
+      console.log("uid ->");
+      console.log(params.id)
+      const data = await StudentInfo.get(`/getrejectedstudent/${params.id}`);
+      console.log(params.id)
+      console.log("data -----")
+      console.log(data)
       setName(data.data.StudentData .Name);
       setEmail(data.data.StudentData .Email);
       setBirthDate(data.data.StudentData .DOB);
@@ -88,8 +92,9 @@ function DisplayRejectedStudent() {
       SetFatherMobNo(data.data.StudentData.FatherMobile);
       SetFatherName(data.data.StudentData .FatherName);
       SetAnnualIncome(data.data.StudentData .AnnualIncome);
-      SetProgram(data.data.StudentData.program);
+    SetProgram(data.data.StudentData.Program);
       console.log("Hello");
+     
 
       SetCastCertificate(data.data.StudentData .CastCertificate);
       if (data.data.StudentData .CastCertificate != "NULL") {
@@ -165,7 +170,7 @@ function DisplayRejectedStudent() {
     } else if (e.target.name == "castCertificate") {
       SetCastCertificate(e.target.files );
       console.log(e.target.files);
-      SetisCastCertificateFilePicked(false);
+      // SetisCastCertificateFilePicked(false);
     }
   };
   const handleAcceptRequest = async () => {
@@ -636,4 +641,4 @@ function DisplayRejectedStudent() {
   );
 }
 
-export default DisplayRejectedStudent;
+export default DisplayStudent;

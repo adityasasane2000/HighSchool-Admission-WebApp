@@ -88,7 +88,7 @@ function DisplayStudentDetailsAdmin() {
       SetFatherMobNo(data.data.StudentData.FatherMobile);
       SetFatherName(data.data.StudentData .FatherName);
       SetAnnualIncome(data.data.StudentData .AnnualIncome);
- SetProgram(data.data.StudentData.program);
+ SetProgram(data.data.StudentData.Program);
       console.log("Hello");
 
       SetCastCertificate(data.data.StudentData .CastCertificate);

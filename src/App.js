@@ -21,6 +21,7 @@ import Navigation from './components/navigation';
 import UserRoute from './components/UserRoute';
 import Footer from './components/Footer';
 import AdmissionForm from './components/AdmissionForms/AdmissionForm';
+import DisplayRejectedStudent from './components/DisplayRejectedStudent'
 
 import AdminLogin from './pages/AdminLogin';
 import AdminNavigation from './components/AdminNavigation'
@@ -101,6 +102,7 @@ const App =()=>{
           <AdminRoute exact path= "/admin/accepted/students" component={AdminAcceptedStudent}/>
           <AdminRoute exact path = "/admin/rejected/students" component={AdminRejectedStudent}/>
           <AdminRoute exact path = "/admin/arstudent/:id" component={DisplayStudent}/>
+          <AdminRoute exact path = "/admin/rejectedstudent/:id" component={DisplayRejectedStudent}/>
           <Route exact path ="/fail" component={FailToSubmit}/>
         </Switch>
         </div>
